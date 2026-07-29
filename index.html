@@ -77,30 +77,6 @@ img{max-width:100%;height:auto;display:block}
 button{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:2px}
 ::selection{background:var(--teal);color:#fff}
-/* ============ SOUNDING CHART (hero variant) ============ */
-.hero{background:var(--bg)}
-.hero::after{transition:opacity 1.1s ease}
-.hero.chart-on::after{opacity:0}
-.hero.chart-on{cursor:pointer}
-.hero.chart-on.resolved::after{opacity:1}
-.hero canvas{transition:opacity 1.1s ease}
-.hero.resolved canvas{opacity:0}
-.neatline{position:absolute;inset:14px;border:1px solid var(--line-strong);z-index:3;pointer-events:none}
-.hero-top{padding:24px 28px;text-shadow:0 1px 6px rgba(8,14,11,.55);transition:color .9s ease;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:6px}
-.hero.chart-on .hero-top{color:var(--ink-soft);text-shadow:none}
-.hero-top span{transition:background-color .9s ease}
-.hero.chart-on .hero-top span{background:var(--bg);padding:3px 7px}
-.hero.chart-on.resolved .hero-top{color:rgba(255,255,255,.92)}
-.hero.chart-on.resolved .hero-top span{background:transparent}
-.hero-body{margin:0 28px 28px;padding:14px 16px 12px;background:var(--surface);border:1px solid var(--line-strong);max-width:440px;color:var(--ink);box-shadow:0 1px 0 var(--line)}
-.hero-body .hero-eyebrow{color:var(--brass);margin-bottom:7px}
-.hero .hero-body h1{color:var(--ink);font-size:clamp(30px,7.5vw,64px)}
-.hero-body .hero-sub{color:var(--ink-soft);font-size:14px;line-height:1.5;max-width:none}
-.hero-body .hero-crew{color:var(--ink-faint);font-size:11px;margin-top:8px;max-width:none}
-.tb-geo{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-faint);border-top:1px solid var(--line);margin-top:10px;padding-top:8px}
-.count-pill{position:absolute;top:26px;right:26px;z-index:4;margin:0;font-size:11px;padding:7px 11px;border-radius:999px;background:color-mix(in srgb,var(--brass-soft) 82%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);max-width:52vw;text-align:right}
-.hero-cred{right:26px;bottom:26px}
-@media (max-width:430px){.hero-body{margin:0 22px 48px;padding:12px 13px 10px}.hero-top{padding:22px 24px}.hero-top span:nth-child(2){display:none}.hero-body .hero-sub{font-size:13px}.hero-body .hero-crew{font-size:10.5px}.count-pill{top:22px;right:22px;font-size:10px;padding:6px 9px;max-width:44vw}.hero-cred{left:22px;right:22px;bottom:18px;text-align:center}}
 /* ============ PROGRESS + NAV ============ */
 #prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--teal);z-index:60}
 .nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -230,6 +206,14 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--surface2) 45%,var
 .conf .cl{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .conf .cl b{font-size:15px}
 .conf .cb{font-size:13.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5}
+.hero{min-height:min(42svh,400px)}
+.hero img{object-position:50% 30%}
+.hero h1{font-size:clamp(34px,9vw,46px)}
+.hero-body{padding-bottom:4px}
+.hero-cred{position:static;align-self:flex-end;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:4px 20px 12px;margin:0;color:rgba(255,255,255,.78)}
+.hero-under{margin:16px 0 2px}
+.hero-under .hu-sub{font-size:17.5px;line-height:1.55;color:var(--ink);font-weight:500;margin:0 0 7px}
+.hero-under .hu-crew{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--ink-faint);margin:0}
 .hero-crew{font-family:var(--mono);font-size:11.5px;line-height:1.65;color:rgba(255,255,255,.85);margin-top:10px;max-width:46ch;letter-spacing:.02em}
 .countbar{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);background:var(--brass-soft);border:1px solid color-mix(in srgb,var(--brass) 30%,var(--line));border-radius:10px;padding:9px 12px;text-align:center;margin:18px 0 -8px}
 /* ============ FOOT ============ */
@@ -267,19 +251,18 @@ footer p{margin-bottom:.8em}
 <div class="hero">
   <img src="assets/hero.jpg" width="1100" height="1466" alt="Angler holding a large coho salmon beneath the Joe’s Salmon Lodge sign at Hakai Pass, with the red weigh scale beside him and emerald water behind." fetchpriority="high">
   <div class="hero-top"><span>Joe’s Salmon Lodge</span><span>Hakai Pass · BC</span></div>
-  <div id="countbar" class="countbar count-pill">Trip dates: 11–18 August 2026</div>
   <div class="hero-body">
     <div class="hero-eyebrow">Angler’s Field Guide · August 2026</div>
     <h1>Hakai Pass 2026</h1>
-    <p class="hero-sub">Self-guided on the central coast, 11–18 August. A heatwave year — the standard advice will cost you fish. Here is what to do instead.</p>
-    <p class="hero-crew">Built for our crew flying in 11 August — everything you need before wheels-up, and the on-the-water reference once you’re there.</p>
-    <div class="tb-geo"><span>51°44.9′N 128°02.6′W</span><span>11–18 AUG 2026</span></div>
   </div>
   <span class="hero-cred">“Big Coho. Beautiful day here at Joe’s.” — @onlyatjoes · 16 Jul 2026</span>
-  <div class="neatline" aria-hidden="true"></div>
 </div>
 
 <main>
+
+<div class="hero-under"><p class="hu-sub">Self-guided on the central coast, 11–18 August. A heatwave year — the standard advice will cost you fish. Here is what to do instead.</p><p class="hu-crew">Built for our crew flying in 11 August — everything you need before wheels-up, and the on-the-water reference once you’re there.</p></div>
+
+<div id="countbar" class="countbar" hidden></div>
 
 <div class="datum" role="list" aria-label="Trip at a glance">
   <div role="listitem"><div class="dv">11–18</div><div class="dk">August window</div></div>
@@ -292,6 +275,8 @@ footer p{margin-bottom:.8em}
 <p class="small" style="margin:6px 2px 0">Destination: Joe’s Salmon Lodge, a floating barge lodge in Hakai Pass, Calvert Island, BC · Pacific Fishery Management Area 8, Subareas 8-1 / 8-2 · US resident, cross-border rules apply.</p>
 
 <div class="co co-gold" style="margin-top:22px"><span class="co-tag">Start here</span><p>New to this page? Read the one-paragraph version below, then do two things this week: <a href="#s2">Section 2</a> (licence, salmon stamp, PCOC — none can be bought at the lodge) and <a href="#s11">Section 11</a> (the before-you-fly checklist). Everything else — spots, tactics, bait, bottomfishing — reads fine on the plane. The <a href="film-room.html">Film Room</a> page is the pre-trip homework: there’s no internet at the lodge, so the videos only work before you leave.</p></div>
+
+<div class="co co-key"><span class="co-tag">Take it offline</span><p>There is no cell service at the lodge — save both PDFs to your phone before you fly.</p><ul><li><a href="downloads/Hakai-Pass-2026-Field-Guide.pdf" download><strong>Field Guide (PDF)</strong></a> — the full guide: rules, spots, tactics, packing, and the before-you-fly checklist.</li><li><a href="downloads/Hakai-Pass-2026-Film-Room.pdf" download><strong>Film Room (PDF)</strong></a> — the video syllabus with links; watch the six essentials while you still have internet.</li></ul></div>
 
 <div class="co co-key" style="margin-top:22px">
   <span class="co-tag">The one-paragraph version</span>
@@ -316,8 +301,6 @@ footer p{margin-bottom:.8em}
     <a href="#s12"><span class="n">12</span>Confidence + gaps</a>
   </div>
 </div>
-
-<div class="co co-key"><span class="co-tag">Take it offline</span><p>There is no cell service at the lodge — save both PDFs to your phone before you fly.</p><ul><li><a href="downloads/Hakai-Pass-2026-Field-Guide.pdf" download><strong>Field Guide (PDF)</strong></a> — the full guide: rules, spots, tactics, packing, and the before-you-fly checklist.</li><li><a href="downloads/Hakai-Pass-2026-Film-Room.pdf" download><strong>Film Room (PDF)</strong></a> — the video syllabus with links; watch the six essentials while you still have internet.</li></ul></div>
 
 <!-- ============ LIVE FROM THE LODGE ============ -->
 <section class="sec" id="live">
@@ -995,25 +978,7 @@ footer p{margin-bottom:.8em}
   }catch(e){}
 })();
 </script>
-<script>(function(){try{var el=document.getElementById("countbar");if(!el)return;var now=new Date();var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());var dep=new Date(2026,7,11),end=new Date(2026,7,18),D=86400000,s;if(today<dep){var n=Math.round((dep-today)/D);s=n+(n===1?" day":" days")+" to departure — 11 August"}else if(today<=end){s="Trip week — you should be fishing, not reading this"}else{s="Trip complete — this site stays up as the record of the week"}el.textContent=s}catch(e){}})();</script>
-<script src="fx.js"></script>
-<script>if(window.HakaiDither)HakaiDither.mount(document.querySelector('.hero'));</script>
-<script>(function(){var h=document.querySelector('.hero');if(!h||!window.HakaiDither)return;
-if(matchMedia('(prefers-reduced-motion: reduce)').matches)return; // photo + scrim stay
-h.classList.add('chart-on');
-h.addEventListener('click',function(e){if(e.target.closest('a,button'))return;h.classList.toggle('resolved')});
-// resolve-to-shore: once, when the top 40% of the hero has scrolled past
-var s=document.createElement('div');
-s.style.cssText='position:absolute;top:0;left:0;width:1px;height:40%;pointer-events:none;visibility:hidden;';
-h.appendChild(s);
-if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(en){
-    var e=en[0];
-    if(!e.isIntersecting&&e.boundingClientRect.top<0){
-      h.classList.add('resolved');io.disconnect();
-    }
-  });
-  io.observe(s);
-}})();</script>
+<script>(function(){try{var el=document.getElementById("countbar");if(!el)return;var now=new Date();var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());var dep=new Date(2026,7,11),end=new Date(2026,7,18),D=86400000,s;if(today<dep){var n=Math.round((dep-today)/D);s=n+(n===1?" day":" days")+" to departure — 11 August"}else if(today<=end){s="Trip week — you should be fishing, not reading this"}else{s="Trip complete — this site stays up as the record of the week"}el.textContent=s;el.hidden=false}catch(e){}})();</script>
+<!--SLOT:FX-->
 </body>
 </html>
