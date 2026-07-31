@@ -8,12 +8,17 @@
 <meta property="og:title" content="Hakai Pass 2026 — Crew Field Guide">
 <meta property="og:description" content="Everything the crew needs before wheels-up on 11 August — rules, spots, tactics, map, and the Film Room.">
 <meta property="og:image" content="https://promptaisolutions.com/hakai-2026/assets/hero.jpg">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F2F4F1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0C1310">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <title>Hakai Pass 2026 — Angler’s Field Guide</title>
 <style>
 /* ============ TOKENS ============ */
 :root{
   --bg:#F2F4F1; --surface:#FBFCFA; --surface2:#E9EEE8; --inset:#EEF1ED;
-  --ink:#16241F; --ink-soft:#43534C; --ink-faint:#68776F;
+  --ink:#16241F; --ink-soft:#43534C; --ink-faint:#5A6961;
   --line:#D6DED7; --line-strong:#B9C4BB;
   --teal:#0E5B50; --teal-ink:#0A4A41; --teal-soft:#DFEBE6;
   --blue:#2A5E85; --blue-soft:#E0E9F0;
@@ -52,7 +57,7 @@
 }
 :root[data-theme="light"]{
   --bg:#F2F4F1; --surface:#FBFCFA; --surface2:#E9EEE8; --inset:#EEF1ED;
-  --ink:#16241F; --ink-soft:#43534C; --ink-faint:#68776F;
+  --ink:#16241F; --ink-soft:#43534C; --ink-faint:#5A6961;
   --line:#D6DED7; --line-strong:#B9C4BB;
   --teal:#0E5B50; --teal-ink:#0A4A41; --teal-soft:#DFEBE6;
   --blue:#2A5E85; --blue-soft:#E0E9F0;
@@ -210,12 +215,26 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--surface2) 45%,var
 .hero img{object-position:50% 30%}
 .hero h1{font-size:clamp(34px,9vw,46px)}
 .hero-body{padding-bottom:4px}
-.hero-cred{position:static;align-self:flex-end;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:4px 20px 12px;margin:0;color:rgba(255,255,255,.78)}
+.hero-cred{position:static;align-self:flex-end;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:4px 20px 12px;margin:0;font-size:11px;color:rgba(255,255,255,.78)}
 .hero-under{margin:16px 0 2px}
 .hero-under .hu-sub{font-size:17.5px;line-height:1.55;color:var(--ink);font-weight:500;margin:0 0 7px}
 .hero-under .hu-crew{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--ink-faint);margin:0}
 .hero-crew{font-family:var(--mono);font-size:11.5px;line-height:1.65;color:rgba(255,255,255,.85);margin-top:10px;max-width:46ch;letter-spacing:.02em}
 .countbar{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);background:var(--brass-soft);border:1px solid color-mix(in srgb,var(--brass) 30%,var(--line));border-radius:10px;padding:9px 12px;text-align:center;margin:18px 0 -8px}
+.map-fig{--bw:min(100vw - 24px,900px);width:var(--bw);margin-left:calc((100% - var(--bw))/2);margin-right:calc((100% - var(--bw))/2)}
+body{overflow-x:clip}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #prog,.nav,.chips,#themeBtn,#countbar,.hero-top{display:none!important}
+  :root,:root[data-theme="dark"]{--bg:#fff;--surface:#fff;--surface2:#EFEFEC;--inset:#F4F4F1;--ink:#16241F;--ink-soft:#43534C;--ink-faint:#5A6961;--line:#CFCFC9;--line-strong:#B4B4AD;--teal:#0E5B50;--teal-ink:#0A4A41;--teal-soft:#DFEBE6;--blue:#2A5E85;--blue-soft:#E0E9F0;--red:#B5392B;--red-soft:#F4E2DD;--brass:#8F6A26;--brass-soft:#F0E7D0;--good:#2E6B45;--good-soft:#E1EDE4;--map-land:#E3E9E1;--map-land-line:#A9B8AC;--map-water:#fff;--scrim:rgba(10,18,15,.55)}
+  .hero{min-height:0;height:300px}
+  .map-fig{--bw:100%}
+  .sec{margin-top:24px}
+  .card,.co,.ph,.datum,.tl>div,.conf>div,.twrap,.map-fig,.lim,.vid{break-inside:avoid}
+  h2,h3,h4{break-after:avoid}
+  p,li{orphans:3;widows:3}
+  a{color:var(--ink);text-decoration:none}
+}
 /* ============ FOOT ============ */
 footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint);line-height:1.6}
 footer p{margin-bottom:.8em}
@@ -249,7 +268,7 @@ footer p{margin-bottom:.8em}
 </header>
 
 <div class="hero">
-  <img src="assets/hero.jpg" width="1100" height="1466" alt="Angler holding a large coho salmon beneath the Joe’s Salmon Lodge sign at Hakai Pass, with the red weigh scale beside him and emerald water behind." fetchpriority="high">
+  <picture><source media="(max-width:715px)" type="image/webp" srcset="assets/hero-720.webp"><img src="assets/hero.jpg" width="1100" height="1466" alt="Angler holding a large coho salmon beneath the Joe’s Salmon Lodge sign at Hakai Pass, with the red weigh scale beside him and emerald water behind." fetchpriority="high"></picture>
   <div class="hero-top"><span>Joe’s Salmon Lodge</span><span>Hakai Pass · BC</span></div>
   <div class="hero-body">
     <div class="hero-eyebrow">Angler’s Field Guide · August 2026</div>
@@ -276,7 +295,7 @@ footer p{margin-bottom:.8em}
 
 <div class="co co-gold" style="margin-top:22px"><span class="co-tag">Start here</span><p>New to this page? Read the one-paragraph version below, then do two things this week: <a href="#s2">Section 2</a> (licence, salmon stamp, PCOC — none can be bought at the lodge) and <a href="#s11">Section 11</a> (the before-you-fly checklist). Everything else — spots, tactics, bait, bottomfishing — reads fine on the plane. The <a href="film-room.html">Film Room</a> page is the pre-trip homework: there’s no internet at the lodge, so the videos only work before you leave.</p></div>
 
-<div class="co co-key"><span class="co-tag">Take it offline</span><p>There is no cell service at the lodge — save both PDFs to your phone before you fly.</p><ul><li><a href="downloads/Hakai-Pass-2026-Field-Guide.pdf" download><strong>Field Guide (PDF)</strong></a> — the full guide: rules, spots, tactics, packing, and the before-you-fly checklist.</li><li><a href="downloads/Hakai-Pass-2026-Film-Room.pdf" download><strong>Film Room (PDF)</strong></a> — the video syllabus with links; watch the six essentials while you still have internet.</li></ul></div>
+<div class="co co-key"><span class="co-tag">Take it offline</span><p>There is no cell service at the lodge — save both PDFs to your phone before you fly.</p><ul><li><a href="downloads/Hakai-Pass-2026-Field-Guide.pdf" download><strong>Field Guide (PDF · 4.1 MB)</strong></a> — the full guide: rules, spots, tactics, packing, and the before-you-fly checklist.</li><li><a href="downloads/Hakai-Pass-2026-Film-Room.pdf" download><strong>Film Room (PDF · 1.7 MB)</strong></a> — the video syllabus with links; watch the six essentials while you still have internet.</li></ul><p style="margin:8px 0 2px">Better still: add this page to your phone’s Home Screen — after you open it once, the whole guide, map and checklists included, works with no signal.</p></div>
 
 <div class="co co-key" style="margin-top:22px">
   <span class="co-tag">The one-paragraph version</span>
@@ -310,21 +329,21 @@ footer p{margin-bottom:.8em}
 
   <div class="ph-pair">
   <figure class="ph">
-    <img src="assets/tyee-gap.jpg" width="950" height="1688" loading="lazy" alt="Angler in grey foul-weather gear standing on the lodge dock beneath the Joe’s Salmon Lodge sign, next to the tyee bell.">
+    <picture><source type="image/webp" srcset="assets/tyee-gap-640.webp 640w, assets/tyee-gap-950.webp 950w" sizes="(min-width:716px) 317px, calc(50vw - 23px)"><img src="assets/tyee-gap.jpg" width="950" height="1688" loading="lazy" alt="Angler in grey foul-weather gear standing on the lodge dock beneath the Joe’s Salmon Lodge sign, next to the tyee bell."></picture>
     <figcaption><span class="q">“Gorgeous Tyee caught at the Gap. Amazing catch Vance!”</span><span class="d">@onlyatjoes · 24 Jul</span></figcaption>
   </figure>
   <figure class="ph">
-    <img src="assets/tyee-bell.jpg" width="950" height="1688" loading="lazy" alt="The lodge dining room with vaulted cedar ceiling, mounted salmon and the brass tyee bell, guests at dinner.">
+    <picture><source type="image/webp" srcset="assets/tyee-bell-640.webp 640w, assets/tyee-bell-950.webp 950w" sizes="(min-width:716px) 317px, calc(50vw - 23px)"><img src="assets/tyee-bell.jpg" width="950" height="1688" loading="lazy" alt="The lodge dining room with vaulted cedar ceiling, mounted salmon and the brass tyee bell, guests at dinner."></picture>
     <figcaption><span class="q">“Tyee pin awarded and a bell ring for the house!”</span><span class="d">@onlyatjoes · 25 Jul</span></figcaption>
   </figure>
   </div>
   <div class="ph2">
     <figure class="ph">
-      <img src="assets/hookset.jpg" width="720" height="740" loading="lazy" alt="Bent mooching rod mid-hookset from the bow of a small boat on grey chop.">
+      <picture><source type="image/webp" srcset="assets/hookset-720.webp 720w" sizes="(min-width:716px) 317px, calc(50vw - 23px)"><img src="assets/hookset.jpg" width="720" height="740" loading="lazy" alt="Bent mooching rod mid-hookset from the bow of a small boat on grey chop."></picture>
       <figcaption><span class="q">“Gotta love a good hookset!”</span><span class="d">28 Jul</span></figcaption>
     </figure>
     <figure class="ph">
-      <img src="assets/stinger.jpg" width="720" height="720" loading="lazy" alt="Two guests laughing in a lodge boat while rigging bait.">
+      <picture><source type="image/webp" srcset="assets/stinger-720.webp 720w" sizes="(min-width:716px) 317px, calc(50vw - 23px)"><img src="assets/stinger.jpg" width="720" height="720" loading="lazy" alt="Two guests laughing in a lodge boat while rigging bait."></picture>
       <figcaption><span class="q">“…the trail hook free as a stinger!”</span><span class="d">25 Jul</span></figcaption>
     </figure>
   </div>
@@ -391,7 +410,7 @@ footer p{margin-bottom:.8em}
   <p><strong>Nothing you want has failed to arrive.</strong> That is the single most useful fact about your dates.</p>
 
   <figure class="ph">
-    <img src="assets/tyee-scale.jpg" width="1000" height="1385" loading="lazy" alt="A large chinook salmon hanging on the red Chatillon scale at the lodge weigh station beneath the Joe’s Salmon Lodge sign, bonkers hanging in a row behind.">
+    <picture><source type="image/webp" srcset="assets/tyee-scale-640.webp 640w, assets/tyee-scale-1000.webp 1000w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/tyee-scale.jpg" width="1000" height="1385" loading="lazy" alt="A large chinook salmon hanging on the red Chatillon scale at the lodge weigh station beneath the Joe’s Salmon Lodge sign, bonkers hanging in a row behind."></picture>
     <figcaption><span class="q">“Weighing in and celebrating on the dock”</span><span class="d">@onlyatjoes · 9 Apr 2026</span></figcaption>
   </figure>
 </section>
@@ -513,7 +532,7 @@ footer p{margin-bottom:.8em}
   </ol>
 
   <figure class="ph">
-    <img src="assets/boat.jpg" width="1100" height="602" loading="lazy" alt="Two anglers working rods in a small lodge boat on calm grey water, forested islands of the pass behind them.">
+    <picture><source type="image/webp" srcset="assets/boat-1100.webp 1100w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/boat.jpg" width="1100" height="602" loading="lazy" alt="Two anglers working rods in a small lodge boat on calm grey water, forested islands of the pass behind them."></picture>
     <figcaption><span class="q">“Perfect catch by guests at Joe’s.”</span><span class="d">@onlyatjoes · 18 Jul 2026</span></figcaption>
   </figure>
 </section>
@@ -652,7 +671,7 @@ footer p{margin-bottom:.8em}
   </div>
 
   <figure class="ph">
-    <img src="assets/bait7.jpg" width="640" height="640" loading="lazy" alt="An angler in orange bibs rigging bait aboard lodge boat number 7 on a calm sunny day.">
+    <picture><source type="image/webp" srcset="assets/bait7-640.webp 640w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/bait7.jpg" width="640" height="640" loading="lazy" alt="An angler in orange bibs rigging bait aboard lodge boat number 7 on a calm sunny day."></picture>
     <figcaption><span class="q">“You gotta love your bait to get bit!”</span><span class="d">@onlyatjoes · 26 Jul 2026</span></figcaption>
   </figure>
 
@@ -762,7 +781,7 @@ footer p{margin-bottom:.8em}
   </div>
 
   <figure class="ph">
-    <img src="assets/seawolf.jpg" width="950" height="713" loading="lazy" alt="Two coastal sea wolves on mossy shoreline rocks at the waterline.">
+    <picture><source type="image/webp" srcset="assets/seawolf-950.webp 950w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/seawolf.jpg" width="950" height="713" loading="lazy" alt="Two coastal sea wolves on mossy shoreline rocks at the waterline."></picture>
     <figcaption><span class="q">“Incredible shots of the elusive Sea wolves from a guest!”</span><span class="d">@onlyatjoes · 21 Jul 2026</span></figcaption>
   </figure>
   <p class="small">The coast is wilder than the fishing alone suggests — guests photographed Vancouver Island sea wolves on the rocks in late July. They live almost solely off the ocean: crabs, shellfish, salmon and sea mammals. Watch the shorelines on your transits.</p>
@@ -907,7 +926,7 @@ footer p{margin-bottom:.8em}
   </ol>
 
   <figure class="ph">
-    <img src="assets/paralyzer.jpg" width="950" height="1266" loading="lazy" alt="A Paralyzer cocktail with two cherries on the lodge bar, the dining room set for dinner behind.">
+    <picture><source type="image/webp" srcset="assets/paralyzer-640.webp 640w, assets/paralyzer-950.webp 950w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/paralyzer.jpg" width="950" height="1266" loading="lazy" alt="A Paralyzer cocktail with two cherries on the lodge bar, the dining room set for dinner behind."></picture>
     <figcaption><span class="q">“The Paralyzer has quickly become the house drink here at Joe’s… Come to Joe’s and try one!”</span><span class="d">@onlyatjoes · 16 Jul 2026</span></figcaption>
   </figure>
   <p class="small" style="text-align:center;margin-top:-6px">Fish the tide, watch the water, and ring the bell. The Paralyzer is waiting either way.</p>
@@ -933,12 +952,14 @@ footer p{margin-bottom:.8em}
   var saved=read("hakai-theme");
   if(saved==="dark"||saved==="light"){root.setAttribute("data-theme",saved)}
   var tb=d.getElementById("themeBtn");
+  function themeIsDark(){var c=root.getAttribute("data-theme");if(c){return c==="dark"}return !!(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)}
+  function reflectTheme(){if(tb){tb.setAttribute("aria-pressed",themeIsDark()?"true":"false")}}
   if(tb){tb.addEventListener("click",function(){
-    var cur=root.getAttribute("data-theme");
-    if(!cur){cur=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"}
-    var next=cur==="dark"?"light":"dark";
+    var next=themeIsDark()?"light":"dark";
     root.setAttribute("data-theme",next);store("hakai-theme",next);
+    reflectTheme();
   })}
+  reflectTheme();
   /* progress bar */
   var prog=d.getElementById("prog");
   function onScroll(){
@@ -963,14 +984,21 @@ footer p{margin-bottom:.8em}
   try{
     var chips=[].slice.call(d.querySelectorAll(".chips .chip"));
     var map={};
-    chips.forEach(function(c){map[c.getAttribute("href").slice(1)]=c});
+    chips.forEach(function(c){var h=c.getAttribute("href");if(h&&h.charAt(0)==="#"){map[h.slice(1)]=c}});
+    var rail=d.querySelector(".chips");
+    var railHeld=false,railTimer=0,pending=null,queued=false;
+    var noMotion=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    function holdRail(){railHeld=true;clearTimeout(railTimer);railTimer=setTimeout(function(){railHeld=false},1200)}
+    if(rail){["pointerdown","touchstart","wheel"].forEach(function(ev){rail.addEventListener(ev,holdRail,{passive:true})})}
+    function glide(){queued=false;if(!pending||railHeld||!rail){return}
+      rail.scrollTo({left:pending.offsetLeft-(rail.clientWidth-pending.offsetWidth)/2,behavior:noMotion?"auto":"smooth"})}
     var cur=null;
     var obs=new IntersectionObserver(function(es){
       es.forEach(function(e){
         if(e.isIntersecting){
-          if(cur){cur.classList.remove("on")}
+          if(cur){cur.classList.remove("on");cur.removeAttribute("aria-current")}
           cur=map[e.target.id]||null;
-          if(cur){cur.classList.add("on");cur.scrollIntoView({block:"nearest",inline:"center",behavior:"smooth"})}
+          if(cur){cur.classList.add("on");cur.setAttribute("aria-current","true");pending=cur;if(!queued){queued=true;requestAnimationFrame(glide)}}
         }
       });
     },{rootMargin:"-15% 0px -75% 0px"});
@@ -979,6 +1007,6 @@ footer p{margin-bottom:.8em}
 })();
 </script>
 <script>(function(){try{var el=document.getElementById("countbar");if(!el)return;var now=new Date();var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());var dep=new Date(2026,7,11),end=new Date(2026,7,18),D=86400000,s;if(today<dep){var n=Math.round((dep-today)/D);s=n+(n===1?" day":" days")+" to departure — 11 August"}else if(today<=end){s="Trip week — you should be fishing, not reading this"}else{s="Trip complete — this site stays up as the record of the week"}el.textContent=s;el.hidden=false}catch(e){}})();</script>
-<!--SLOT:FX-->
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("sw.js")})}</script>
 </body>
 </html>
