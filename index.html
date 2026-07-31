@@ -223,7 +223,30 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--surface2) 45%,var
 .countbar{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);background:var(--brass-soft);border:1px solid color-mix(in srgb,var(--brass) 30%,var(--line));border-radius:10px;padding:9px 12px;text-align:center;margin:18px 0 -8px}
 .map-fig{--bw:min(100vw - 24px,900px);width:var(--bw);margin-left:calc((100% - var(--bw))/2);margin-right:calc((100% - var(--bw))/2)}
 body{overflow-x:clip}
+/* fold tiles: summary is the card; the open body flows as normal page content
+   (never chrome the details element itself — the map breakout depends on it) */
+.sec{margin-top:10px}
+.topic{margin-top:10px}
+.toc{display:none}
+.fold-ctl{display:flex;justify-content:flex-end;margin:22px 0 0}
+.fold-ctl button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--surface);cursor:pointer}
+.fold-ctl button:active{background:var(--surface2)}
+.fold>summary{display:block;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 46px 15px 18px;min-height:64px;box-sizing:border-box;cursor:pointer;list-style:none;-webkit-tap-highlight-color:transparent}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::marker{content:""}
+.fold>summary::after{content:"";position:absolute;right:21px;top:50%;width:9px;height:9px;border-right:2px solid var(--ink-faint);border-bottom:2px solid var(--ink-faint);transform:translateY(-70%) rotate(45deg);transition:transform .18s ease}
+.fold[open]>summary::after{transform:translateY(-30%) rotate(225deg)}
+.fold[open]>summary{border-color:var(--line-strong);margin-bottom:6px}
+.fold>summary:active{background:var(--surface2)}
+.fold>summary .eyebrow{display:block}
+.fold>summary .lede{display:block;margin:8px 0 0}
+.fold:not([open])>summary .lede{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fold>summary .th{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 @media print{
+  .fold-ctl{display:none!important}
+  .fold>summary{border:0;padding:0;min-height:0;background:none}
+  .fold>summary::after{display:none}
+  .fold[open]>summary{margin-bottom:0}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   #prog,.nav,.chips,#themeBtn,#countbar,.hero-top{display:none!important}
   :root,:root[data-theme="dark"]{--bg:#fff;--surface:#fff;--surface2:#EFEFEC;--inset:#F4F4F1;--ink:#16241F;--ink-soft:#43534C;--ink-faint:#5A6961;--line:#CFCFC9;--line-strong:#B4B4AD;--teal:#0E5B50;--teal-ink:#0A4A41;--teal-soft:#DFEBE6;--blue:#2A5E85;--blue-soft:#E0E9F0;--red:#B5392B;--red-soft:#F4E2DD;--brass:#8F6A26;--brass-soft:#F0E7D0;--good:#2E6B45;--good-soft:#E1EDE4;--map-land:#E3E9E1;--map-land-line:#A9B8AC;--map-water:#fff;--scrim:rgba(10,18,15,.55)}
@@ -322,10 +345,23 @@ footer p{margin-bottom:.8em}
 </div>
 
 <!-- ============ LIVE FROM THE LODGE ============ -->
-<section class="sec" id="live">
-  <div class="eyebrow">◉ From the lodge’s Instagram · as of 28 July</div>
+<div class="fold-ctl"><button id="foldAll" type="button">Open all</button></div>
+
+<section class="sec" id="seven"><details class="fold"><summary><h2>The seven things that will actually decide this trip</h2></summary>
+<ol>
+    <li><strong>Buy one guided day, early.</strong> In a year when the standard depth advice may be wrong, six hours with someone who knows what is working this week resolves nearly every uncertainty in this document.</li>
+    <li><strong>Probe deep for chinook and do not stop at 120 ft.</strong> Find the thermocline, find the bait, fish at or just below it, and bracket every event. The traditional “fish shallow” wisdom still governs coho — do not let it stop you testing 150 ft for springs.</li>
+    <li><strong>Run two layers at once</strong> — chinook deep on the ball, coho shallow on a high stacker. It is the only way to cover a stratified column with two riggers.</li>
+    <li><strong>Design your gear against pinks: bigger, greener, deeper, faster.</strong> Otherwise they will eat your week one re-bait at a time.</li>
+    <li><strong>Fish structure, tide lines and bait balls — never open water.</strong> Patchy bait means concentrated fish. Let the birds do your searching.</li>
+    <li><strong>Brine bait every night, check the roll every fifteen minutes, and plan each day around tide and the wind clock.</strong> In a warm year the pre-dawn hour is worth three hours of mid-morning.</li>
+    <li><strong>Wear the PFD, keep a real float plan, and call out every whale blow.</strong> The whole self-guided proposition rests on nothing going wrong — and in peak humpback season with gear 130 ft down, “nothing going wrong” takes active effort.</li>
+  </ol>
+</details></section>
+
+<section class="sec" id="live"><details class="fold" open><summary><span class="eyebrow">◉ From the lodge’s Instagram · as of 28 July</span>
   <h2>Late July at the lodge</h2>
-  <p class="lede">Real posts from the lodge’s own account, <strong>@onlyatjoes</strong> — captions quoted verbatim, all from July 2026. The freshest read on your water, two weeks before your dates.</p>
+  <span class="lede">Real posts from the lodge’s own account, <strong>@onlyatjoes</strong> — captions quoted verbatim, all from July 2026. The freshest read on your water, two weeks before your dates.</span></summary>
 
   <div class="ph-pair">
   <figure class="ph">
@@ -356,12 +392,11 @@ footer p{margin-bottom:.8em}
     <li><strong>The camera shows grey, chopped water</strong> as often as sun. Pack for the boat in Section 10, not for the brochure.</li>
   </ul>
   <p class="live-note">Cover frames shown for video posts; captions quoted verbatim from public posts by @onlyatjoes (Joe’s Salmon Lodge). Re-read the account’s last three weeks yourself the night before you fly — Section 11 has the checklist.</p>
-</section>
+</details></section>
 <!-- ============ SECTION 1 ============ -->
-<section class="sec" id="s1">
-  <div class="eyebrow">Section 01 · Season intelligence</div>
+<section class="sec" id="s1"><details class="fold"><summary><span class="eyebrow">Section 01 · Season intelligence</span>
   <h2>What is actually happening this year</h2>
-  <p class="lede">The honest headline: <strong>2026 has been a slow season on the BC central coast</strong> — below average on paper for every species you care about except pinks. That is not a mood; it comes from a continuous, dated public record of angler reports (December 2025 → late July 2026), corroborated by DFO’s own preseason outlook.</p>
+  <span class="lede">The honest headline: <strong>2026 has been a slow season on the BC central coast</strong> — below average on paper for every species you care about except pinks. That is not a mood; it comes from a continuous, dated public record of angler reports (December 2025 → late July 2026), corroborated by DFO’s own preseason outlook.</span></summary>
 
   <h3>The in-season record</h3>
   <p>A single public thread on the SportFishing BC forums provided the only continuous dated account of central-coast fishing this year. Its arc is consistent and unflattering:</p>
@@ -413,12 +448,11 @@ footer p{margin-bottom:.8em}
     <picture><source type="image/webp" srcset="assets/tyee-scale-640.webp 640w, assets/tyee-scale-1000.webp 1000w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/tyee-scale.jpg" width="1000" height="1385" loading="lazy" alt="A large chinook salmon hanging on the red Chatillon scale at the lodge weigh station beneath the Joe’s Salmon Lodge sign, bonkers hanging in a row behind."></picture>
     <figcaption><span class="q">“Weighing in and celebrating on the dock”</span><span class="d">@onlyatjoes · 9 Apr 2026</span></figcaption>
   </figure>
-</section>
+</details></section>
 
 <!-- ============ SECTION 2 ============ -->
-<section class="sec" id="s2">
-  <div class="eyebrow">Section 02 · Regulations</div>
-  <h2>What you may keep</h2>
+<section class="sec" id="s2"><details class="fold"><summary><span class="eyebrow">Section 02 · Regulations</span>
+  <h2>What you may keep</h2></summary>
 
   <div class="co co-ok">
     <span class="co-tag">Resolved — the “no chinook until 15 August” rule</span>
@@ -459,12 +493,11 @@ footer p{margin-bottom:.8em}
   <h3>Bringing fish home</h3>
   <p>Fish must be packaged with <strong>skin on and tail attached</strong> for species identification. Halibut may be in a maximum of seven pieces, with the tail and pectoral fin left on one fillet. <strong>One name per package</strong> — and if anyone in your party carries another angler’s fish, that requires a signed authorisation letter. Your possession limit is the ceiling crossing the border, which for halibut means one fish.</p>
   <p>Declare all fish to US Customs. Carry your BC licence and catch record with the boxes. Sport-caught fish for personal consumption is entirely routine; undeclared fish is not.</p>
-</section>
+</details></section>
 
 <!-- ============ SECTION 3 ============ -->
-<section class="sec" id="s3">
-  <div class="eyebrow">Section 03 · The water</div>
-  <h2>Spots, tides, and the daily shape</h2>
+<section class="sec" id="s3"><details class="fold"><summary><span class="eyebrow">Section 03 · The water</span>
+  <h2>Spots, tides, and the daily shape</h2></summary>
 
   <h3>How Hakai fishes, in one paragraph</h3>
   <p>Hakai in August is a <strong>migration corridor, not a resident fishery</strong>. Fish are moving through, hugging structure, and following bait pushed by tide. The whole strategy reduces to a single sentence: find the point or reef that has current on it, find the depth where the bait is on your sounder, and put your gear there. Tides push feed around reefs and rocky points; focus on feeding patterns rather than bottom structure.</p>
@@ -535,12 +568,11 @@ footer p{margin-bottom:.8em}
     <picture><source type="image/webp" srcset="assets/boat-1100.webp 1100w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/boat.jpg" width="1100" height="602" loading="lazy" alt="Two anglers working rods in a small lodge boat on calm grey water, forested islands of the pass behind them."></picture>
     <figcaption><span class="q">“Perfect catch by guests at Joe’s.”</span><span class="d">@onlyatjoes · 18 Jul 2026</span></figcaption>
   </figure>
-</section>
+</details></section>
 <!-- ============ SECTION 4 ============ -->
-<section class="sec" id="s4">
-  <div class="eyebrow">Section 04 · Tactics</div>
+<section class="sec" id="s4"><details class="fold"><summary><span class="eyebrow">Section 04 · Tactics</span>
   <h2>The 2026 depth problem</h2>
-  <p class="lede">This section is the reason the guide exists. Everything here departs from standard Hakai advice, deliberately, for a reason documented in Section 1.</p>
+  <span class="lede">This section is the reason the guide exists. Everything here departs from standard Hakai advice, deliberately, for a reason documented in Section 1.</span></summary>
 
   <h3>The apparent contradiction, and its resolution</h3>
   <p>Local Hakai sources are emphatic and consistent: fish shallow, rarely more than 20 pulls, because all salmon species primarily occupy the upper water column in summer. A “pull” is roughly two feet of line, so 12–20 pulls on a mooching weight puts bait around <strong>15–30 ft down</strong>. That is shallow, and the most common visiting-angler mistake at Hakai in a normal year is fishing 100 ft down because that is what you do at home.</p>
@@ -610,13 +642,12 @@ footer p{margin-bottom:.8em}
   <h4>Colour by depth</h4>
   <p>Shallower than 50 ft: purple, chartreuse, pink, green, blue, with UV white and off-white glow hootchies. From <strong>50 to 150 ft, blue and green dominate and glow patterns are particularly effective.</strong> Since you will be fishing deep this year, the deep-water palette is your default — and as Section 5 explains, it is also your pink-avoidance palette. The two requirements happen to agree.</p>
   <p><strong>Proven central-coast products:</strong> Gibbs Twisted Sista Highliner, Bon Chovy and STS flashers; O’ki Big Shooter in Purple Phantom, Green Footloose, Green Onion Glow; Hot Spot Silver Betsy and Chartreuse Anchovy. Spoons — Gibbs Skinny G and Wee G in Bon Chovy, No Bananas and Herring Aid; Silver Horde Kingfisher 3.5 and 4.0 in for chinook, 3.0 in for coho; the Coho Killer. Plugs — <strong>Tomic 4 to 6 in</strong>, fished without a flasher on a long lead at 2.5–3.0 mph, are a legitimate big-chinook tool and, as it happens, your best anti-pink lure.</p>
-</section>
+</details></section>
 
 <!-- ============ SECTION 5 ============ -->
-<section class="sec" id="s5">
-  <div class="eyebrow">Section 05 · The pink problem</div>
+<section class="sec" id="s5"><details class="fold"><summary><span class="eyebrow">Section 05 · The pink problem</span>
   <h2>Fishing through pinks</h2>
-  <p class="lede">DFO rates Areas 6/7/8 pinks abundant for 2026, and the late-July report confirms heavy pinks on the grounds. In a guided boat a guide absorbs this invisibly — he re-baits, he moves, he changes gear. <strong>Self-guided, every pink costs you a re-bait, a re-set, and five to ten minutes of the tide window you actually care about.</strong> Across six days that is hours.</p>
+  <span class="lede">DFO rates Areas 6/7/8 pinks abundant for 2026, and the late-July report confirms heavy pinks on the grounds. In a guided boat a guide absorbs this invisibly — he re-baits, he moves, he changes gear. <strong>Self-guided, every pink costs you a re-bait, a re-set, and five to ten minutes of the tide window you actually care about.</strong> Across six days that is hours.</span></summary>
   <p>Pinks are fine fish. They are simply not what you flew here for, and at 3–5 lb they will out-number and out-intercept everything else. They are small-mouthed, shallow-running, and strongly drawn to small pink and red gear moving at moderate speed in the top 40 ft — which describes almost every classic summer salmon setup. The good news: that makes them <strong>avoidable by design.</strong> You have four levers.</p>
 
   <div class="cards">
@@ -646,13 +677,12 @@ footer p{margin-bottom:.8em}
   </ol>
   <p><strong>Birds and whales are your bait finder.</strong> Working gulls, murres and auklets mean bait on the surface. A lunge-feeding humpback means a large concentration — fish near it at a legal distance, never close to it. In a year when bait is hard to find, letting the birds search for you is the highest-value habit you can build.</p>
   <p>This does slightly conflict with the “give each spot one to two hours” discipline. Resolve it this way: <strong>give each structure one to two hours, but only structure that has current on it and preferably bait under it.</strong> If you pull up on a point at slack water with a blank sounder, do not burn 90 minutes there out of obedience to a rule. Go find moving water.</p>
-</section>
+</details></section>
 
 <!-- ============ SECTION 6 ============ -->
-<section class="sec" id="s6">
-  <div class="eyebrow">Section 06 · Bait</div>
+<section class="sec" id="s6"><details class="fold"><summary><span class="eyebrow">Section 06 · Bait</span>
   <h2>Bait</h2>
-  <p class="lede">Bait is supplied by the lodge, and at Hakai bait is the historical default: a large 6–7 in cut-plug herring on a tandem-hook rig, 4–6 oz mooching weight, 12 to 20 pulls back — the standing method in the published Hakai-specific guides (Gibbs Fishing’s Hakai Pass guide; Hakai Land &amp; Sea’s fishing tips).</p>
+  <span class="lede">Bait is supplied by the lodge, and at Hakai bait is the historical default: a large 6–7 in cut-plug herring on a tandem-hook rig, 4–6 oz mooching weight, 12 to 20 pulls back — the standing method in the published Hakai-specific guides (Gibbs Fishing’s Hakai Pass guide; Hakai Land &amp; Sea’s fishing tips).</span></summary>
 
   <div class="cards">
     <div class="card"><div class="ct">Cut-plug herring <span class="badge b-brass">Big chinook</span></div><div class="cs">The classic Hakai and Rivers Inlet method. The head comes off and the angled cut <em>is</em> the action device. Mooch it, or troll it behind a flasher.</div></div>
@@ -678,12 +708,11 @@ footer p{margin-bottom:.8em}
 
   <h3>When bait beats hardware</h3>
   <p>Bait wins on big lethargic chinook, in clear calm water, on pressured fish, on slow bites, in low light, and when fish are feeding on actual herring — check the stomach contents of your first keeper, which tells you the size and colour to imitate. Hardware wins when dogfish are eating bait faster than you can rig it, when covering water to <em>find</em> fish, in dirty or fast water, when coho are aggressive, and any time you would rather have a lure fishing than a bait not fishing. <strong>The practical answer in a self-guided boat: run one of each</strong> — bait deep, hardware shallow, and let the fish decide.</p>
-</section>
+</details></section>
 
 <!-- ============ SECTION 7 ============ -->
-<section class="sec" id="s7">
-  <div class="eyebrow">Section 07 · Bottomfishing</div>
-  <h2>Bottomfishing</h2>
+<section class="sec" id="s7"><details class="fold"><summary><span class="eyebrow">Section 07 · Bottomfishing</span>
+  <h2>Bottomfishing</h2></summary>
 
   <div class="co co-warn">
     <span class="co-tag">Recalibrate your halibut expectations now</span>
@@ -708,13 +737,12 @@ footer p{margin-bottom:.8em}
 
   <h4>If you do keep one — the sequence</h4>
   <p><strong>Never boat a green fish. Ever.</strong> Get it alongside and <strong>keep it in the water</strong>. Harpoon or gaff it and take a line to a cleat so it cannot be lost or thrash free. Subdue it in the water with several solid strikes to the head, then bleed it in the water by cutting the gill arches. <strong>Only then</strong> bring it aboard, head first, straight into the fish box. Clear the deck first — rods away, feet clear, nobody between the fish and the transom. Have harpoon, bonker, cleat line, knife and gloves within arm’s reach <em>before</em> the fish is up. <strong>Do not shoot fish</strong>; a firearm in a small boat is a worse hazard than the halibut. And if in any doubt, cut the leader — a released halibut costs you nothing, while an ambulance from Hakai Pass costs you everything.</p>
-</section>
+</details></section>
 
 <!-- ============ SECTION 8 ============ -->
-<section class="sec" id="s8">
-  <div class="eyebrow">Section 08 · Seamanship</div>
+<section class="sec" id="s8"><details class="fold"><summary><span class="eyebrow">Section 08 · Seamanship</span>
   <h2>Seamanship and whales</h2>
-  <p class="lede">You are on the exposed outer coast of British Columbia in a 17-foot open boat, hours from help, with no cell service and no guide. Treat this as the most important section in the guide.</p>
+  <span class="lede">You are on the exposed outer coast of British Columbia in a 17-foot open boat, hours from help, with no cell service and no guide. Treat this as the most important section in the guide.</span></summary>
 
   <h3>The wind clock</h3>
   <p>The central coast summer pattern is highly predictable and should shape every day. <strong>Dawn to mid-morning is calmest</strong>; fog patches dissipate and northwest winds develop late morning toward noon. The <strong>sea breeze builds mid-morning and peaks mid-afternoon at commonly 10 to 25 knots</strong>, driven by the contrast between cold ocean and heated inland — at its strongest in June, July and August. <strong>Evening usually drops out again</strong>, often giving a beautiful last two hours.</p>
@@ -775,12 +803,11 @@ footer p{margin-bottom:.8em}
     <figcaption><span class="q">“Incredible shots of the elusive Sea wolves from a guest!”</span><span class="d">@onlyatjoes · 21 Jul 2026</span></figcaption>
   </figure>
   <p class="small">The coast is wilder than the fishing alone suggests — guests photographed Vancouver Island sea wolves on the rocks in late July. They live almost solely off the ocean: crabs, shellfish, salmon and sea mammals. Watch the shorelines on your transits.</p>
-</section>
+</details></section>
 <!-- ============ SECTION 9 ============ -->
-<section class="sec" id="s9">
-  <div class="eyebrow">Section 09 · Fish care</div>
+<section class="sec" id="s9"><details class="fold"><summary><span class="eyebrow">Section 09 · Fish care</span>
   <h2>Fish handling and getting it home</h2>
-  <p class="lede">Your fish is worth more than your tackle. Handle it accordingly.</p>
+  <span class="lede">Your fish is worth more than your tackle. Handle it accordingly.</span></summary>
   <ol>
     <li><strong>Decide fast — keep or release.</strong> A release happens in the water without lifting the fish. A keeper gets acted on immediately.</li>
     <li><strong>Bonk it.</strong> One or two firm strikes to the head, immediately. A thrashing fish burns lactic acid into the flesh and bruises it.</li>
@@ -790,13 +817,12 @@ footer p{margin-bottom:.8em}
   </ol>
   <p>At the lodge, processing is included — cleaned, vacuum-sealed, flash-frozen and boxed, with boxes capped at 50 lb for airline compliance, per the lodge’s published information. <strong>Tell them how you want it cut on arrival, not on the last day</strong>: fillets or steaks, portion size, skin on or off, and whether you want collars, bellies and carcasses. Label boxes clearly with your name and flight, because a fleet of self-guided anglers shipping fish at once creates real mix-up risk. Photograph the boxes and labels before handing them over. Canning, candying and smoking are available through St. Jean’s Cannery by separate arrangement — worth doing with a portion of the catch, but <strong>arrange it before you leave the lodge.</strong></p>
   <p>Getting home: frozen fish flies as checked baggage, but <strong>confirm your airline’s per-bag fee and count on both legs</strong> — excess bag fees on multiple fish boxes add up fast. Boxed fish typically holds 24 to 48 hours in transit; plan the shortest route home and get it into a freezer the day you land. Bring packing tape and a Sharpie.</p>
-</section>
+</details></section>
 
 <!-- ============ SECTION 10 ============ -->
-<section class="sec" id="s10">
-  <div class="eyebrow">Section 10 · Packing</div>
+<section class="sec" id="s10"><details class="fold"><summary><span class="eyebrow">Section 10 · Packing</span>
   <h2>Packing list</h2>
-  <p class="lede"><strong>The lodge supplies</strong> rods (10½ ft Daiwa mooching), reels, all tackle, bait, boots, life jackets, coolers, bonker, pliers and bait knives — per the lodge’s published information; confirm on booking. Staff clean, restock and fuel the boat each evening. <strong>There is no store on site.</strong></p>
+  <span class="lede"><strong>The lodge supplies</strong> rods (10½ ft Daiwa mooching), reels, all tackle, bait, boots, life jackets, coolers, bonker, pliers and bait knives — per the lodge’s published information; confirm on booking. Staff clean, restock and fuel the boat each evening. <strong>There is no store on site.</strong></span></summary>
   <p><strong>The lodge no longer provides rain gear — bring your own.</strong> The clothing list below assumes it. Fit and dryness across six long days matter enormously to how much you actually fish.</p>
   <p class="small html-only">Checkboxes are tappable and remember themselves.</p>
 
@@ -835,12 +861,11 @@ footer p{margin-bottom:.8em}
     <li><label><input type="checkbox" data-k="p19"><span><strong>Cash for staff gratuities</strong> — the dock, kitchen and processing crews do real work for you</span></label></li>
     <li><label><input type="checkbox" data-k="p20"><span>Earplugs — floating lodges are not quiet</span></label></li>
   </ul>
-</section>
+</details></section>
 
 <!-- ============ SECTION 11 ============ -->
-<section class="sec" id="s11">
-  <div class="eyebrow">Section 11 · Final prep</div>
-  <h2>Before you fly</h2>
+<section class="sec" id="s11"><details class="fold"><summary><span class="eyebrow">Section 11 · Final prep</span>
+  <h2>Before you fly</h2></summary>
 
   <div class="co co-gold">
     <span class="co-tag">The single highest-leverage decision available to you</span>
@@ -861,13 +886,12 @@ footer p{margin-bottom:.8em}
     <li><label><input type="checkbox" data-k="r08"><span><strong>Re-read the last three weeks of @onlyatjoes captions</strong> — the freshest intelligence that exists, and it cannot be older than two weeks when you land</span></label></li>
     <li><label><input type="checkbox" data-k="r09"><span><strong>Re-check the SportFishing BC 2026 Central Coast thread</strong> around 5 to 10 August. One contributor stated he would be at Dawson’s Landing in the first week of August, so his report should land <em>just before you fly</em> — the single best-timed piece of information available to you.</span></label></li>
   </ul>
-</section>
+</details></section>
 
 <!-- ============ SECTION 12 ============ -->
-<section class="sec" id="s12">
-  <div class="eyebrow">Section 12 · Epistemics</div>
+<section class="sec" id="s12"><details class="fold"><summary><span class="eyebrow">Section 12 · Epistemics</span>
   <h2>Confidence, gaps, and what we could not learn</h2>
-  <p class="lede">A guide that does not tell you which parts to doubt is not a guide, it is a sales brochure. Here is where this document is strong and where it is thin.</p>
+  <span class="lede">A guide that does not tell you which parts to doubt is not a guide, it is a sales brochure. Here is where this document is strong and where it is thin.</span></summary>
 
   <div class="conf">
     <div><div class="cl"><b>Chinook retention open at Hakai for your whole window</b><span class="badge b-good">High</span></div><div class="cb">DFO Fishery Notice FN0720 read directly, with the variation order cited.</div></div>
@@ -887,23 +911,14 @@ footer p{margin-bottom:.8em}
   <p><strong>The lodge’s own social feed is the freshest source there is — and the hardest to archive.</strong> The July posts and captions from <strong>@onlyatjoes</strong> are in the <a href="#live">lodge report</a>; everything else here is only as current as late July. So re-read the account yourself in the 48 hours before you fly — it is at most two weeks old when you land, and no other source is.</p>
   <p>Two further dead ends worth knowing: the lodge’s own blog has <strong>no 2026 posts at all</strong> — the most recent is from July 2025, so it is not a catch-report source despite appearing to be one. And the Pacific Salmon Commission’s in-season status document could not be read, leaving the Johnstone Strait diversion rate — arguably the single most useful in-season number for a central-coast corridor fishery — unknown.</p>
 
-  <h3>The seven things that will actually decide this trip</h3>
-  <ol>
-    <li><strong>Buy one guided day, early.</strong> In a year when the standard depth advice may be wrong, six hours with someone who knows what is working this week resolves nearly every uncertainty in this document.</li>
-    <li><strong>Probe deep for chinook and do not stop at 120 ft.</strong> Find the thermocline, find the bait, fish at or just below it, and bracket every event. The traditional “fish shallow” wisdom still governs coho — do not let it stop you testing 150 ft for springs.</li>
-    <li><strong>Run two layers at once</strong> — chinook deep on the ball, coho shallow on a high stacker. It is the only way to cover a stratified column with two riggers.</li>
-    <li><strong>Design your gear against pinks: bigger, greener, deeper, faster.</strong> Otherwise they will eat your week one re-bait at a time.</li>
-    <li><strong>Fish structure, tide lines and bait balls — never open water.</strong> Patchy bait means concentrated fish. Let the birds do your searching.</li>
-    <li><strong>Brine bait every night, check the roll every fifteen minutes, and plan each day around tide and the wind clock.</strong> In a warm year the pre-dawn hour is worth three hours of mid-morning.</li>
-    <li><strong>Wear the PFD, keep a real float plan, and call out every whale blow.</strong> The whole self-guided proposition rests on nothing going wrong — and in peak humpback season with gear 130 ft down, “nothing going wrong” takes active effort.</li>
-  </ol>
+  
 
   <figure class="ph">
     <picture><source type="image/webp" srcset="assets/paralyzer-640.webp 640w, assets/paralyzer-950.webp 950w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/paralyzer.jpg" width="950" height="1266" loading="lazy" alt="A Paralyzer cocktail with two cherries on the lodge bar, the dining room set for dinner behind."></picture>
     <figcaption><span class="q">“The Paralyzer has quickly become the house drink here at Joe’s… Come to Joe’s and try one!”</span><span class="d">@onlyatjoes · 16 Jul 2026</span></figcaption>
   </figure>
   <p class="small" style="text-align:center;margin-top:-6px">Fish the tide, watch the water, and ring the bell. The Paralyzer is waiting either way.</p>
-</section>
+</details></section>
 
 <footer>
   <p><strong>Method.</strong> Everything here was checked against primary sources in late July 2026 — DFO notices read in full, not summarized. Where sources conflicted, the conflict is surfaced in the text rather than averaged away; where something could not be verified, the text says so. Nothing was invented to fill a gap.</p>
@@ -968,7 +983,7 @@ footer p{margin-bottom:.8em}
     var cur=null;
     var obs=new IntersectionObserver(function(es){
       es.forEach(function(e){
-        if(e.isIntersecting){
+        if(e.isIntersecting){var fd=e.target.querySelector("details.fold");if(fd&&!fd.open){return}
           if(cur){cur.classList.remove("on");cur.removeAttribute("aria-current")}
           cur=map[e.target.id]||null;
           if(cur){cur.classList.add("on");cur.setAttribute("aria-current","true");pending=cur;if(!queued){queued=true;requestAnimationFrame(glide)}}
@@ -980,6 +995,7 @@ footer p{margin-bottom:.8em}
 })();
 </script>
 <script>(function(){try{var el=document.getElementById("countbar");if(!el)return;var now=new Date();var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());var dep=new Date(2026,7,11),end=new Date(2026,7,18),D=86400000,s;if(today<dep){var n=Math.round((dep-today)/D);s=n+(n===1?" day":" days")+" to departure — 11 August"}else if(today<=end){s="Trip week — you should be fishing, not reading this"}else{s="Trip complete — this site stays up as the record of the week"}el.textContent=s;el.hidden=false}catch(e){}})();</script>
+<script>(function(){var d=document;function openFor(id){var el=d.getElementById(id);if(!el){return}var f=el.closest("details.fold")||el.querySelector("details.fold");if(f){f.open=true}}if(location.hash){openFor(location.hash.slice(1));var t0=d.getElementById(location.hash.slice(1));if(t0){t0.scrollIntoView()}}addEventListener("hashchange",function(){openFor(location.hash.slice(1))});d.addEventListener("click",function(e){var a=e.target.closest('a[href^="#"]');if(a){openFor(a.getAttribute("href").slice(1))}});var all=[].slice.call(d.querySelectorAll("details.fold"));var btn=d.getElementById("foldAll");function anyClosed(){return all.some(function(f){return !f.open})}function sync(){if(btn){btn.textContent=anyClosed()?"Open all":"Close all"}}if(btn){btn.addEventListener("click",function(){var o=anyClosed();all.forEach(function(f){f.open=o});sync()})}d.addEventListener("click",function(e){if(e.target.closest("summary")){requestAnimationFrame(sync)}});addEventListener("beforeprint",function(){all.forEach(function(f){f.dataset.po=f.open?"1":"";f.open=true})});addEventListener("afterprint",function(){all.forEach(function(f){f.open=f.dataset.po==="1"})});sync();})();</script>
 <script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("sw.js")})}</script>
 </body>
 </html>
