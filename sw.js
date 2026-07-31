@@ -1,8 +1,8 @@
-/* Offline cache for the crew site. 1df68d6d is stamped by build-site.py from a
+/* Offline cache for the crew site. 71553399 is stamped by build-site.py from a
    content hash, so any page change ships a new cache and old ones are dropped.
    PDFs are deliberately never cached — they are the save-to-phone artifact and
    would quadruple the cache weight. All paths relative: works at any mount. */
-var V = "hakai-1df68d6d";
+var V = "hakai-71553399";
 var CORE = ["./", "index.html", "film-room.html", "manifest.webmanifest",
   "assets/hero.jpg", "assets/hero-720.webp",
   "assets/tyee-gap-640.webp", "assets/tyee-gap-950.webp",
