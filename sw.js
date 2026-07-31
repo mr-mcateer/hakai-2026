@@ -1,8 +1,11 @@
-/* Offline cache for the crew site. e02b5fa7 is stamped by build-site.py from a
-   content hash, so any page change ships a new cache and old ones are dropped.
-   PDFs are deliberately never cached — they are the save-to-phone artifact and
-   would quadruple the cache weight. All paths relative: works at any mount. */
-var V = "hakai-e02b5fa7";
+/* Offline cache for the crew site (v3 build). bf9a3523 is stamped by
+   build-site-v3.py from a content hash, so any page change ships a new cache
+   and old ones are dropped — including the pre-v3 caches, since activate
+   deletes every cache that is not the current key. PDFs are deliberately never
+   cached. The archived long-form copy under v2/ is served by this worker's
+   runtime caching (never precached), so it works offline after one visit.
+   All paths relative: works at any mount. */
+var V = "hakai-bf9a3523";
 var CORE = ["./", "index.html", "film-room.html", "manifest.webmanifest",
   "assets/hero.jpg", "assets/hero-720.webp",
   "assets/tyee-gap-640.webp", "assets/tyee-gap-950.webp",
@@ -11,6 +14,17 @@ var CORE = ["./", "index.html", "film-room.html", "manifest.webmanifest",
   "assets/paralyzer-640.webp", "assets/paralyzer-950.webp",
   "assets/boat-1100.webp", "assets/seawolf-950.webp",
   "assets/hookset-720.webp", "assets/stinger-720.webp", "assets/bait7-640.webp",
+  "assets/catch-640.webp", "assets/catch-950.webp",
+  "assets/coho-640.webp", "assets/coho-950.webp",
+  "assets/fr/WIpw59F2TB8.jpg", "assets/fr/tlW_YrT9lF0.jpg",
+  "assets/fr/LxIjgopZTv8.jpg", "assets/fr/SJKKywuoHbM.jpg",
+  "assets/fr/y-yNgfRViNM.jpg", "assets/fr/B185ldIyDDk.jpg",
+  "assets/fr/27kvMCM6xT4.jpg", "assets/fr/BTpAl7GQhpQ.jpg",
+  "assets/fr/GSNz8wBvhsY.jpg", "assets/fr/8pgezrHpf1E.jpg",
+  "assets/fr/MGuQYZOuH48.jpg", "assets/fr/ggq2P1fj2kc.jpg",
+  "assets/fr/0Ztl-NEGheQ.jpg", "assets/fr/C9FtP6L6Q1Y.jpg",
+  "assets/fr/pgl0eOsAY9w.jpg", "assets/fr/nvtOB5SViag.jpg",
+  "assets/fr/md9N8U9oruw.jpg", "assets/fr/ZqBEPBdbqJg.jpg",
   "assets/icons/icon-192.png", "assets/icons/icon-512.png",
   "assets/icons/apple-touch-icon.png", "assets/icons/favicon-32.png"];
 

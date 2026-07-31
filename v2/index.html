@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Hakai Pass 2026 — Crew Field Guide">
+<meta property="og:description" content="Everything the crew needs before wheels-up on 11 August — rules, spots, tactics, map, and the Film Room.">
+<meta property="og:image" content="https://promptaisolutions.com/hakai-2026/assets/hero.jpg">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F2F4F1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0C1310">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<title>Hakai Pass 2026 — Angler’s Field Guide</title>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#F2F4F1; --surface:#FBFCFA; --surface2:#E9EEE8; --inset:#EEF1ED;
+  --ink:#16241F; --ink-soft:#43534C; --ink-faint:#5A6961;
+  --line:#D6DED7; --line-strong:#B9C4BB;
+  --teal:#0E5B50; --teal-ink:#0A4A41; --teal-soft:#DFEBE6;
+  --blue:#2A5E85; --blue-soft:#E0E9F0;
+  --red:#B5392B; --red-soft:#F4E2DD;
+  --brass:#8F6A26; --brass-soft:#F0E7D0;
+  --good:#2E6B45; --good-soft:#E1EDE4;
+  --map-land:#E3E9E1; --map-land-line:#A9B8AC; --map-water:#F5F8F6;
+  --scrim:rgba(10,18,15,.55);
+  --serif:ui-serif,"New York","Iowan Old Style",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0C1310; --surface:#141D18; --surface2:#1B2620; --inset:#18211C;
+  --ink:#E9EBE4; --ink-soft:#B0BDB4; --ink-faint:#819589;
+  --line:#27332B; --line-strong:#3A4A3F;
+  --teal:#5CBBA6; --teal-ink:#7FCDBA; --teal-soft:#123129;
+  --blue:#82B4DA; --blue-soft:#16283A;
+  --red:#E27E67; --red-soft:#3B2019;
+  --brass:#D5AB58; --brass-soft:#322909;
+  --good:#82C69B; --good-soft:#16301F;
+  --map-land:#1D2822; --map-land-line:#48584D; --map-water:#101915;
+  --scrim:rgba(5,10,8,.62);
+}}
+:root[data-theme="dark"]{
+  --bg:#0C1310; --surface:#141D18; --surface2:#1B2620; --inset:#18211C;
+  --ink:#E9EBE4; --ink-soft:#B0BDB4; --ink-faint:#819589;
+  --line:#27332B; --line-strong:#3A4A3F;
+  --teal:#5CBBA6; --teal-ink:#7FCDBA; --teal-soft:#123129;
+  --blue:#82B4DA; --blue-soft:#16283A;
+  --red:#E27E67; --red-soft:#3B2019;
+  --brass:#D5AB58; --brass-soft:#322909;
+  --good:#82C69B; --good-soft:#16301F;
+  --map-land:#1D2822; --map-land-line:#48584D; --map-water:#101915;
+  --scrim:rgba(5,10,8,.62);
+}
+:root[data-theme="light"]{
+  --bg:#F2F4F1; --surface:#FBFCFA; --surface2:#E9EEE8; --inset:#EEF1ED;
+  --ink:#16241F; --ink-soft:#43534C; --ink-faint:#5A6961;
+  --line:#D6DED7; --line-strong:#B9C4BB;
+  --teal:#0E5B50; --teal-ink:#0A4A41; --teal-soft:#DFEBE6;
+  --blue:#2A5E85; --blue-soft:#E0E9F0;
+  --red:#B5392B; --red-soft:#F4E2DD;
+  --brass:#8F6A26; --brass-soft:#F0E7D0;
+  --good:#2E6B45; --good-soft:#E1EDE4;
+  --map-land:#E3E9E1; --map-land-line:#A9B8AC; --map-water:#F5F8F6;
+  --scrim:rgba(10,18,15,.55);
+}
+/* ============ BASE ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+main{max-width:680px;margin:0 auto;padding:0 18px calc(56px + env(safe-area-inset-bottom))}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.18;text-wrap:balance;margin:0}
+p{margin:0 0 1em}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:2px}
+strong{font-weight:650}
+figure{margin:0}
+img{max-width:100%;height:auto;display:block}
+button{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:2px}
+::selection{background:var(--teal);color:#fff}
+/* ============ PROGRESS + NAV ============ */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--teal);z-index:60}
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:680px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:9px 14px 8px}
+.nav-title{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.nav-spacer{flex:1}
+#themeBtn{font-size:15px;line-height:1;padding:6px 8px;border-radius:8px;color:var(--ink-soft)}
+#themeBtn:active{background:var(--surface2)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:0 14px 9px;max-width:680px;margin:0 auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;padding:5px 11px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);text-decoration:none;background:var(--surface);white-space:nowrap}
+.chip.on{background:var(--teal);border-color:var(--teal);color:var(--bg);font-weight:600}
+/* ============ HERO ============ */
+.hero{position:relative;min-height:min(78svh,780px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,15,.38) 0%,rgba(10,18,15,0) 30%,rgba(10,18,15,0) 46%,var(--scrim) 82%,rgba(10,18,15,.78) 100%)}
+.hero-top{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+.hero-body{position:relative;z-index:2;padding:0 20px 22px;color:#fff}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#EFC978;margin-bottom:10px}
+.hero h1{font-size:clamp(40px,11vw,58px);font-weight:700;color:#fff;letter-spacing:-.01em}
+.hero-sub{font-size:16px;line-height:1.5;color:rgba(255,255,255,.94);margin-top:9px;max-width:34ch}
+.hero-cred{position:absolute;right:12px;bottom:12px;z-index:3;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:rgba(255,255,255,.75);background:rgba(8,14,11,.45);padding:4px 8px;border-radius:6px;backdrop-filter:blur(4px)}
+/* ============ DATUM STRIP ============ */
+.datum{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:18px 0 6px}
+.datum>div{background:var(--surface);padding:12px 10px 10px;text-align:center}
+.datum .dv{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--teal-ink,var(--teal));font-variant-numeric:tabular-nums;line-height:1.1}
+.datum .dk{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;line-height:1.35}
+/* ============ SECTIONS ============ */
+.sec{margin-top:46px;scroll-margin-top:86px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.sec h2{font-size:clamp(27px,7vw,32px);font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.sec .lede{font-size:17.5px;color:var(--ink-soft);margin:8px 0 18px}
+.sec h3{font-family:var(--sans);font-size:19px;font-weight:700;letter-spacing:-.005em;margin:30px 0 10px}
+.sec h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:24px 0 10px;font-weight:600}
+.rule{height:1px;background:var(--line);border:0;margin:10px 0 18px}
+ul,ol{padding-left:22px;margin:0 0 1em}
+li{margin-bottom:.55em}
+li::marker{color:var(--teal);font-weight:600}
+.small{font-size:14px;color:var(--ink-faint)}
+.mono{font-family:var(--mono)}
+/* ============ CALLOUTS ============ */
+.co{border-radius:12px;padding:15px 16px 12px;margin:18px 0;border:1px solid var(--line)}
+.co .co-tag{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:8px}
+.co p:last-child,.co ul:last-child,.co ol:last-child{margin-bottom:2px}
+.co-key{background:var(--teal-soft);border-color:color-mix(in srgb,var(--teal) 30%,var(--line));}
+.co-key .co-tag{color:var(--teal)}
+.co-warn{background:var(--red-soft);border-color:color-mix(in srgb,var(--red) 32%,var(--line))}
+.co-warn .co-tag{color:var(--red)}
+.co-gold{background:var(--brass-soft);border-color:color-mix(in srgb,var(--brass) 32%,var(--line))}
+.co-gold .co-tag{color:var(--brass)}
+.co-ok{background:var(--good-soft);border-color:color-mix(in srgb,var(--good) 30%,var(--line))}
+.co-ok .co-tag{color:var(--good)}
+.src{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-top:8px}
+/* ============ CARDS ============ */
+.cards{display:grid;gap:10px;margin:14px 0}
+.c2{grid-template-columns:1fr 1fr}
+@media (max-width:420px){.c2.c2-tight{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px 14px 11px}
+.card .ct{font-weight:700;font-size:15.5px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.card .cs{font-size:14px;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+.badge{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:2.5px 7px;border-radius:6px;vertical-align:1px}
+.b-teal{background:var(--teal-soft);color:var(--teal)}
+.b-blue{background:var(--blue-soft);color:var(--blue)}
+.b-red{background:var(--red-soft);color:var(--red)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.b-good{background:var(--good-soft);color:var(--good)}
+.b-dim{background:var(--surface2);color:var(--ink-faint)}
+/* limit cards */
+.lim{display:flex;align-items:center;gap:12px}
+.lim .ln{flex:1}
+.lim .lq{font-family:var(--serif);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--teal-ink,var(--teal));white-space:nowrap}
+.lim .lq small{font-size:13px;font-family:var(--mono);color:var(--ink-faint);font-weight:400}
+/* stat inline */
+.kv{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 4px}
+.kv span{font-family:var(--mono);font-size:12px;background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:4px 9px;color:var(--ink-soft)}
+/* ============ TIMELINE ============ */
+.tl{border-left:2px solid var(--line-strong);margin:16px 0 6px 6px;padding-left:16px}
+.tl>div{position:relative;margin-bottom:13px}
+.tl>div::before{content:"";position:absolute;left:-21.5px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--teal)}
+.tl .td{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.tl .tt{font-size:15.5px;line-height:1.5;margin-top:2px}
+/* ============ PHOTOS ============ */
+.ph{margin:22px 0;border-radius:14px;overflow:hidden;background:var(--surface2)}
+.ph img{width:100%}
+.ph figcaption{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:9px 12px 10px;font-size:13px;color:var(--ink-soft);background:var(--surface);border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px}
+.ph figcaption .d{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-faint);white-space:nowrap}
+.ph2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.ph2 .ph{margin:0}
+.ph-pair{display:contents}
+/* live strip */
+.live-note{font-size:14px;color:var(--ink-faint);margin:12px 0 2px}
+.q{font-family:var(--serif);font-style:italic;font-size:17px}
+/* ============ CHECKLISTS ============ */
+.check{list-style:none;padding:0;margin:12px 0}
+.check li{margin:0;border-bottom:1px solid var(--line)}
+.check li:last-child{border-bottom:0}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:10px 2px;cursor:pointer}
+.check input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:21px;height:21px;margin-top:2px;border:2px solid var(--line-strong);border-radius:7px;background:var(--surface);display:grid;place-content:center}
+.check input::before{content:"";width:11px;height:11px;border-radius:3px;transform:scale(0);background:var(--teal)}
+.check input:checked{border-color:var(--teal)}
+.check input:checked::before{transform:scale(1)}
+.check input:checked~span{color:var(--ink-faint)}
+.check span{font-size:15.5px;line-height:1.5}
+/* ============ TABLES (used sparingly) ============ */
+.twrap{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:430px;font-size:14px;background:var(--surface)}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:9px 12px;border-bottom:1px solid var(--line-strong);font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:650;white-space:nowrap}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--surface2) 45%,var(--surface))}
+/* ============ MAP ============ */
+.map-fig{margin:20px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--map-water)}
+.map-fig>svg{display:block;width:100%;height:auto}
+.map-cap svg{width:13px;height:13px;display:inline-block}
+.map-cap{padding:10px 12px;background:var(--surface);border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft)}
+.map-cap .d{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint)}
+/* ============ TOC ============ */
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px;margin:20px 0}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;margin-top:10px}
+.toc a{display:flex;gap:9px;align-items:baseline;padding:6px 2px;text-decoration:none;color:var(--ink);font-size:14.5px;font-weight:500;border-radius:6px}
+.toc a:active{background:var(--surface2)}
+.toc .n{font-family:var(--mono);font-size:10.5px;color:var(--teal);font-weight:700;min-width:18px}
+/* ============ CONFIDENCE ============ */
+.conf{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+.conf>div{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+.conf .cl{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.conf .cl b{font-size:15px}
+.conf .cb{font-size:13.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5}
+.hero{min-height:min(42svh,400px)}
+.hero img{object-position:50% 30%}
+.hero h1{font-size:clamp(34px,9vw,46px)}
+.hero-body{padding-bottom:4px}
+.hero-cred{position:static;align-self:flex-end;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:4px 20px 12px;margin:0;font-size:11px;color:rgba(255,255,255,.78)}
+.hero-under{margin:16px 0 2px}
+.hero-under .hu-sub{font-size:17.5px;line-height:1.55;color:var(--ink);font-weight:500;margin:0 0 7px}
+.hero-under .hu-crew{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--ink-faint);margin:0}
+.hero-crew{font-family:var(--mono);font-size:11.5px;line-height:1.65;color:rgba(255,255,255,.85);margin-top:10px;max-width:46ch;letter-spacing:.02em}
+.countbar{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);background:var(--brass-soft);border:1px solid color-mix(in srgb,var(--brass) 30%,var(--line));border-radius:10px;padding:9px 12px;text-align:center;margin:18px 0 -8px}
+.map-fig{--bw:min(100vw - 24px,900px);width:var(--bw);margin-left:calc((100% - var(--bw))/2);margin-right:calc((100% - var(--bw))/2)}
+body{overflow-x:clip}
+/* fold tiles: summary is the card; the open body flows as normal page content
+   (never chrome the details element itself — the map breakout depends on it) */
+.sec{margin-top:10px}
+.topic{margin-top:10px}
+.toc{display:none}
+.fold-ctl{display:flex;justify-content:flex-end;margin:22px 0 0}
+.fold-ctl button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--surface);cursor:pointer}
+.fold-ctl button:active{background:var(--surface2)}
+.fold>summary{display:block;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 46px 15px 18px;min-height:64px;box-sizing:border-box;cursor:pointer;list-style:none;-webkit-tap-highlight-color:transparent}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::marker{content:""}
+.fold>summary::after{content:"";position:absolute;right:21px;top:50%;width:9px;height:9px;border-right:2px solid var(--ink-faint);border-bottom:2px solid var(--ink-faint);transform:translateY(-70%) rotate(45deg);transition:transform .18s ease}
+.fold[open]>summary::after{transform:translateY(-30%) rotate(225deg)}
+.fold[open]>summary{border-color:var(--line-strong);margin-bottom:6px}
+.fold>summary:active{background:var(--surface2)}
+.fold>summary .eyebrow{display:block}
+.fold>summary .lede{display:block;margin:8px 0 0}
+.fold:not([open])>summary .lede{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fold>summary .th{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+@media print{
+  .fold-ctl{display:none!important}
+  .fold>summary{border:0;padding:0;min-height:0;background:none}
+  .fold>summary::after{display:none}
+  .fold[open]>summary{margin-bottom:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #prog,.nav,.chips,#themeBtn,#countbar,.hero-top{display:none!important}
+  :root,:root[data-theme="dark"]{--bg:#fff;--surface:#fff;--surface2:#EFEFEC;--inset:#F4F4F1;--ink:#16241F;--ink-soft:#43534C;--ink-faint:#5A6961;--line:#CFCFC9;--line-strong:#B4B4AD;--teal:#0E5B50;--teal-ink:#0A4A41;--teal-soft:#DFEBE6;--blue:#2A5E85;--blue-soft:#E0E9F0;--red:#B5392B;--red-soft:#F4E2DD;--brass:#8F6A26;--brass-soft:#F0E7D0;--good:#2E6B45;--good-soft:#E1EDE4;--map-land:#E3E9E1;--map-land-line:#A9B8AC;--map-water:#fff;--scrim:rgba(10,18,15,.55)}
+  .hero{min-height:0;height:300px}
+  .map-fig{--bw:100%}
+  .sec{margin-top:24px}
+  .card,.co,.ph,.datum,.tl>div,.conf>div,.twrap,.map-fig,.lim,.vid{break-inside:avoid}
+  h2,h3,h4{break-after:avoid}
+  p,li{orphans:3;widows:3}
+  a{color:var(--ink);text-decoration:none}
+}
+/* ============ FOOT ============ */
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint);line-height:1.6}
+footer p{margin-bottom:.8em}
+.updated{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<header class="nav" id="top">
+  <div class="nav-in">
+    <span class="nav-title">Hakai Pass · 2026</span>
+    <span class="nav-spacer"></span>
+    <button id="themeBtn" aria-label="Toggle dark mode">◐</button>
+  </div>
+  <nav class="chips" aria-label="Sections">
+    <a class="chip" href="../">← Current guide</a>
+    <a class="chip" href="#live">Lodge report</a>
+    <a class="chip" href="#s1">1 · This year</a>
+    <a class="chip" href="#s2">2 · Rules</a>
+    <a class="chip" href="#s3">3 · Water + map</a>
+    <a class="chip" href="#s4">4 · Tactics</a>
+    <a class="chip" href="#s5">5 · Pinks</a>
+    <a class="chip" href="#s6">6 · Bait</a>
+    <a class="chip" href="#s7">7 · Bottom</a>
+    <a class="chip" href="#s8">8 · Safety</a>
+    <a class="chip" href="#s9">9 · Fish care</a>
+    <a class="chip" href="#s10">10 · Packing</a>
+    <a class="chip" href="#s11">11 · Before you fly</a>
+    <a class="chip" href="#s12">12 · Trust</a>
+    <a class="chip" href="film-room.html">▶ Film Room</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <picture><source media="(max-width:715px)" type="image/webp" srcset="assets/hero-720.webp"><img src="assets/hero.jpg" width="1100" height="1466" alt="Angler holding a large coho salmon beneath the Joe’s Salmon Lodge sign at Hakai Pass, with the red weigh scale beside him and emerald water behind." fetchpriority="high"></picture>
+  <div class="hero-top"><span>Joe’s Salmon Lodge</span><span>Hakai Pass · BC</span></div>
+  <div class="hero-body">
+    <div class="hero-eyebrow">Angler’s Field Guide · August 2026</div>
+    <h1>Hakai Pass 2026</h1>
+  </div>
+  <span class="hero-cred">“Big Coho. Beautiful day here at Joe’s.” — @onlyatjoes · 16 Jul 2026</span>
+</div>
+
+<main>
+
+<div class="hero-under"><p class="hu-sub">Self-guided on the central coast, 11–18 August. A heatwave year — the standard advice will cost you fish. Here is what to do instead.</p><p class="hu-crew">Built for our crew flying in 11 August — everything you need before wheels-up, and the on-the-water reference once you’re there.</p></div>
+
+<div id="countbar" class="countbar" hidden></div>
+
+<div class="datum" role="list" aria-label="Trip at a glance">
+  <div role="listitem"><div class="dv">11–18</div><div class="dk">August window</div></div>
+  <div role="listitem"><div class="dv">2<small>/day</small></div><div class="dk">Chinook — open all trip</div></div>
+  <div role="listitem"><div class="dv">4<small>/day</small></div><div class="dk">Coho · primary target</div></div>
+  <div role="listitem"><div class="dv">1 ≤112</div><div class="dk">Halibut / day · cm</div></div>
+  <div role="listitem"><div class="dv">17 ft</div><div class="dk">Whaler · no guide</div></div>
+  <div role="listitem"><div class="dv">CH 16</div><div class="dk">VHF · always on</div></div>
+</div>
+<p class="small" style="margin:6px 2px 0">Destination: Joe’s Salmon Lodge, a floating barge lodge in Hakai Pass, Calvert Island, BC · Pacific Fishery Management Area 8, Subareas 8-1 / 8-2 · US resident, cross-border rules apply.</p>
+
+<div class="co co-gold" style="margin-top:22px"><span class="co-tag">Start here</span><p>New to this page? Read the one-paragraph version below, then do two things this week: <a href="#s2">Section 2</a> (licence, salmon stamp, PCOC — none can be bought at the lodge) and <a href="#s11">Section 11</a> (the before-you-fly checklist). Everything else — spots, tactics, bait, bottomfishing — reads fine on the plane. The <a href="film-room.html">Film Room</a> page is the pre-trip homework: there’s no internet at the lodge, so the videos only work before you leave.</p></div>
+
+<div class="co co-key"><span class="co-tag">Take it offline</span><p>There is no cell service at the lodge — save both PDFs to your phone before you fly.</p><ul><li><a href="../downloads/Hakai-Pass-2026-Field-Guide.pdf" download><strong>Field Guide (PDF · 4.1 MB)</strong></a> — the full guide: rules, spots, tactics, packing, and the before-you-fly checklist.</li><li><a href="../downloads/Hakai-Pass-2026-Film-Room.pdf" download><strong>Film Room (PDF · 1.7 MB)</strong></a> — the video syllabus with links; watch the four essentials while you still have internet.</li></ul><p style="margin:8px 0 2px">Better still: add this page to your phone’s Home Screen — after you open it once, the whole guide, map and checklists included, works with no signal.</p></div>
+
+<div class="co co-key" style="margin-top:22px">
+  <span class="co-tag">The one-paragraph version</span>
+  <p>2026 is not a normal year at Hakai, and the standard advice will cost you fish. A marine heatwave larger than the 2013–15 “Blob” is running 2–3 °C above normal, which has almost certainly pushed <strong>chinook deeper than the 60–90 ft everyone fishes</strong> while leaving <strong>coho shallow</strong> — so you must cover two layers at once. Pinks are forecast abundant and will tax every hour you don’t design against them. Coho is your primary target and is <em>growing</em> through your window; chinook are fewer but at their <strong>peak average size</strong>. Halibut is the worst season in 102 years of record — one fish, 112 cm maximum — so <strong>lingcod is your bottomfish play</strong>. And the folklore that chinook are closed until 15 August is a Rivers Inlet rule that <strong>does not apply to you</strong>: chinook are open at 2/day for your whole trip.</p>
+</div>
+
+<div class="toc" aria-label="Contents">
+  <span class="eyebrow" style="margin:0">Contents</span>
+  <div class="toc-grid">
+    <a href="#live"><span class="n">◉</span>Late July at the lodge</a>
+    <a href="#s1"><span class="n">01</span>What’s happening this year</a>
+    <a href="#s2"><span class="n">02</span>Rules — what you may keep</a>
+    <a href="#s3"><span class="n">03</span>The water, tides + map</a>
+    <a href="#s4"><span class="n">04</span>Tactics — the depth problem</a>
+    <a href="#s5"><span class="n">05</span>Fishing through pinks</a>
+    <a href="#s6"><span class="n">06</span>Bait</a>
+    <a href="#s7"><span class="n">07</span>Bottomfishing</a>
+    <a href="#s8"><span class="n">08</span>Seamanship + whales</a>
+    <a href="#s9"><span class="n">09</span>Fish care, getting it home</a>
+    <a href="#s10"><span class="n">10</span>Packing list</a>
+    <a href="#s11"><span class="n">11</span>Before you fly</a>
+    <a href="#s12"><span class="n">12</span>Confidence + gaps</a>
+  </div>
+</div>
+
+<!-- ============ LIVE FROM THE LODGE ============ -->
+<div class="fold-ctl"><button id="foldAll" type="button">Open all</button></div>
+
+<section class="sec" id="seven"><details class="fold"><summary><h2>The seven things that will actually decide this trip</h2></summary>
+<ol>
+    <li><strong>Buy one guided day, early.</strong> In a year when the standard depth advice may be wrong, six hours with someone who knows what is working this week resolves nearly every uncertainty in this document.</li>
+    <li><strong>Probe deep for chinook and do not stop at 120 ft.</strong> Find the thermocline, find the bait, fish at or just below it, and bracket every event. The traditional “fish shallow” wisdom still governs coho — do not let it stop you testing 150 ft for springs.</li>
+    <li><strong>Run two layers at once</strong> — chinook deep on the ball, coho shallow on a high stacker. It is the only way to cover a stratified column with two riggers.</li>
+    <li><strong>Design your gear against pinks: bigger, greener, deeper, faster.</strong> Otherwise they will eat your week one re-bait at a time.</li>
+    <li><strong>Fish structure, tide lines and bait balls — never open water.</strong> Patchy bait means concentrated fish. Let the birds do your searching.</li>
+    <li><strong>Brine bait every night, check the roll every fifteen minutes, and plan each day around tide and the wind clock.</strong> In a warm year the pre-dawn hour is worth three hours of mid-morning.</li>
+    <li><strong>Wear the PFD, keep a real float plan, and call out every whale blow.</strong> The whole self-guided proposition rests on nothing going wrong — and in peak humpback season with gear 130 ft down, “nothing going wrong” takes active effort.</li>
+  </ol>
+</details></section>
+
+<section class="sec" id="live"><details class="fold" open><summary><span class="eyebrow">◉ From the lodge’s Instagram · as of 28 July</span>
+  <h2>Late July at the lodge</h2>
+  <span class="lede">Real posts from the lodge’s own account, <strong>@onlyatjoes</strong> — captions quoted verbatim, all from July 2026. The freshest read on your water, two weeks before your dates.</span></summary>
+
+  <div class="ph-pair">
+  <figure class="ph">
+    <picture><source type="image/webp" srcset="assets/tyee-gap-640.webp 640w, assets/tyee-gap-950.webp 950w" sizes="(min-width:716px) 317px, calc(50vw - 23px)"><img src="assets/tyee-gap.jpg" width="950" height="1688" loading="lazy" alt="Angler in grey foul-weather gear standing on the lodge dock beneath the Joe’s Salmon Lodge sign, next to the tyee bell."></picture>
+    <figcaption><span class="q">“Gorgeous Tyee caught at the Gap. Amazing catch Vance!”</span><span class="d">@onlyatjoes · 24 Jul</span></figcaption>
+  </figure>
+  <figure class="ph">
+    <picture><source type="image/webp" srcset="assets/tyee-bell-640.webp 640w, assets/tyee-bell-950.webp 950w" sizes="(min-width:716px) 317px, calc(50vw - 23px)"><img src="assets/tyee-bell.jpg" width="950" height="1688" loading="lazy" alt="The lodge dining room with vaulted cedar ceiling, mounted salmon and the brass tyee bell, guests at dinner."></picture>
+    <figcaption><span class="q">“Tyee pin awarded and a bell ring for the house!”</span><span class="d">@onlyatjoes · 25 Jul</span></figcaption>
+  </figure>
+  </div>
+  <div class="ph2">
+    <figure class="ph">
+      <picture><source type="image/webp" srcset="assets/hookset-720.webp 720w" sizes="(min-width:716px) 317px, calc(50vw - 23px)"><img src="assets/hookset.jpg" width="720" height="740" loading="lazy" alt="Bent mooching rod mid-hookset from the bow of a small boat on grey chop."></picture>
+      <figcaption><span class="q">“Gotta love a good hookset!”</span><span class="d">28 Jul</span></figcaption>
+    </figure>
+    <figure class="ph">
+      <picture><source type="image/webp" srcset="assets/stinger-720.webp 720w" sizes="(min-width:716px) 317px, calc(50vw - 23px)"><img src="assets/stinger.jpg" width="720" height="720" loading="lazy" alt="Two guests laughing in a lodge boat while rigging bait."></picture>
+      <figcaption><span class="q">“…the trail hook free as a stinger!”</span><span class="d">25 Jul</span></figcaption>
+    </figure>
+  </div>
+
+  <h3>What those posts actually tell you</h3>
+  <ul>
+    <li><strong>Tyee are on the grounds.</strong> Two 30 lb-class chinook celebrated on 24 and 25 July — the “fewer fish, but peak size” read in Section 1 is not theoretical.</li>
+    <li><strong>The Gap is producing chinook</strong> — by name, in the last week of July. It is on the map in Section 3.</li>
+    <li><strong>Big coho are in</strong> (“Big Coho” photographed 16 July) and growing daily — your primary target confirmed.</li>
+    <li><strong>The camera shows grey, chopped water</strong> as often as sun. Pack for the boat in Section 10, not for the brochure.</li>
+  </ul>
+  <p class="live-note">Cover frames shown for video posts; captions quoted verbatim from public posts by @onlyatjoes (Joe’s Salmon Lodge). Re-read the account’s last three weeks yourself the night before you fly — Section 11 has the checklist.</p>
+</details></section>
+<!-- ============ SECTION 1 ============ -->
+<section class="sec" id="s1"><details class="fold"><summary><span class="eyebrow">Section 01 · Season intelligence</span>
+  <h2>What is actually happening this year</h2>
+  <span class="lede">The honest headline: <strong>2026 has been a slow season on the BC central coast</strong> — below average on paper for every species you care about except pinks. That is not a mood; it comes from a continuous, dated public record of angler reports (December 2025 → late July 2026), corroborated by DFO’s own preseason outlook.</span></summary>
+
+  <h3>The in-season record</h3>
+  <p>A single public thread on the SportFishing BC forums provided the only continuous dated account of central-coast fishing this year. Its arc is consistent and unflattering:</p>
+  <div class="tl">
+    <div><div class="td">8 &amp; 21 June</div><div class="tt">“Slow” from Cape Caution to Prince Rupert</div></div>
+    <div><div class="td">22–26 June</div><div class="tt">Brief uptick — “that’s more like it”</div></div>
+    <div><div class="td">5 July</div><div class="tt">Second-hand report of an 82 lb chinook. <strong>No photograph was ever posted</strong>, and another angler noted it was “real early for a fish that size.” Treat as unconfirmed.</div></div>
+    <div><div class="td">18 July</div><div class="tt">“Quiet on the central coast — usually a sign of slow fishing”</div></div>
+    <div><div class="td">~22 July</div><div class="tt">Forum report: King Pacific Lodge said to be slow</div></div>
+    <div><div class="td">~25 July</div><div class="tt">Coho beginning to show; several caught plus one spring. <strong>Pinks abundant, water warm.</strong> A 37 lb fish photographed south of Bella Coola.</div></div>
+  </div>
+
+  <h3>The reason: a marine heatwave</h3>
+  <p>That late-July “water warm” observation came from an angler with no access to oceanographic data. Independently, the satellite record shows the <strong>NEP25A marine heatwave</strong>, active since May 2025, <strong>larger by area than the 2013–15 “Blob,”</strong> running 2–3 °C above normal, with the Pacific transitioning from La Niña toward a possible strong El Niño late in 2026.</p>
+  <p>Two entirely independent sources — one anecdotal, one instrumental — pointing the same direction is the strongest signal in this guide. <strong>Everything in Section 4 follows from it.</strong></p>
+
+  <h3>The forecast — and why it’s less damning than it looks</h3>
+  <div class="cards">
+    <div class="card lim"><div class="ln"><div class="ct">Chinook <span class="badge b-dim">DFO Cat 2 · below avg</span></div><div class="cs">25th–40th percentile. Fewer fish — but at peak average <strong>size</strong>.</div></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Coho <span class="badge b-dim">Cat 2 · below avg</span></div><div class="cs">Still your primary target — see the caveat below.</div></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Chum <span class="badge b-dim">Cat 2 · below avg</span></div><div class="cs">Incidental.</div></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Sockeye <span class="badge b-red">Cat 3 · retention closed</span></div><div class="cs">Not a target.</div></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Pink <span class="badge b-teal">Cat 4 · abundant</span></div><div class="cs">Your main nuisance. Section 5 is the defense.</div></div></div>
+  </div>
+  <p>Three things keep that table from being as bleak as it reads:</p>
+  <ol>
+    <li>DFO explicitly labels coho in Areas 7–10 <strong>“data deficient.”</strong> Hakai is Area 8. The stocks you will fish among are essentially unassessed — one conservation organisation characterised it as DFO fishing blind on the central coast. A below-average rating on an unmeasured stock is weak evidence in <em>either</em> direction.</li>
+    <li>More important: <strong>Hakai is a migration corridor, not a resident fishery.</strong> The fish moving past your boat originate anywhere from Washington to Alaska. Corridor catch rates decouple substantially from local escapement outlooks — which is precisely how a below-average regional forecast can coexist with an excellent week of fishing.</li>
+    <li>The pink forecast is genuinely strange and worth noting: 2026 is the historically <em>subordinate</em> even-year broodline on the central coast, yet DFO forecasts abundance. Whatever drives that is not captured by the broodline model.</li>
+  </ol>
+
+  <div class="co co-warn">
+    <span class="co-tag">The multi-year trend, stated plainly</span>
+    <p>A 2025 peer-reviewed study of 52 North and Central Coast coho populations found a <strong>37% decline in abundance since 2017</strong>, a 32% decline in spawners, and 40–69% of populations below their biological reference points. Productivity in the Hecate Lowlands is down 74%. The authors attribute this to marine heatwaves rather than fishing pressure. This is the long-run context for your trip, and it is not encouraging.</p>
+  </div>
+
+  <h3>What is in front of you, 11–18 August</h3>
+  <p>Your window sits precisely on the <strong>chinook-to-coho handoff</strong>, which is a genuinely good place to be.</p>
+  <div class="cards">
+    <div class="card"><div class="ct">Coho <span class="badge b-teal">Primary target</span></div><div class="cs">Arriving early July, peaking mid-August through September. And <em>growing</em>: July fish run 9–15 lb; August–September fish 15–25 lb. Every day you are there, the average coho gets bigger.</div></div>
+    <div class="card"><div class="ct">Chinook <span class="badge b-brass">Trophy window</span></div><div class="cs">Back half of the run — the peak was late June to about 10 August. But <strong>average size peaks around the third week of August</strong>. Fewer fish, bigger fish. The trophy is live: you are at the front edge of the historical Hakai tyee peak.</div></div>
+    <div class="card"><div class="ct">Pink <span class="badge b-dim">At peak</span></div><div class="cs">Abundant. Constant incidental. Design against them (Section 5).</div></div>
+    <div class="card"><div class="ct">Chum <span class="badge b-dim">At peak</span></div><div class="cs">Incidental.</div></div>
+    <div class="card"><div class="ct">Sockeye <span class="badge b-red">Closed</span></div><div class="cs">Transiting — Fraser summer-run timing forecast 13 August. Retention closed and not a realistic rod target regardless.</div></div>
+  </div>
+  <p><strong>Nothing you want has failed to arrive.</strong> That is the single most useful fact about your dates.</p>
+
+  <figure class="ph">
+    <picture><source type="image/webp" srcset="assets/tyee-scale-640.webp 640w, assets/tyee-scale-1000.webp 1000w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/tyee-scale.jpg" width="1000" height="1385" loading="lazy" alt="A large chinook salmon hanging on the red Chatillon scale at the lodge weigh station beneath the Joe’s Salmon Lodge sign, bonkers hanging in a row behind."></picture>
+    <figcaption><span class="q">“Weighing in and celebrating on the dock”</span><span class="d">@onlyatjoes · 9 Apr 2026</span></figcaption>
+  </figure>
+</details></section>
+
+<!-- ============ SECTION 2 ============ -->
+<section class="sec" id="s2"><details class="fold"><summary><span class="eyebrow">Section 02 · Regulations</span>
+  <h2>What you may keep</h2></summary>
+
+  <div class="co co-ok">
+    <span class="co-tag">Resolved — the “no chinook until 15 August” rule</span>
+    <p>A widely repeated claim holds that chinook retention is closed from “Wadhams north to the head of Rivers Inlet” until 15 August. Because your trip begins around 11 August, this was the highest-stakes question in the entire project. <strong>It is a Rivers Inlet / Area 9 rule and does not apply to Hakai Pass.</strong> Chinook retention at Hakai is open at 2 per day for your entire window.</p>
+    <p>Two corrections to the folklore, worth knowing if you ever fish Rivers Inlet: the actual 2026 closure runs through <strong>17 August and reopens on the 18th, not the 15th</strong> — anyone fishing inner Rivers Inlet on the folklore date would be retaining illegally by three days. And <strong>“Wadhams” appears in no DFO document</strong>; the legal boundary is a subarea list (9-3 through 9-9). The landmark is angler shorthand repeated until it sounds official.</p>
+    <p class="src">Source: DFO Fishery Notice FN0720, issued 15 July 2026, Variation Order 2026-RFQ-304.</p>
+  </div>
+
+  <h3>Limits — Areas 8 and 108</h3>
+  <div class="cards">
+    <div class="card lim"><div class="ln"><div class="ct">Chinook</div><div class="cs">45 cm min. <strong>No hatchery-marked-only requirement</strong> — wild fish may be retained. Coastwide annual cap of 10.</div></div><div class="lq">2<small> /day</small>&nbsp;·&nbsp;4<small> poss</small></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Coho</div><div class="cs">30 cm minimum.</div></div><div class="lq">4<small> /day</small>&nbsp;·&nbsp;8<small> poss</small></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Chum / Pink</div><div class="cs">30 cm minimum.</div></div><div class="lq">4<small> /day</small>&nbsp;·&nbsp;8<small> poss</small></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Sockeye</div><div class="cs">Retention closed.</div></div><div class="lq" style="color:var(--red)">0</div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Halibut</div><div class="cs"><strong>Maximum 112 cm</strong> head-on / 85 cm head-off. Annual limit 10. Possession is <strong>not</strong> doubled.</div></div><div class="lq">1<small> /day</small>&nbsp;·&nbsp;1<small> poss</small></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Lingcod</div><div class="cs"><strong>Minimum 65 cm.</strong> Your best bottomfish this year.</div></div><div class="lq">3<small> /day</small>&nbsp;·&nbsp;6<small> poss</small></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Rockfish</div><div class="cs"><strong>Yelloweye non-retention.</strong> Only one Quillback, China or Tiger among the three.</div></div><div class="lq">3<small> /day</small>&nbsp;·&nbsp;6<small> poss</small></div></div>
+    <div class="card lim"><div class="ln"><div class="ct">Bivalves</div><div class="cs"><strong>All closed</strong> across Areas 7/8/107/108 — biotoxin and sanitary closures.</div></div><div class="lq" style="color:var(--red)">0</div></div>
+  </div>
+
+  <div class="co co-warn">
+    <span class="co-tag">Three traps that catch visiting anglers</span>
+    <ol>
+      <li><strong>The aggregate salmon limit is 4 fish per day, all species combined.</strong> With pinks forecast abundant, this bites harder than it sounds — four pinks is a limit, and your rod is done for the day. Every pink in the box is a chinook you cannot take home.</li>
+      <li><strong>The lodge’s own FAQ conflicts with DFO.</strong> As of late July 2026, the lodge’s FAQ listed rockfish at 5 per day and chinook as “4 per trip.” DFO says rockfish 3 per day and chinook 2 per day against an annual cap of 10. <strong>DFO governs.</strong> Fishing to the lodge’s published numbers would put you over on rockfish.</li>
+      <li><strong>Halibut possession crossing the border is one fish.</strong> Not two. Routinely misunderstood — and it is a customs problem rather than a fishing one.</li>
+    </ol>
+  </div>
+
+  <h3>The Rockfish Conservation Area problem</h3>
+  <p>The <strong>West Calvert Rockfish Conservation Area sits immediately at Hakai Pass</strong>, inside Subareas 8-1 and 108-1. It is the single highest inadvertent-violation risk of the trip, because you can drift into it with no visual cue. Ask the lodge to show you the boundary on the chart on arrival evening, and <strong>load it into the boat’s GPS before you leave the dock the first morning.</strong> It is drawn approximately on the Section 3 map.</p>
+  <p>Carry and use a <strong>descending device</strong> for released rockfish. Releasing a barotraumatised rockfish at the surface kills it, and use of a descender is a regulatory expectation in BC.</p>
+
+  <h3>Licensing — do this before you fly</h3>
+  <p>A non-resident adult annual tidal waters licence is <strong>$124.41 CAD</strong> for the 2026–27 licence year, plus the mandatory <strong>Pacific Salmon Conservation Stamp at $7.39</strong> (both pre-GST). Buy online through DFO’s National Recreational Licensing System. <strong>There is no vendor at Hakai.</strong> The five-day licence at $38.18 will not cover an eight-day trip, so the annual is both simpler and, for your duration, close to unavoidable.</p>
+  <p>Separately and equally non-negotiable: you must hold a <strong>Pleasure Craft Operator Card</strong> to operate the lodge’s boats. No card, no boat, no self-guided trip. Print your licence, save a PDF to your phone, and bring the PCOC physically.</p>
+
+  <h3>Bringing fish home</h3>
+  <p>Fish must be packaged with <strong>skin on and tail attached</strong> for species identification. Halibut may be in a maximum of seven pieces, with the tail and pectoral fin left on one fillet. <strong>One name per package</strong> — and if anyone in your party carries another angler’s fish, that requires a signed authorisation letter. Your possession limit is the ceiling crossing the border, which for halibut means one fish.</p>
+  <p>Declare all fish to US Customs. Carry your BC licence and catch record with the boxes. Sport-caught fish for personal consumption is entirely routine; undeclared fish is not.</p>
+</details></section>
+
+<!-- ============ SECTION 3 ============ -->
+<section class="sec" id="s3"><details class="fold"><summary><span class="eyebrow">Section 03 · The water</span>
+  <h2>Spots, tides, and the daily shape</h2></summary>
+
+  <h3>How Hakai fishes, in one paragraph</h3>
+  <p>Hakai in August is a <strong>migration corridor, not a resident fishery</strong>. Fish are moving through, hugging structure, and following bait pushed by tide. The whole strategy reduces to a single sentence: find the point or reef that has current on it, find the depth where the bait is on your sounder, and put your gear there. Tides push feed around reefs and rocky points; focus on feeding patterns rather than bottom structure.</p>
+
+  <figure class="map-fig" id="map-grounds"><svg viewBox="0 0 760 795" role="img" aria-label="Schematic planning map of the Hakai Passage fishing grounds" font-family="var(--mono)" xmlns="http://www.w3.org/2000/svg"><style>.lbl{font-family:var(--sans);font-weight:700;fill:var(--ink);paint-order:stroke;stroke:var(--map-water);stroke-width:3px;stroke-linejoin:round}.sub{fill:var(--ink-faint);paint-order:stroke;stroke:var(--map-water);stroke-width:2.5px}.chip{fill:var(--teal);font-family:var(--mono);font-weight:700;letter-spacing:.05em}.warntag{fill:var(--red);font-weight:700;paint-order:stroke;stroke:var(--map-water);stroke-width:2.5px}.goodtag{fill:var(--good);font-weight:600;paint-order:stroke;stroke:var(--map-water);stroke-width:2.5px}.geo{fill:var(--ink-faint);font-style:italic;font-family:var(--serif);paint-order:stroke;stroke:var(--map-water);stroke-width:2.5px}.isl{fill:var(--map-land-line);font-family:var(--mono);letter-spacing:.22em;font-weight:600}</style><defs><clipPath id="mv"><rect x="0" y="0" width="760" height="795"/></clipPath><pattern id="rcaHatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="7" height="7" fill="var(--red)" fill-opacity="0.07"/><line x1="0" y1="0" x2="0" y2="7" stroke="var(--red)" stroke-width="1.6" stroke-opacity="0.5"/></pattern><marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L8,4L0,8Z" fill="var(--ink-soft)"/></marker></defs><rect width="760" height="795" fill="var(--map-water)"/><g clip-path="url(#mv)"><g fill="var(--map-land)" stroke="var(--map-land-line)" stroke-width="1.1"><path d="M737.5,934.6L740.1,930.1L744.2,927.5L743.0,922.9L743.5,917.9L743.2,912.8L745.5,908.5L744.3,903.8L746.7,898.8L749.5,894.4L753.6,891.4L756.0,886.9L759.8,883.9L762.2,879.0L764.0,874.1L765.5,869.1L765.0,863.8L766.1,858.8L766.4,853.9L768.2,849.4L769.1,844.1L769.7,838.7L772.1,833.8L771.2,828.6L769.7,823.5L769.8,818.4L767.9,813.9L767.6,808.5L767.2,803.7L763.5,800.0L760.1,795.5L756.4,792.0L755.0,786.7L754.1,781.4L753.7,776.0L751.9,770.9L749.3,766.6L749.2,761.6L749.1,756.2L747.7,750.8L747.0,745.9L746.3,740.8L746.0,735.9L744.2,731.3L743.0,726.5L739.7,722.2L739.9,717.0L737.5,712.7L736.3,707.1L734.4,702.1L732.8,697.5L731.9,692.7L730.0,688.0L728.7,683.2L725.1,679.0L722.6,674.3L719.9,669.6L717.0,664.8L712.8,662.3L708.0,660.7L704.1,657.7L700.9,653.8L698.8,649.5L697.2,644.2L694.7,639.6L691.1,636.1L687.5,632.7L686.1,627.6L683.2,623.3L681.5,618.8L677.0,615.9L674.6,611.5L670.3,608.3L667.1,604.7L663.2,601.4L659.1,597.9L657.0,593.4L656.0,588.3L653.3,584.1L650.7,579.5L647.5,575.8L651.4,578.8L655.2,581.9L654.1,576.7L650.7,573.1L649.3,567.9L647.8,563.1L645.9,558.1L645.5,557.4L641.0,560.2L637.2,563.2L632.8,561.2L628.3,559.5L623.2,559.5L618.5,558.0L613.3,557.4L608.5,555.5L603.7,556.5L598.8,554.3L593.6,554.3L588.6,552.9L583.5,553.3L578.8,554.7L575.5,551.2L571.1,553.3L565.9,554.3L560.9,552.3L555.9,550.1L550.7,549.6L546.1,547.9L541.0,548.9L537.0,552.1L531.7,553.4L527.2,550.5L522.4,549.0L517.8,547.2L512.5,547.3L507.6,549.5L502.8,548.5L498.7,545.7L493.5,544.3L489.0,546.4L484.1,546.5L480.1,543.6L475.5,545.5L470.4,547.3L466.2,544.0L461.3,544.8L456.6,542.5L451.3,541.9L446.6,540.1L441.7,539.3L436.9,538.8L432.1,541.2L427.1,540.2L422.3,541.8L417.3,541.0L414.3,545.0L409.7,543.4L404.9,541.9L399.8,541.9L397.4,546.8L400.3,550.9L402.6,555.3L397.7,555.1L395.9,560.2L395.3,565.7L397.1,570.5L392.0,570.4L392.2,564.8L391.9,559.7L392.9,554.9L391.3,549.8L386.4,548.0L381.6,550.2L380.8,555.5L380.4,560.8L379.7,566.3L379.7,571.7L377.9,576.2L376.0,581.4L372.5,577.4L373.7,572.1L374.4,567.1L370.3,563.1L365.0,562.7L360.1,563.3L357.8,568.0L352.9,570.1L347.9,572.5L343.2,575.2L338.3,577.2L334.3,580.7L332.5,576.1L337.8,575.1L342.6,573.2L346.9,570.8L350.6,567.3L354.3,563.4L357.4,559.5L359.3,554.6L361.6,549.8L361.5,544.5L356.3,543.4L350.6,543.8L345.6,544.1L340.2,543.9L335.8,540.8L331.0,539.3L327.5,542.7L326.7,547.4L322.6,550.6L317.1,552.2L312.4,554.7L311.5,560.2L310.6,565.3L311.3,570.1L307.4,573.1L306.5,567.8L305.7,562.7L303.9,557.4L305.3,552.5L307.1,547.5L309.7,543.4L308.8,538.4L304.7,535.3L299.2,536.0L294.3,535.5L289.4,535.0L286.4,530.9L285.2,526.2L282.3,522.0L286.7,524.0L288.7,528.6L293.6,528.3L298.7,527.4L303.5,525.7L307.2,521.8L309.9,517.7L310.6,512.8L309.0,507.5L305.3,503.1L307.7,498.7L312.5,499.2L314.1,503.9L314.8,509.0L316.0,514.2L319.2,517.8L323.4,520.3L322.5,525.1L327.2,526.7L331.7,529.5L336.2,527.4L341.6,527.5L346.8,527.5L351.4,525.3L353.8,520.7L353.5,515.7L355.5,510.9L352.7,506.8L347.7,504.5L349.8,500.1L353.9,497.2L358.3,495.1L358.7,490.2L360.0,485.2L361.1,480.4L362.1,475.3L362.8,470.4L362.8,465.6L364.9,460.3L365.7,455.0L366.9,450.2L364.4,446.0L364.3,440.1L365.8,435.0L364.7,430.3L363.4,425.5L363.5,420.6L358.6,419.4L355.0,423.3L350.2,423.3L345.6,425.6L341.8,429.0L342.2,433.9L337.7,431.1L332.5,432.3L328.5,436.0L324.2,438.7L322.3,443.5L320.7,448.1L320.2,453.2L318.7,458.5L318.1,463.6L316.7,468.3L316.4,473.2L316.9,478.6L314.0,482.7L314.5,487.8L309.4,489.7L305.1,486.3L300.1,486.3L297.0,490.4L293.6,494.5L292.8,499.4L287.9,501.1L286.2,496.4L283.5,492.2L278.1,492.2L277.9,497.3L277.0,502.1L271.7,504.2L266.3,505.1L261.5,505.0L256.3,503.9L251.7,500.7L246.4,501.1L241.8,502.9L237.4,505.3L236.2,510.2L238.3,514.6L239.9,519.3L237.3,524.0L242.3,524.4L246.4,520.4L249.1,524.5L253.1,521.6L257.7,519.9L262.3,522.9L265.6,526.4L268.5,530.9L268.9,536.0L266.4,540.2L262.1,543.8L258.3,547.4L254.7,551.0L254.2,556.0L249.3,557.2L247.8,561.9L242.7,562.8L245.7,566.7L245.8,571.6L240.9,572.5L237.3,576.0L235.9,580.7L240.8,581.0L245.5,577.7L250.6,578.8L252.5,583.6L256.4,586.9L254.7,591.7L260.0,592.1L258.6,596.9L256.4,601.3L251.6,601.2L249.3,605.6L250.9,610.8L247.2,614.1L251.1,617.1L255.8,619.7L251.9,622.9L246.5,622.5L244.9,627.5L249.9,629.1L254.8,628.2L251.5,631.9L250.3,636.8L251.0,642.6L251.7,647.9L253.0,652.9L257.1,655.6L262.1,656.2L259.5,660.9L255.9,664.7L255.8,669.6L260.5,671.7L258.9,677.3L254.0,676.6L249.6,678.8L249.9,683.8L254.1,687.1L256.9,691.9L252.3,694.5L247.8,696.7L244.5,700.6L243.9,705.6L243.9,710.5L245.0,715.5L247.9,719.9L252.5,722.2L255.2,726.6L260.1,729.3L257.5,733.6L259.7,738.2L260.1,743.1L264.8,744.5L266.1,749.6L268.7,753.9L271.2,758.5L276.0,759.6L281.3,761.0L286.5,761.5L291.0,763.7L292.8,768.2L291.8,773.1L296.9,772.7L296.4,777.6L300.0,781.5L304.3,785.3L305.5,790.1L308.2,794.8L312.8,797.0L313.0,797.1L308.7,799.9L309.5,804.7L310.7,809.6L311.8,814.8L312.9,819.9L314.3,824.9L315.9,830.1L317.3,835.5L318.1,840.8L317.7,846.2L316.8,851.8L317.7,856.8L318.2,862.0L320.1,866.5L320.5,871.4L318.8,876.0L318.3,881.0L319.9,885.8L320.8,891.0L322.3,896.0L324.2,900.5L322.8,905.4L324.4,910.0L326.5,914.4L325.1,919.2L325.4,924.5L329.4,927.2L333.2,930.4L334.8,935.5L331.6,939.8L333.5,944.0L287.6,1375.2L862.7,1375.2L737.5,934.6Z"/><path d="M323.9,-214.0L327.3,-206.9L330.6,-203.2L327.1,-198.6L324.3,-194.6L323.2,-189.9L326.8,-186.4L327.6,-181.1L326.4,-176.1L322.2,-173.4L320.5,-168.5L318.6,-163.1L318.0,-158.2L320.4,-153.8L316.5,-150.2L314.8,-145.4L309.4,-142.7L305.0,-146.6L299.9,-143.9L294.4,-143.3L293.6,-137.3L294.6,-132.0L299.0,-130.0L301.0,-125.2L299.9,-120.4L302.8,-116.1L308.1,-115.7L313.1,-117.2L313.6,-122.4L318.5,-122.3L323.9,-122.0L321.4,-115.2L323.6,-110.6L325.0,-105.6L320.2,-103.5L319.8,-98.4L318.1,-103.6L313.5,-108.0L310.4,-104.1L311.5,-98.9L309.5,-93.8L309.8,-88.7L311.0,-83.2L309.2,-78.3L308.1,-73.1L312.2,-68.9L316.7,-74.3L318.6,-79.5L319.8,-85.6L323.3,-82.3L327.1,-78.6L333.8,-82.2L337.6,-85.6L342.5,-86.6L347.2,-84.9L342.9,-81.9L342.1,-76.8L336.7,-75.7L331.5,-76.8L327.6,-73.0L327.3,-68.0L323.7,-64.4L323.9,-59.0L325.4,-54.4L323.4,-49.1L324.1,-44.2L323.6,-39.3L318.4,-40.7L314.2,-36.5L309.2,-33.9L307.0,-29.3L308.2,-24.2L304.5,-20.3L300.3,-17.3L293.6,-17.3L288.1,-16.7L283.7,-14.5L281.1,-9.0L281.5,-3.6L280.6,1.7L280.0,7.1L285.0,5.7L288.8,2.1L286.6,6.5L284.4,11.3L283.3,16.6L281.0,21.5L284.9,24.5L285.8,29.4L290.9,28.8L296.2,29.4L301.1,29.0L306.3,28.0L309.6,23.9L310.3,18.9L315.1,18.3L317.7,14.0L320.1,9.0L320.4,4.1L321.0,-0.8L322.8,-6.2L324.0,-11.2L320.1,-14.6L324.0,-19.1L324.8,-24.4L328.1,-28.6L327.1,-23.1L328.8,-18.3L333.5,-17.0L330.1,-13.2L327.3,-9.1L324.3,-2.0L326.3,3.2L331.2,2.4L334.6,-1.6L333.2,3.1L331.6,8.2L330.7,13.2L335.9,13.2L339.4,9.7L344.3,7.1L348.2,3.8L352.2,7.7L353.6,12.7L350.6,16.8L350.2,21.6L348.4,27.2L352.4,30.1L357.6,29.9L362.4,30.8L367.3,29.9L363.2,33.1L357.7,33.8L352.6,32.2L347.5,30.9L344.8,35.8L345.4,41.6L343.6,46.5L341.9,51.4L338.7,56.3L333.5,60.2L331.4,64.9L329.4,71.2L334.8,72.2L332.2,77.2L331.1,82.2L332.9,87.1L338.4,87.0L344.8,84.9L340.6,87.3L336.3,90.3L338.6,94.6L343.2,96.1L346.0,91.8L351.2,92.2L354.1,88.2L358.0,91.7L364.1,92.5L369.5,92.9L374.4,91.2L378.9,89.4L381.8,84.6L385.4,80.8L387.8,75.5L390.0,70.9L389.9,76.8L394.7,75.2L393.8,80.6L390.8,85.5L390.9,90.5L392.5,95.1L398.3,92.6L400.0,87.5L401.6,82.1L403.7,77.3L406.5,73.0L406.9,77.9L410.6,82.0L415.8,83.7L418.4,79.3L421.3,75.4L425.4,71.3L426.7,66.4L428.0,61.4L429.6,56.4L429.5,50.8L429.7,45.6L429.2,40.4L431.4,45.1L432.0,50.3L437.1,49.0L439.6,43.6L444.6,42.2L445.5,37.2L446.9,32.2L446.8,27.2L447.9,22.2L449.2,16.7L449.5,11.0L447.3,6.6L442.5,7.1L438.8,3.7L440.5,-1.5L439.1,-6.5L434.2,-7.3L433.1,-12.3L438.7,-11.9L443.7,-12.4L447.9,-15.6L450.5,-20.2L452.2,-25.1L453.1,-30.4L454.7,-35.4L459.6,-34.0L461.2,-39.1L465.9,-40.8L469.7,-35.5L469.4,-30.7L468.9,-22.7L468.6,-15.3L468.4,-9.6L473.3,-10.9L474.1,-15.9L475.8,-10.7L480.7,-11.9L481.1,-16.9L482.1,-23.6L482.5,-29.5L484.7,-34.0L488.2,-38.5L489.0,-33.3L493.3,-30.7L494.7,-35.9L496.7,-43.4L495.4,-48.1L497.7,-52.8L497.1,-57.6L494.2,-61.9L492.2,-66.9L487.3,-67.8L483.5,-71.7L477.7,-72.8L472.7,-72.5L467.0,-73.6L461.2,-74.4L455.2,-75.3L449.2,-75.7L444.4,-74.0L440.1,-76.5L434.6,-77.8L429.3,-78.8L423.3,-80.3L418.1,-79.7L413.4,-78.3L407.9,-79.5L409.8,-84.1L410.0,-89.4L413.9,-85.4L418.1,-82.9L423.6,-81.5L428.9,-81.7L433.7,-82.4L438.7,-82.4L444.0,-82.3L449.8,-80.2L455.3,-79.6L460.4,-80.3L464.7,-83.3L469.3,-80.6L474.6,-80.8L479.9,-79.5L485.0,-79.4L489.8,-80.4L492.6,-85.4L495.9,-89.5L498.5,-93.6L496.8,-100.0L501.7,-105.5L505.6,-110.5L507.9,-115.9L509.4,-111.0L507.7,-106.0L506.7,-99.7L506.4,-94.9L506.6,-89.8L510.9,-87.2L516.2,-88.0L520.8,-90.4L524.5,-94.4L522.8,-99.6L523.8,-105.2L522.0,-109.8L519.1,-114.4L520.3,-121.6L518.9,-127.5L520.4,-132.7L518.2,-137.6L519.1,-142.5L519.4,-149.1L521.0,-154.4L522.0,-159.4L519.8,-164.0L523.1,-167.8L523.9,-173.9L524.6,-179.1L529.7,-183.7L527.3,-188.4L526.5,-193.9L529.2,-199.6L532.5,-203.8L535.6,-211.0L534.4,-215.8L532.8,-220.8L532.4,-226.1L535.9,-230.1L537.9,-235.7L539.3,-240.5L541.2,-245.1L543.5,-249.7L543.9,-255.4L542.4,-260.4L543.6,-265.1L541.4,-269.4L536.5,-268.2L532.2,-264.3L531.3,-259.1L530.4,-254.1L531.7,-248.0L528.2,-252.4L527.4,-258.8L526.7,-263.8L527.5,-268.7L523.7,-271.8L518.7,-271.6L514.1,-273.6L509.4,-276.0L504.4,-276.0L499.1,-277.3L494.1,-280.4L487.5,-282.1L490.3,-287.4L495.5,-287.3L499.7,-290.3L501.0,-295.4L502.6,-300.0L507.8,-300.6L510.0,-296.0L504.8,-294.5L505.2,-288.7L505.6,-283.0L509.3,-278.7L517.3,-280.1L522.3,-278.7L525.2,-283.3L529.2,-279.9L534.6,-278.9L539.3,-276.2L544.8,-276.7L550.3,-276.1L552.8,-281.4L553.3,-286.5L555.8,-290.7L556.4,-295.9L557.2,-289.6L557.1,-284.8L560.6,-289.0L565.5,-287.5L570.5,-287.8L572.3,-292.9L574.0,-297.6L579.5,-299.4L575.5,-303.2L577.6,-308.1L581.6,-311.4L581.5,-316.8L580.7,-322.7L583.3,-327.8L583.1,-332.8L583.7,-338.1L587.7,-335.4L589.5,-329.6L590.8,-323.5L590.6,-317.7L592.7,-314.4L592.7,-480.5L323.9,-480.5L323.9,-214.0Z"/><path d="M338.7,409.0L334.4,406.1L329.6,408.3L327.2,412.9L326.9,417.8L331.8,418.1L334.5,414.0L338.2,410.2L338.7,409.0Z"/><path d="M310.5,406.0L305.5,406.1L300.1,406.3L297.3,410.3L295.8,414.9L291.1,416.6L295.7,418.4L300.9,419.1L305.8,418.5L309.8,415.7L312.0,411.0L310.5,406.0Z"/><path d="M562.4,281.4L559.3,277.6L561.3,272.9L556.4,272.4L552.3,269.7L547.3,270.5L545.1,275.5L545.1,280.7L542.3,284.8L547.4,284.2L552.2,282.4L556.0,279.1L552.8,283.5L549.1,287.3L553.0,290.5L556.1,286.4L560.6,284.2L562.4,281.4Z"/><path d="M295.7,419.9L290.2,420.0L286.4,423.7L290.1,427.2L285.4,429.2L286.1,434.1L290.0,437.3L293.9,434.0L295.5,438.9L291.2,441.3L295.4,444.1L300.2,442.1L302.4,437.5L301.8,432.4L297.6,430.0L300.7,425.9L299.4,421.2L295.7,419.9Z"/><path d="M306.6,444.2L308.2,439.0L305.1,442.8L306.6,444.2Z"/><path d="M253.7,484.6L248.7,484.7L253.5,485.5L253.7,484.6Z"/><path d="M289.8,457.2L287.4,452.8L285.1,457.0L289.8,457.2Z"/><path d="M233.2,582.6L233.5,577.8L231.5,582.5L233.2,582.6Z"/><path d="M252.3,488.1L249.3,492.3L253.5,495.0L254.3,489.7L252.3,488.1Z"/><path d="M403.0,396.9L407.3,394.5L409.6,390.2L410.6,384.9L410.1,379.8L405.0,379.1L400.2,378.1L395.3,377.4L391.9,380.9L387.3,382.5L382.4,383.1L381.3,387.9L380.0,382.8L376.1,385.9L372.2,389.3L368.5,393.0L369.9,397.8L365.4,399.7L368.8,403.5L372.8,406.4L377.7,404.8L382.6,402.5L384.4,407.1L382.8,411.9L387.9,411.2L391.7,407.3L395.4,403.7L397.8,399.2L401.2,395.8L403.0,396.9Z"/><path d="M534.1,275.0L529.1,276.4L526.6,280.6L526.5,285.6L528.6,290.0L523.5,291.4L518.5,292.4L513.8,293.5L509.1,296.2L512.2,300.0L517.3,299.5L512.7,302.3L508.5,305.4L506.2,309.9L502.7,313.4L497.7,314.0L492.7,314.9L488.5,317.8L483.5,316.9L479.2,319.3L475.5,322.7L473.2,327.0L468.1,328.4L465.1,332.7L462.3,336.8L462.6,341.9L463.8,346.8L467.6,349.9L464.5,353.6L466.4,358.9L461.7,357.3L457.8,360.7L452.9,360.6L448.4,363.2L448.9,368.1L453.7,366.7L450.5,370.9L445.9,372.9L441.0,374.4L439.3,369.5L440.1,364.3L441.9,359.4L439.8,354.9L437.7,350.3L434.5,346.6L430.2,344.2L427.2,348.1L426.4,353.3L423.7,357.5L421.8,362.4L423.9,367.1L427.5,370.8L423.9,374.3L422.2,379.0L427.1,380.7L423.9,384.8L423.0,389.7L419.4,393.0L415.2,395.9L412.5,400.2L413.8,404.8L414.1,409.9L409.2,408.5L405.2,411.3L402.3,415.2L397.4,415.4L393.7,419.5L390.1,423.0L389.8,428.0L394.5,425.7L392.3,430.7L390.4,435.2L388.9,439.9L391.5,444.0L392.1,449.5L394.7,453.6L393.8,458.7L393.6,463.7L391.1,468.3L387.7,471.9L383.7,474.9L385.8,479.4L387.7,483.9L387.5,489.3L391.6,492.2L396.7,492.7L395.6,497.7L391.5,500.3L388.5,504.9L383.0,504.4L378.4,506.6L377.2,511.4L377.2,516.2L380.3,520.4L384.9,522.9L389.9,522.1L394.4,520.1L398.1,516.6L403.0,517.3L408.0,516.6L413.1,516.7L416.8,519.9L421.4,522.3L425.8,520.2L428.7,516.3L433.2,519.0L438.1,518.8L443.1,517.6L447.4,520.0L451.2,523.2L456.0,524.1L461.0,523.4L466.0,524.2L471.0,523.7L475.8,525.0L480.7,525.0L485.5,524.4L490.4,525.6L495.5,526.5L500.3,525.5L505.6,525.7L511.0,525.0L516.2,525.6L521.1,526.7L526.2,525.3L531.4,524.0L536.7,524.2L541.6,523.1L546.5,521.6L551.4,522.2L555.8,524.2L560.0,526.9L563.5,530.2L567.7,527.2L571.9,530.0L576.1,532.9L580.8,532.0L586.1,531.1L591.0,530.5L596.0,528.7L600.7,531.1L605.6,529.8L610.3,532.1L614.7,534.3L618.7,531.4L623.7,531.9L624.2,526.5L623.9,521.1L629.0,522.6L631.6,526.9L632.3,521.8L630.5,517.2L630.5,511.8L630.8,506.3L628.8,501.4L627.2,496.4L629.2,491.6L629.0,486.1L628.8,481.2L626.2,476.7L621.3,475.0L618.0,470.6L616.4,466.0L614.9,461.3L612.1,457.0L610.1,451.9L606.6,447.8L603.6,444.0L601.1,439.5L598.9,435.1L597.3,430.3L594.0,426.5L593.5,421.0L593.2,416.0L593.0,410.6L589.6,407.1L589.7,401.6L588.4,396.6L587.6,391.6L587.7,386.6L586.9,381.7L588.0,376.8L587.1,371.8L586.0,366.3L583.4,361.6L580.8,356.8L578.1,352.7L577.5,347.6L577.0,342.4L577.9,337.7L578.3,332.3L577.9,327.0L578.3,322.0L575.8,317.7L575.3,312.6L572.8,307.8L570.5,303.4L569.7,298.5L567.4,293.4L566.8,288.5L562.2,290.2L559.6,294.5L555.4,297.7L551.2,300.9L549.9,296.2L544.9,297.8L539.5,296.8L539.0,291.8L543.3,289.4L538.9,287.4L535.3,283.7L535.0,278.9L534.1,275.0Z"/><path d="M339.4,425.1L335.8,421.9L333.1,426.2L337.8,427.7L339.4,425.1Z"/><path d="M407.1,406.0L409.9,402.0L404.6,402.1L402.1,406.7L407.1,406.0Z"/><path d="M290.9,449.2L286.0,448.8L289.3,452.3L293.8,455.3L293.9,450.1L290.9,449.2Z"/><path d="M312.6,399.4L308.0,402.0L311.4,405.9L314.0,401.6L312.6,399.4Z"/><path d="M222.4,579.9L225.0,575.8L229.0,572.6L224.8,570.0L219.9,570.7L221.3,575.4L221.4,580.5L222.4,579.9Z"/><path d="M236.4,493.8L235.6,498.5L240.4,498.1L245.6,498.4L245.8,493.0L241.2,490.3L236.7,493.4L236.4,493.8Z"/><path d="M451.9,92.0L446.9,94.3L445.7,99.3L441.3,101.9L437.0,104.7L434.9,111.4L429.7,109.9L428.7,102.9L424.6,106.3L420.7,102.7L415.5,103.9L411.7,107.0L410.3,111.9L406.2,116.1L408.0,120.7L412.6,122.5L412.5,127.7L410.4,132.6L407.0,136.5L405.8,141.7L405.2,146.6L410.1,144.2L410.7,149.7L411.0,155.1L410.2,160.0L415.1,159.9L418.6,163.4L415.1,167.4L410.5,171.4L408.2,176.0L408.3,181.5L407.6,186.4L406.3,191.6L407.6,196.4L412.4,194.5L410.6,200.2L415.6,199.9L416.0,194.9L420.5,193.0L423.9,189.5L427.0,184.0L422.3,186.4L421.9,181.5L425.3,177.8L426.3,172.5L426.8,166.6L429.8,162.2L430.8,156.8L431.6,151.0L430.7,145.8L429.6,139.4L432.1,134.8L435.4,138.5L433.3,143.3L434.6,149.6L439.4,148.0L442.4,143.8L444.4,138.1L447.2,132.4L448.5,127.4L450.0,122.3L450.5,116.0L452.3,111.0L454.2,105.8L451.6,101.3L450.2,96.5L451.9,92.0Z"/><path d="M271.2,206.9L273.9,202.6L279.7,201.1L282.9,197.5L282.3,192.6L277.7,190.4L272.6,191.3L273.1,196.5L270.3,201.0L269.6,206.4L271.2,206.9Z"/><path d="M258.4,212.3L262.4,209.3L264.6,204.6L266.0,198.1L264.1,193.2L259.2,193.7L256.4,197.6L257.1,202.6L259.0,207.3L257.6,212.1L258.4,212.3Z"/><path d="M504.4,49.3L502.4,54.1L503.7,59.2L499.1,61.4L496.1,66.8L494.8,72.1L500.7,70.2L505.6,69.1L509.5,65.6L515.4,62.9L516.4,58.0L513.2,52.4L515.0,47.9L514.0,42.8L508.4,42.6L504.9,48.1L504.4,49.3Z"/><path d="M495.6,152.5L491.2,155.4L495.6,152.5Z"/><path d="M405.2,120.4L404.4,115.5L402.9,120.8L405.2,120.4Z"/><path d="M403.4,160.0L403.6,155.1L401.1,159.5L403.4,160.0Z"/><path d="M377.7,287.5L381.1,283.6L376.3,285.8L377.7,287.5Z"/><path d="M261.1,219.8L262.1,214.4L258.9,218.3L261.1,219.8Z"/><path d="M361.8,277.3L361.8,272.5L361.3,277.4L361.8,277.3Z"/><path d="M395.2,204.2L397.2,199.1L394.0,202.8L395.2,204.2Z"/><path d="M321.0,247.9L315.7,246.5L320.0,249.5L321.0,247.9Z"/><path d="M413.0,232.3L412.8,226.6L409.3,230.8L413.0,232.3Z"/><path d="M299.3,246.1L295.0,242.3L290.8,247.1L293.6,251.6L298.4,250.2L299.3,246.1Z"/><path d="M431.1,181.0L433.7,174.2L434.8,169.2L429.9,173.0L428.4,178.1L431.1,181.0Z"/><path d="M276.2,269.9L278.3,264.4L274.1,267.1L276.2,269.9Z"/><path d="M409.8,131.5L408.5,126.4L408.7,132.1L409.8,131.5Z"/><path d="M499.2,88.5L502.1,83.4L497.2,83.0L494.4,87.3L499.2,88.5Z"/><path d="M455.0,239.0L457.8,234.6L453.1,237.7L455.0,239.0Z"/><path d="M370.8,278.1L369.5,273.1L367.6,277.6L370.8,278.1Z"/><path d="M372.4,272.8L372.4,266.6L368.2,269.8L372.0,273.1L372.4,272.8Z"/><path d="M358.2,301.4L358.8,296.5L354.1,294.6L351.8,299.0L355.9,301.6L358.2,301.4Z"/><path d="M280.6,210.9L283.2,206.7L280.0,202.5L275.1,202.8L275.3,207.9L278.9,211.3L280.6,210.9Z"/><path d="M376.7,274.2L380.3,268.6L377.5,264.4L377.2,270.0L376.7,274.2Z"/><path d="M310.4,150.9L315.4,150.3L312.7,146.1L307.8,147.5L310.4,150.9Z"/><path d="M508.8,86.0L511.9,81.1L513.3,76.4L508.3,74.5L507.1,79.8L506.1,85.3L508.8,86.0Z"/><path d="M327.6,248.5L331.2,244.7L325.1,243.4L325.9,248.2L327.6,248.5Z"/><path d="M535.9,198.0L536.0,193.1L536.8,187.9L531.6,185.1L536.4,183.1L539.6,179.0L540.4,174.1L540.7,168.9L538.1,164.0L536.4,159.5L536.4,154.6L539.1,150.3L543.7,152.1L547.2,148.4L550.2,144.5L550.3,139.2L548.3,134.7L547.7,129.7L546.2,124.6L543.5,120.5L546.0,116.3L550.7,114.2L554.1,110.1L552.2,104.9L554.2,99.8L555.3,92.6L554.1,87.0L550.1,89.8L548.0,85.0L546.4,80.3L546.8,75.2L545.6,68.7L545.1,63.9L545.3,58.6L542.4,54.1L537.2,54.6L534.9,59.1L532.4,63.3L530.9,68.4L528.1,72.8L525.2,78.3L523.6,83.9L522.8,88.7L520.3,93.3L519.9,88.4L514.9,90.0L508.9,90.5L503.9,89.6L498.8,90.6L494.5,93.5L489.5,95.2L485.2,98.8L480.4,100.4L476.1,102.9L471.6,105.6L468.2,110.4L464.2,113.6L459.6,118.4L455.2,120.3L454.0,125.1L452.5,130.2L451.6,135.3L448.8,139.7L445.3,145.1L444.9,150.0L443.8,155.3L444.6,160.3L447.4,164.4L443.8,168.0L439.9,171.0L437.4,177.1L435.7,182.0L437.7,186.9L442.2,190.3L446.4,187.8L449.8,183.6L455.3,180.3L460.7,175.7L464.4,172.4L469.3,171.9L474.3,169.1L479.3,165.1L484.0,159.6L487.4,153.6L491.4,150.3L488.1,154.5L494.0,151.6L499.2,148.0L503.2,144.3L506.4,140.1L510.5,136.0L514.4,132.5L517.5,128.3L517.0,123.2L521.5,121.6L523.8,126.7L520.2,131.7L514.4,135.7L514.7,140.7L510.1,142.4L505.8,146.2L501.2,148.9L496.9,152.7L492.2,155.7L487.6,158.4L484.2,162.2L480.7,167.2L476.3,170.8L468.8,173.9L463.6,176.6L460.3,180.2L453.7,186.9L449.8,192.4L448.9,197.6L446.9,203.1L446.0,207.8L447.2,212.5L451.5,215.3L456.7,215.7L451.9,217.4L453.3,222.1L454.8,227.1L459.1,229.3L461.1,224.8L463.6,217.9L466.0,211.5L470.0,215.2L474.5,211.7L473.2,206.3L478.1,207.4L481.3,202.8L484.7,199.3L487.3,194.9L486.7,200.9L486.1,206.9L491.2,204.6L490.8,209.7L493.4,214.3L496.0,218.5L492.8,214.6L488.4,212.1L481.9,215.0L478.1,218.5L475.6,223.4L476.4,228.3L472.1,232.7L471.4,237.6L475.5,240.7L480.1,238.0L484.9,235.3L487.7,230.3L489.8,225.8L494.6,226.7L499.3,225.3L503.8,223.5L506.7,219.4L509.4,215.4L514.1,213.4L519.3,213.4L520.9,208.6L519.7,203.2L524.6,203.5L529.7,203.9L532.9,200.2L535.9,198.0Z"/><path d="M423.1,228.7L423.0,223.5L422.3,218.7L418.3,221.9L419.6,226.8L423.1,228.7Z"/><path d="M268.8,267.2L270.1,262.3L265.7,260.3L265.2,265.6L268.8,267.2Z"/><path d="M319.8,103.3L317.3,107.9L312.5,108.7L308.8,112.6L307.2,117.4L312.0,119.3L315.0,115.2L313.6,120.5L314.5,125.3L315.8,130.1L318.1,134.5L314.5,138.5L318.9,140.6L323.8,141.5L318.9,141.6L315.6,145.6L316.9,150.3L317.7,156.4L323.2,156.9L328.0,158.1L323.0,159.3L318.0,159.0L313.2,158.2L308.3,157.9L303.6,159.7L305.4,164.5L304.1,169.2L301.2,173.6L296.8,170.4L294.1,174.7L291.3,178.9L291.4,184.7L295.8,186.8L298.6,182.0L299.7,186.9L299.6,192.0L297.0,196.4L291.1,195.9L287.2,200.4L286.3,205.4L284.9,210.8L287.3,215.3L290.4,211.5L291.1,216.6L290.2,222.3L289.7,227.4L288.6,232.5L290.1,237.3L294.5,239.4L299.4,239.8L304.7,240.1L308.9,244.7L302.0,243.6L299.9,248.3L300.7,253.5L304.6,257.1L309.4,256.2L310.5,251.0L311.2,255.9L313.1,260.7L318.4,259.8L322.1,255.7L318.8,249.7L313.9,247.9L320.1,244.8L325.2,242.1L329.8,239.6L331.7,234.9L332.5,228.9L334.0,224.0L335.6,219.2L335.6,214.3L341.0,215.1L343.4,219.4L344.7,224.1L345.3,230.2L347.1,236.5L352.1,237.1L355.1,233.2L359.8,234.4L365.6,232.0L370.0,229.6L374.0,225.0L377.8,221.8L379.7,217.0L378.8,212.2L378.2,205.3L382.8,206.9L383.5,201.9L386.2,197.8L381.5,200.1L379.8,194.8L383.5,189.3L385.6,183.4L387.3,177.5L390.6,172.6L390.5,167.0L386.0,164.3L380.1,164.1L374.5,162.7L369.1,162.5L364.2,161.3L359.6,162.8L353.5,160.5L348.1,160.8L342.7,161.1L336.6,163.4L333.4,159.6L336.5,155.0L339.2,148.0L340.2,143.1L340.1,137.7L341.2,132.5L343.8,137.2L348.6,138.2L344.7,141.0L342.6,146.3L341.8,153.2L346.4,157.7L351.8,158.3L357.9,158.8L363.3,157.9L367.7,160.5L372.8,160.2L377.6,159.2L382.7,159.2L388.8,157.9L392.6,154.4L392.0,148.3L393.0,142.0L393.7,136.7L394.7,131.3L395.9,124.4L395.0,117.9L396.2,112.7L396.8,107.6L392.7,104.4L387.7,104.0L383.3,108.2L383.4,113.4L382.8,118.3L379.9,122.3L379.7,116.8L381.4,110.2L383.3,105.3L383.1,100.5L379.0,97.8L374.0,96.9L368.8,97.8L364.2,99.3L359.6,101.1L355.2,103.7L350.3,102.0L345.4,103.6L340.9,105.5L336.0,107.5L331.4,105.0L326.8,103.5L320.5,103.2L319.8,103.3Z"/><path d="M465.4,231.4L470.5,228.7L473.6,224.9L474.8,220.2L469.9,220.1L467.8,224.5L464.1,228.9L465.4,231.4Z"/><path d="M282.5,234.8L286.0,230.8L287.4,225.9L285.0,221.5L279.2,224.5L278.4,229.9L279.7,234.7L282.5,234.8Z"/><path d="M362.4,286.2L363.3,280.1L359.2,282.9L360.2,287.8L362.4,286.2Z"/><path d="M294.0,165.6L297.5,162.0L292.8,159.6L288.0,161.4L292.0,164.4L294.0,165.6Z"/><path d="M284.3,252.6L283.7,259.4L286.4,263.9L291.3,264.6L296.2,263.2L295.1,258.5L290.9,255.9L286.3,253.3L284.3,252.6Z"/><path d="M137.6,-65.0L136.6,-59.9L137.8,-54.7L142.5,-51.9L144.4,-47.3L149.1,-46.2L149.6,-51.2L151.6,-56.0L146.7,-57.8L143.8,-61.9L137.6,-65.0Z"/><path d="M152.7,-53.7L152.9,-48.9L153.3,-43.0L155.3,-38.3L154.0,-33.6L159.1,-34.7L160.8,-39.7L163.8,-44.1L161.4,-49.0L160.8,-53.9L155.2,-55.9L152.7,-53.7Z"/><path d="M214.3,80.5L218.1,77.2L223.3,76.3L224.2,71.4L219.3,70.3L214.5,71.2L211.2,74.8L213.4,79.4L214.3,80.5Z"/><path d="M132.4,63.9L131.4,59.0L128.5,52.9L125.1,56.4L120.0,55.5L117.7,60.1L117.6,65.0L119.1,69.8L124.2,70.9L128.1,68.0L131.5,71.5L132.8,66.5L132.4,63.9Z"/><path d="M200.3,69.4L205.0,66.0L209.9,63.6L213.5,58.5L208.6,61.1L211.7,55.6L211.4,50.3L206.6,52.2L202.8,56.2L199.9,60.7L198.1,65.4L200.3,69.4Z"/><path d="M5.5,-44.7L9.8,-41.8L14.8,-40.5L13.5,-35.8L15.0,-31.0L19.6,-28.9L23.2,-32.5L22.9,-37.7L19.6,-41.4L19.5,-46.9L14.9,-45.3L10.6,-47.8L6.0,-45.3L5.5,-44.7Z"/><path d="M44.4,-36.0L38.6,-35.2L34.1,-33.0L32.4,-27.8L32.2,-22.8L37.2,-19.9L33.9,-16.2L30.6,-11.7L34.2,-8.5L39.3,-14.7L43.3,-18.5L46.3,-23.0L51.6,-22.3L51.6,-27.1L52.5,-32.4L47.8,-35.9L44.4,-36.0Z"/><path d="M190.7,-87.1L193.0,-91.6L190.7,-96.6L188.0,-101.2L184.3,-104.7L182.8,-100.0L180.3,-104.4L179.2,-109.2L182.6,-112.9L184.1,-118.2L178.0,-116.6L180.2,-121.9L183.0,-126.2L182.9,-131.1L182.7,-136.9L181.7,-141.7L183.7,-146.6L180.2,-150.1L175.4,-152.1L169.8,-150.3L165.3,-152.3L160.0,-149.5L158.6,-144.3L155.6,-148.6L150.5,-147.0L143.3,-149.2L138.4,-148.8L137.0,-143.8L138.3,-139.0L134.8,-135.5L133.8,-130.1L132.0,-134.7L132.7,-140.7L131.2,-145.4L130.5,-150.4L126.2,-147.9L121.9,-145.3L117.0,-144.8L115.0,-140.2L112.9,-134.4L111.6,-128.6L112.4,-122.7L115.4,-118.3L111.0,-120.8L110.8,-115.6L111.3,-109.8L116.8,-110.2L115.3,-105.5L113.0,-101.0L113.1,-96.2L113.7,-90.9L116.0,-86.2L115.5,-92.0L120.7,-92.3L120.9,-97.5L123.2,-93.0L128.1,-92.2L123.8,-88.9L120.0,-85.9L123.5,-82.0L123.0,-76.8L124.0,-71.8L122.4,-66.9L117.1,-67.2L112.8,-69.7L111.7,-64.2L117.2,-60.3L119.6,-54.4L121.6,-49.4L126.0,-51.8L126.8,-57.3L129.8,-61.5L129.9,-66.7L129.8,-72.3L131.5,-77.9L131.6,-82.8L133.9,-87.7L135.5,-93.0L135.8,-98.0L137.7,-102.6L136.6,-107.5L139.6,-102.6L140.8,-96.3L145.0,-99.3L145.0,-91.9L148.8,-87.8L143.1,-84.1L139.1,-80.8L140.6,-76.0L145.0,-78.5L148.9,-75.4L153.5,-77.3L157.7,-81.4L156.2,-86.6L157.2,-91.7L159.5,-96.2L164.1,-93.2L167.8,-96.4L169.6,-103.3L169.3,-108.3L168.4,-113.1L168.5,-118.2L172.7,-120.7L171.3,-115.5L171.5,-110.4L170.5,-104.8L174.0,-100.8L176.1,-94.2L178.1,-89.0L182.2,-92.2L186.7,-90.3L190.7,-87.1Z"/><path d="M11.7,-37.7L8.8,-33.8L12.0,-37.6L11.7,-37.7Z"/><path d="M113.4,-13.7L117.5,-17.2L113.4,-13.7Z"/><path d="M118.8,-11.1L116.9,-6.1L117.7,-1.3L114.4,2.4L111.3,6.1L108.8,11.4L110.7,15.9L112.4,21.0L111.5,26.2L113.7,31.6L117.8,34.3L122.2,31.6L124.0,26.4L125.7,21.7L125.7,16.6L126.0,11.6L126.7,6.5L121.8,5.4L126.0,2.7L124.9,-2.3L120.9,-5.3L122.2,-10.6L118.8,-11.1Z"/><path d="M62.6,20.0L67.1,16.1L61.8,16.2L62.6,20.0Z"/><path d="M127.3,82.7L132.2,80.4L127.5,82.0L127.3,82.7Z"/><path d="M54.4,-1.4L57.1,-6.1L53.3,-2.0L54.4,-1.4Z"/><path d="M108.2,-15.0L113.3,-17.3L108.2,-15.0Z"/><path d="M167.1,-26.7L170.0,-31.2L172.1,-36.6L167.1,-34.8L164.4,-30.5L167.1,-26.7Z"/><path d="M63.2,24.2L65.8,19.6L61.5,22.9L63.2,24.2Z"/><path d="M214.3,66.1L217.1,62.2L212.4,64.1L214.3,66.1Z"/><path d="M89.7,20.5L87.9,15.7L85.3,20.1L89.7,20.5Z"/><path d="M216.4,86.3L213.3,90.6L218.2,89.5L216.4,86.3Z"/><path d="M198.5,26.9L199.1,21.9L197.2,26.3L198.5,26.9Z"/><path d="M225.1,79.7L227.9,75.3L223.9,78.7L225.1,79.7Z"/><path d="M60.7,63.3L60.6,58.1L57.4,62.3L60.7,63.3Z"/><path d="M135.1,55.0L136.7,60.2L135.1,55.0Z"/><path d="M-8.5,-83.9L-5.2,-87.5L-5.7,-93.7L-2.9,-89.2L-1.9,-84.5L-0.6,-89.3L5.2,-88.8L11.1,-90.5L16.5,-91.6L14.4,-86.9L11.7,-82.7L7.0,-80.1L4.7,-75.5L10.4,-76.7L10.9,-71.8L15.0,-75.2L17.7,-79.9L20.3,-84.1L24.0,-87.2L28.9,-86.1L28.5,-81.1L32.4,-84.6L34.8,-89.3L36.5,-93.9L38.1,-98.6L40.5,-103.9L45.9,-103.2L50.9,-102.0L46.0,-102.2L47.7,-96.7L45.6,-92.3L45.9,-87.0L41.0,-83.7L37.2,-80.6L35.5,-75.0L37.0,-70.3L35.9,-65.0L40.0,-68.1L44.7,-69.5L48.0,-65.8L48.4,-70.8L49.8,-75.9L54.1,-73.2L55.7,-68.7L60.5,-70.4L62.4,-74.9L66.2,-71.7L68.3,-76.8L68.4,-82.6L68.2,-88.8L67.8,-93.6L65.9,-99.2L65.5,-105.0L66.4,-110.3L66.5,-115.4L64.1,-120.6L64.0,-125.9L59.6,-128.8L57.5,-133.8L57.4,-139.2L57.5,-144.2L54.4,-148.7L50.6,-144.8L47.2,-148.5L45.3,-153.2L40.4,-154.6L35.4,-154.6L30.6,-156.5L25.9,-151.5L21.3,-149.2L19.8,-144.5L17.2,-139.8L12.8,-136.7L7.0,-136.1L4.5,-131.1L7.5,-127.1L5.9,-121.6L4.5,-115.7L3.3,-110.8L3.1,-106.0L-1.7,-103.7L-4.7,-99.7L-6.4,-104.3L-7.4,-109.6L-11.5,-106.1L-12.1,-100.8L-10.5,-96.3L-9.4,-91.5L-10.7,-86.0L-8.5,-83.9Z"/><path d="M136.9,61.0L133.4,64.8L136.8,68.2L139.0,63.5L136.9,61.0Z"/><path d="M45.8,25.6L42.1,22.3L37.2,22.4L32.8,24.8L37.7,25.7L34.6,29.7L38.2,33.2L35.1,37.4L31.1,40.8L26.4,42.6L27.5,47.4L32.2,48.1L37.9,46.8L37.0,52.8L41.9,52.1L47.0,51.0L43.2,55.4L39.0,59.1L44.5,58.7L47.4,63.3L48.0,68.3L51.4,63.3L51.3,56.7L53.3,52.3L56.0,48.0L60.1,45.0L63.2,48.9L66.4,45.0L70.6,41.6L71.7,36.7L70.9,31.4L73.7,27.1L74.5,22.1L70.2,26.0L65.3,27.9L64.3,33.0L58.6,33.7L54.9,29.2L57.5,25.1L55.2,20.8L50.8,23.0L46.8,26.3L45.8,25.6Z"/><path d="M126.8,-2.2L131.3,-4.0L130.9,1.1L135.9,1.4L133.6,6.8L129.5,9.7L127.7,14.7L128.3,20.0L126.7,25.3L127.4,30.5L131.8,32.5L137.0,32.2L137.5,37.6L141.8,40.9L145.6,37.8L149.5,34.2L151.4,29.6L151.4,23.7L151.1,18.6L147.6,14.7L146.1,9.6L147.1,4.8L150.6,1.5L152.8,-3.2L150.3,2.9L151.7,7.7L148.2,11.1L152.8,13.3L156.6,16.3L155.5,21.1L154.7,27.0L153.6,31.7L158.4,31.0L159.1,26.1L159.0,21.0L161.2,25.4L163.7,20.8L168.6,19.6L170.6,14.9L172.2,10.3L173.5,5.4L174.3,-2.5L173.9,-7.3L173.6,-12.3L169.0,-14.1L164.2,-15.0L160.4,-18.0L157.0,-22.0L155.9,-26.8L152.0,-30.6L146.4,-31.9L141.1,-31.8L137.8,-27.8L135.0,-23.8L132.7,-19.4L134.0,-14.3L129.9,-11.5L127.5,-7.1L126.8,-2.2Z"/><path d="M35.9,115.8L40.3,112.7L34.6,111.8L29.5,112.3L32.8,116.1L35.9,115.8Z"/><path d="M15.0,56.7L19.5,53.9L14.2,51.3L13.6,56.3L15.0,56.7Z"/><path d="M92.4,10.6L95.9,6.6L89.9,6.2L91.0,11.3L92.4,10.6Z"/><path d="M121.5,70.9L116.6,72.1L120.1,76.0L125.4,75.9L123.4,71.2L121.5,70.9Z"/><path d="M47.7,2.4L50.7,-2.1L45.6,-3.7L44.1,1.1L47.7,2.4Z"/><path d="M146.9,-70.9L147.7,-66.0L150.1,-70.7L146.9,-70.9Z"/><path d="M21.9,46.1L24.4,41.9L25.3,36.0L19.9,36.7L19.5,41.6L20.2,46.8L21.9,46.1Z"/><path d="M192.8,27.6L196.0,23.9L191.3,22.5L192.2,28.1L192.8,27.6Z"/><path d="M178.6,-46.5L181.1,-51.1L175.7,-51.7L174.9,-46.7L178.6,-46.5Z"/><path d="M79.1,-33.8L81.2,-38.2L81.8,-43.1L75.8,-46.2L71.5,-42.3L74.0,-38.1L77.3,-33.9L79.1,-33.8Z"/><path d="M81.1,-18.7L83.0,-23.6L82.1,-28.6L78.8,-33.2L73.5,-33.4L70.5,-28.9L72.8,-24.1L74.5,-19.4L79.7,-17.7L81.1,-18.7Z"/><path d="M190.5,68.6L195.1,66.7L195.9,61.7L199.0,57.3L194.1,57.7L190.1,60.4L185.8,64.0L187.9,69.2L190.5,68.6Z"/><path d="M61.7,-7.9L60.0,-3.1L58.5,1.6L57.0,6.3L62.0,6.8L66.0,3.0L66.5,-1.8L63.9,-7.1L61.7,-7.9Z"/><path d="M76.7,-1.8L78.6,2.8L82.5,-1.0L81.7,-6.5L82.8,-11.6L77.9,-10.9L74.4,-7.3L77.9,-3.8L76.7,-1.8Z"/><path d="M98.5,-13.9L99.0,-8.7L104.3,-10.9L101.6,-15.0L106.5,-15.1L107.1,-20.3L106.2,-25.5L102.0,-22.8L99.3,-17.4L98.5,-13.9Z"/><path d="M176.0,-23.9L180.8,-24.5L182.9,-29.5L185.1,-34.0L184.6,-40.0L184.1,-45.0L179.2,-41.4L178.0,-36.4L177.7,-31.0L173.3,-28.3L174.2,-23.5L176.0,-23.9Z"/><path d="M46.1,-47.1L45.2,-41.9L48.6,-38.3L53.2,-40.1L57.3,-44.0L62.4,-46.7L63.0,-51.7L61.4,-56.7L56.9,-53.7L52.7,-51.1L48.1,-48.3L46.1,-47.1Z"/><path d="M163.7,-63.3L167.8,-60.2L168.1,-54.8L171.6,-51.4L176.3,-53.2L173.4,-59.1L173.6,-64.5L172.6,-69.4L167.1,-69.0L164.3,-64.6L163.7,-63.3Z"/><path d="M504.3,-39.0L507.5,-42.7L507.7,-47.7L512.3,-49.3L511.8,-54.3L506.8,-54.8L507.9,-60.2L505.2,-65.0L500.8,-61.1L501.3,-56.0L501.0,-51.2L501.3,-46.0L500.7,-41.2L504.3,-39.0Z"/><path d="M294.0,-51.3L291.9,-46.2L290.5,-41.0L288.6,-36.3L286.7,-31.2L286.6,-25.9L288.9,-21.6L294.8,-18.8L298.3,-24.9L299.8,-31.5L301.3,-36.7L303.2,-42.3L305.5,-46.7L307.0,-51.4L303.8,-55.4L300.3,-51.7L294.6,-51.4L294.0,-51.3Z"/><path d="M515.1,-5.4L515.9,-10.5L517.1,-15.9L514.3,-20.4L512.4,-25.3L509.5,-30.1L508.1,-34.9L504.4,-38.6L501.2,-35.0L497.7,-30.2L495.7,-25.3L494.4,-20.4L494.6,-25.5L491.9,-29.7L488.9,-25.7L488.2,-20.3L486.0,-16.0L489.1,-11.9L493.4,-9.6L495.6,-5.2L501.0,-7.2L506.0,-5.9L510.9,-4.9L515.1,-5.4Z"/><path d="M263.7,2.4L268.6,2.0L270.4,-2.6L273.0,-6.7L275.8,-11.4L275.4,-16.5L267.8,-15.7L262.9,-15.9L257.4,-11.2L254.7,-6.6L255.4,-1.2L257.8,3.3L259.6,-2.4L261.3,2.5L263.7,2.4Z"/><path d="M445.3,48.0L446.3,43.2L444.0,48.1L445.3,48.0Z"/><path d="M506.5,8.0L508.2,3.1L504.8,7.5L506.5,8.0Z"/><path d="M463.9,37.5L466.1,32.8L463.2,37.1L463.9,37.5Z"/><path d="M450.9,34.2L452.7,29.6L448.7,33.4L450.9,34.2Z"/><path d="M514.6,24.9L518.6,22.1L513.8,21.5L514.6,24.9Z"/><path d="M265.4,-44.4L266.9,-49.9L264.4,-45.2L265.4,-44.4Z"/><path d="M271.0,-70.8L267.0,-67.8L266.2,-62.1L262.5,-57.1L267.7,-56.5L271.7,-59.4L272.5,-54.3L269.2,-50.4L273.0,-47.0L270.7,-42.5L268.7,-37.6L266.0,-41.8L264.2,-37.0L263.0,-32.0L260.9,-27.4L259.6,-22.3L264.5,-24.1L266.4,-29.1L270.8,-31.1L271.2,-26.0L268.6,-21.7L272.0,-18.1L277.5,-18.8L280.0,-23.4L284.2,-28.1L285.9,-32.9L287.1,-37.8L288.0,-42.9L290.8,-47.3L289.9,-52.3L289.6,-57.4L286.7,-61.6L284.8,-66.8L280.2,-68.4L274.8,-69.3L271.0,-70.8Z"/><path d="M295.7,44.5L300.2,42.5L295.1,40.4L295.7,44.5Z"/><path d="M461.1,5.2L464.6,8.8L467.4,1.9L466.0,-3.1L461.1,-1.6L461.1,4.5L461.1,5.2Z"/><path d="M342.0,43.4L342.8,38.6L343.0,33.6L338.5,35.7L337.9,40.8L342.0,43.4Z"/><path d="M311.5,-52.8L309.6,-47.5L308.7,-42.3L308.1,-36.9L313.2,-38.4L317.6,-40.6L321.3,-43.9L321.2,-48.9L316.0,-49.1L312.8,-53.1L311.5,-52.8Z"/><path d="M320.6,85.1L325.5,86.0L326.6,81.1L327.8,76.3L323.6,73.7L321.5,78.2L320.2,83.2L320.6,85.1Z"/></g><path d="M376.8,1109.3L184.9,1109.3L210.6,722.4L248.7,722.4L277.3,845.0L338.9,977.6Z" fill="url(#rcaHatch)" stroke="var(--red)" stroke-width="1.6" stroke-dasharray="6 4"/></g><text x="62" y="732" class="warntag" font-size="11">WEST CALVERT ROCKFISH</text><text x="62" y="745" class="warntag" font-size="11">CONSERVATION AREA</text><text x="62" y="759" class="sub" font-size="9.5">no fishing · extends ≈7 NM south</text><text x="62" y="771" class="sub" font-size="9.5">load boundary into GPS — no visual cue</text><text x="258" y="724" class="sub" font-size="9">shoals sit just N of RCA line — verify on GPS</text><path d="M133.5,662.8L143.8,513.6L195.1,381.1L236.2,265.1L297.8,175.6" fill="none" stroke="var(--red)" stroke-width="1.6" stroke-dasharray="8 5" opacity="0.75"/><text x="16" y="500" class="warntag" font-size="10.5">⚠ EXPOSED OUTER COAST</text><text x="16" y="512" class="sub" font-size="9.5">swell-dependent · mornings only</text><text x="514" y="646" class="isl" font-size="13" text-anchor="middle">CALVERT ISLAND</text><text x="524" y="421" class="isl" font-size="11" text-anchor="middle">HECATE IS.</text><text x="544" y="109" class="isl" font-size="10.5" text-anchor="middle">NALAU IS.</text><text x="353" y="142" class="isl" font-size="9.5" text-anchor="middle">STIRLING IS.</text><text x="236" y="23" class="isl" font-size="10" text-anchor="middle">HUNTER IS.</text><text x="420" y="313" class="geo" font-size="13.5" text-anchor="middle" transform="rotate(-38 420 313)">HAKAI PASSAGE</text><text x="442" y="542" class="geo" font-size="10" text-anchor="middle" transform="rotate(-10 442 542)">Kwakshua Channel</text><text x="497" y="60" class="geo" font-size="9.5" text-anchor="middle" transform="rotate(-32 497 60)">Nalau Passage</text><text x="277" y="484" class="geo" font-size="9.5" text-anchor="middle" transform="rotate(-72 277 484)">Choked Passage</text><text x="123" y="613" class="isl" font-size="10.5" text-anchor="middle">QUEEN CHARLOTTE SOUND</text><g><circle cx="466.7" cy="219.5" r="10" fill="var(--red)" stroke="var(--map-water)" stroke-width="2.6"/><path d="M462.7,222.5 v-4 l4,-3.4 4,3.4 v4 z" fill="var(--map-water)"/><text x="482" y="243" class="lbl" font-size="13.5">JOE’S SALMON LODGE</text><text x="482" y="256" class="sub" font-size="9.5">floating barge · cove, S tip of Nalau Is.</text></g><g class="spot"><circle cx="307.0" cy="402.3" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><circle cx="307.0" cy="402.3" r="6.2" fill="var(--brass)"/><text x="189" y="404" class="lbl" font-size="12.5">Odlum Pt<tspan class="chip" font-size="8.5" dx="4" dy="-1"> F→E </tspan></text><text x="189" y="416" class="sub" font-size="9.5">4.4 NM · ≈16 min</text></g><g class="spot"><circle cx="359.5" cy="248.5" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><path d="M359.5,242.3 A6.2,6.2 0 0 0 359.5,254.7 Z" fill="var(--brass)"/><path d="M359.5,242.3 A6.2,6.2 0 0 1 359.5,254.7 Z" fill="var(--teal)"/><circle cx="359.5" cy="248.5" r="6.2" fill="none" stroke="var(--map-water)" stroke-width="1" stroke-dasharray="2.6 2.2"/><text x="257" y="247" class="lbl" font-size="12.5">≈ The Gap<tspan class="chip" font-size="8.5" dx="4" dy="-1"> MAX </tspan></text><text x="257" y="259" class="sub" font-size="9.5">2.0 NM · ≈8 min</text></g><g class="spot"><circle cx="431.4" cy="343.3" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><path d="M431.4,337.1 A6.2,6.2 0 0 0 431.4,349.5 Z" fill="var(--brass)"/><path d="M431.4,337.1 A6.2,6.2 0 0 1 431.4,349.5 Z" fill="var(--teal)"/><circle cx="431.4" cy="343.3" r="6.2" fill="none" stroke="var(--map-water)" stroke-width="1"/><text x="444" y="339" class="lbl" font-size="12.5">Barney Pt<tspan class="chip" font-size="8.5" dx="4" dy="-1"> F→E </tspan></text><text x="444" y="351" class="sub" font-size="9.5">2.3 NM · ≈9 min</text></g><g class="spot"><circle cx="428.3" cy="361.2" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><circle cx="428.3" cy="361.2" r="6.2" fill="var(--teal)" stroke="var(--ink)" stroke-width="1.1" stroke-dasharray="2.6 2.2" fill-opacity="0.55"/><text x="434" y="388" class="lbl" font-size="11">≈ Barney Bay<tspan class="chip" font-size="8.5" dx="4" dy="-1"> FLD </tspan></text></g><g class="spot"><circle cx="535.8" cy="197.9" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><circle cx="535.8" cy="197.9" r="6.2" fill="var(--teal)"/><text x="549" y="202" class="lbl" font-size="12.5">Bayly Pt<tspan class="chip" font-size="8.5" dx="4" dy="-1"> F→E </tspan></text></g><g class="spot"><circle cx="561.4" cy="269.7" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><circle cx="561.4" cy="269.7" r="6.2" fill="var(--teal)"/><text x="537" y="293" class="lbl" font-size="12.5">Kelpie Pt<tspan class="chip" font-size="8.5" dx="4" dy="-1"> FLD </tspan></text></g><g class="spot"><circle cx="380.3" cy="381.9" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><circle cx="380.3" cy="381.9" r="6.2" fill="var(--teal)"/><text x="324" y="409" class="lbl" font-size="12.5">Foster Rocks<tspan class="chip" font-size="8.5" dx="4" dy="-1"> BIG </tspan></text><text x="324" y="421" class="sub" font-size="9.5">3.3 NM · ≈12 min</text></g><g class="spot"><circle cx="378.3" cy="269.7" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><circle cx="378.3" cy="269.7" r="6.2" fill="var(--teal)"/><text x="393" y="272" class="lbl" font-size="12.5">The Breakers<tspan class="chip" font-size="8.5" dx="4" dy="-1"> BIG </tspan></text><text x="393" y="285" class="warntag" font-size="9.5">⚠ swell · mornings only</text></g><g class="spot"><circle cx="410.8" cy="367.8" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><path d="M410.8,361.6 A6.2,6.2 0 0 0 410.8,374.0 Z" fill="var(--teal)"/><path d="M410.8,361.6 A6.2,6.2 0 0 1 410.8,374.0 Z" fill="var(--blue)"/><circle cx="410.8" cy="367.8" r="6.2" fill="none" stroke="var(--map-water)" stroke-width="1" stroke-dasharray="2.6 2.2"/><text x="261" y="366" class="lbl" font-size="12.5">≈ West Bay<tspan class="chip" font-size="8.5" dx="4" dy="-1"> SLK </tspan></text><text x="261" y="378" class="goodtag" font-size="9.5">sheltered · bad-wx option</text></g><g class="spot"><circle cx="244.2" cy="711.5" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><circle cx="244.2" cy="711.5" r="6.2" fill="var(--blue)"/><text x="258" y="708" class="lbl" font-size="12.5">Dublin Pt<tspan class="chip" font-size="8.5" dx="4" dy="-1"> SLK </tspan></text><text x="258" y="720" class="sub" font-size="9.5">9.8 NM · ≈37 min</text></g><g class="spot"><circle cx="103.3" cy="183.2" r="7.300000000000001" fill="none" stroke="var(--map-water)" stroke-width="2.4"/><circle cx="103.3" cy="183.2" r="6.2" fill="var(--blue)"/><text x="117" y="175" class="lbl" font-size="12.5">Airacobra Rock<tspan class="chip" font-size="8.5" dx="4" dy="-1"> SLK </tspan></text><text x="117" y="187" class="sub" font-size="9.5">6.6 NM · ≈25 min</text></g><line x1="118" y1="342" x2="46" y2="300" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/><text x="56" y="322" class="lbl" font-size="12" text-anchor="start">SPIDER ISLAND — coho · kelp</text><text x="56" y="334" class="sub" font-size="9.5" text-anchor="start">9.9 NM direct · ≈37+ min · inside route longer</text><text x="56" y="346" class="warntag" font-size="9.5" text-anchor="start">⚠ all-day run · settled wx only · hard turnaround</text><line x1="318" y1="104" x2="318" y2="62" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/><text x="328" y="86" class="lbl" font-size="11.5" text-anchor="start">CULTUS SOUND — salmon · max current</text><text x="328" y="98" class="sub" font-size="9.5" text-anchor="start">11.7 NM · ≈44 min · historically escorted — ask lodge</text><line x1="662.6486486486668" y1="718.9786094800678" x2="708.6486486486668" y2="738.9786094800678" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/><text x="706.6486486486668" y="752.9786094800678" class="lbl" font-size="11" text-anchor="end">ADDENBROKE IS. LIGHT</text><text x="706.6486486486668" y="764.9786094800678" class="sub" font-size="9.5" text-anchor="end">tide station 08860 · 11 NM SE</text><g><text x="18" y="30" class="lbl" font-size="16" style="letter-spacing:.06em">HAKAI PASS — THE GROUNDS</text><text x="18" y="46" class="sub" font-size="10">schematic · positions from BC Geographic Names + OSM</text><rect x="16" y="56" width="176" height="22" rx="4" fill="none" stroke="var(--red)" stroke-width="1.6"/><text x="26" y="71" class="warntag" font-size="11" style="letter-spacing:.08em">NOT FOR NAVIGATION</text></g><g><line x1="716.0" y1="64" x2="716.0" y2="26" stroke="var(--ink)" stroke-width="2" marker-end="url(#arr)"/><text x="716.0" y="80" text-anchor="middle" class="lbl" font-size="12">N</text></g><g><line x1="620" y1="769" x2="730" y2="769" stroke="var(--ink)" stroke-width="2.5"/><line x1="620" y1="764" x2="620" y2="774" stroke="var(--ink)" stroke-width="2"/><line x1="675" y1="765" x2="675" y2="773" stroke="var(--ink)" stroke-width="1.4"/><line x1="730" y1="764" x2="730" y2="774" stroke="var(--ink)" stroke-width="2"/><text x="675" y="759" text-anchor="middle" class="sub" font-size="10">2 NM</text></g></svg><div class="map-cap">
+<div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:7px">
+<span><svg width="13" height="13" viewBox="0 0 13 13" style="vertical-align:-2px"><circle cx="6.5" cy="6.5" r="5.4" fill="var(--brass)"/></svg> chinook-first</span>
+<span><svg width="13" height="13" viewBox="0 0 13 13" style="vertical-align:-2px"><circle cx="6.5" cy="6.5" r="5.4" fill="var(--teal)"/></svg> coho / salmon</span>
+<span><svg width="13" height="13" viewBox="0 0 13 13" style="vertical-align:-2px"><circle cx="6.5" cy="6.5" r="5.4" fill="var(--blue)"/></svg> bottomfish</span>
+<span><svg width="13" height="13" viewBox="0 0 13 13" style="vertical-align:-2px"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg> ≈ approximate — confirm with lodge</span>
+</div>
+<div style="margin-bottom:7px"><b>Tide keys</b> (from the structure table): <span class="mono">F→E</span> last 2 h flood → first h ebb · <span class="mono">MAX</span> mid-flood / mid-ebb · <span class="mono">BIG</span> any moving water, best big tide · <span class="mono">FLD</span> flood + top of tide · <span class="mono">SLK</span> ±1 h of slack</div>
+<div class="d">Half-and-half dots carry two fisheries. Run times assume 16 kn straight-line — inside routes run longer. Positions verified against BC Geographic Names / OSM; dashed ≈ marks are inference, and <b>Bald Rock could not be located at all</b> — get both from the lodge with GPS waypoints. Chart spellings: <b>Bayly Point</b>, <b>Airacobra Rock</b>, <b>Cultus Sound</b>. RCA boundary from DFO’s published West Calvert coordinates — confirm the current season’s before you fish. Schematic — <b>not for navigation</b>.</div>
+</div></figure>
+
+  <h3>The verified spots</h3>
+  <p>These names appear across multiple independent BC sources and can be relied upon.</p>
+  <div class="cards">
+    <div class="card"><div class="ct">Odlum Point <span class="badge b-brass">Marquee chinook</span></div><div class="cs">Where salmon first arrive at Calvert Island’s entrance to Hakai Passage — the first structure inbound fish contact. About 20 minutes from the lodge. Fish the tide line and current break off the point; best on the flooding tide carrying fish and feed in.</div></div>
+    <div class="card"><div class="ct">The Gap <span class="badge b-brass">Chinook</span> <span class="badge b-teal">Coho</span></div><div class="cs">A funnel between islands that compresses and accelerates water, concentrating bait. Fishes on moving water and <strong>goes dead at slack</strong>. Troll the edges of the rip, never the middle of the boil. <em>Producing tyee in late July — see the lodge report.</em></div></div>
+    <div class="card"><div class="ct">Barney Point / Bay <span class="badge b-brass">Chinook</span> <span class="badge b-teal">Notably coho</span></div><div class="cs">Point-and-bay pairing. Coho hold shallow over the bay and kelp edge; chinook sit on the point itself.</div></div>
+    <div class="card"><div class="ct">Bayley Point <span class="badge b-teal">Salmon</span></div><div class="cs">Classic current-break headland. <span class="small">Charts spell it <strong>Bayly Point</strong> — south shore of Nalau Island, 1.3 NM from the lodge.</span></div></div>
+    <div class="card"><div class="ct">Kelpie Point <span class="badge b-teal">Salmon</span></div><div class="cs">Kelp-edge structure — classic coho water.</div></div>
+    <div class="card"><div class="ct">Foster Rock · Bald Rock <span class="badge b-teal">Salmon</span> <span class="badge b-good">High value 2026</span></div><div class="cs">Isolated rock and reef. Bait piles on them; salmon work the down-current side. Upwelling brings cold water up — in a heatwave year these can hold chinook shallower than anywhere else. <strong>High-value spots this year specifically.</strong></div></div>
+    <div class="card"><div class="ct">The Breakers <span class="badge b-teal">Salmon</span> <span class="badge b-red">Exposure</span></div><div class="cs">Exposed outer-coast structure. <strong>Swell-dependent, mornings only, settled weather only.</strong></div></div>
+    <div class="card"><div class="ct">Cultus Passage <span class="badge b-teal">Salmon</span></div><div class="cs">Tidal flow means concentration. Fish it on maximum current. <span class="small">Charts: <strong>Cultus Sound</strong> — no “Cultus Passage” is gazetted in BC. 11.7 NM north, and historically run with a lodge escort; ask before planning it solo.</span></div></div>
+    <div class="card"><div class="ct">Spider Island <span class="badge b-teal">Coho</span> <span class="badge b-red">Long run</span></div><div class="cs">Excellent action near kelp beds, northwest of the lodge — <strong>a long run in a 17 ft boat.</strong> All-day, settled-weather-only commitment with a hard turnaround time. Strong coho water. <span class="small">Chart-checked: <strong>9.9 NM direct</strong> — closer than the “20 miles” that circulates, but the inside running route is meaningfully longer than the straight line.</span></div></div>
+    <div class="card"><div class="ct">West Bay <span class="badge b-teal">Salmon</span> <span class="badge b-blue">Bottomfish</span> <span class="badge b-good">Sheltered</span></div><div class="cs">Shoals in the 40–200 ft range. Your primary halibut, ling and rockfish area, and <strong>sheltered — the best bad-weather option.</strong></div></div>
+    <div class="card"><div class="ct">Dublin Point · Airocobra <span class="badge b-blue">Bottomfish</span></div><div class="cs">Shoals 40–200 ft. Drift-fish the structure. <span class="small">Charts: <strong>Airacobra Rock</strong> — named 1944 for the P-39 Airacobra, part of the area’s WWII fighter-name cluster. Dublin Point’s shoals sit just <em>north</em> of the RCA boundary — thin margin, verify on GPS.</span></div></div>
+  </div>
+
+  <div class="co co-warn">
+    <span class="co-tag">Names we could not verify — do not plan around these</span>
+    <p>Several place names in circulation could not be sourced to Hakai Pass in any fishing publication, lodge site or forum: <strong>Watch Rock, Starfish, Gough Rock, Ward Channel, Breaker Pass, Serpent Point, Surf Islets, Triquet, Kildidt,</strong> and <strong>Nalau Passage</strong>. Several of these — Nalau Passage, Kildidt, Triquet, the Serpent Group — are <em>real charted features</em> in the right neighbourhood, and lodges may well fish them. We simply could not find a published source stating what they produce, and inventing that would be worse than admitting the gap.</p>
+    <p>One is almost certainly an error: <strong>“Blackney” is likely a confusion with Blackney Pass</strong>, which is in Johnstone Strait near Telegraph Cove — roughly 200 nautical miles away. Do not go looking for it.</p>
+    <p><strong>The fix:</strong> email the lodge before you fly and ask for their current hot-spot list with GPS waypoints, and whether they will pre-load them on the boat. Most self-guided lodges will.</p>
+  </div>
+
+  <h3>Tides</h3>
+  <p>There is <strong>no CHS tide station named “Hakai Pass.”</strong> Use <strong>Addenbroke Island, station 08860</strong> (<span class="mono">tides.gc.ca/en/stations/08860</span>), the nearest official prediction station at about 22 km, and cross-check against <strong>Namu, station 08870</strong>. Note that CHS lists Addenbroke as a temporary station not currently operational — it still publishes predictions, but sanity-check them.</p>
+  <p><strong>Your whole window is below — and in the PDF</strong>, so it is on your phone even with no signal. Laminate a printed copy for the boat if you like paper. The lodge will have a tide book; get it in your hand the first evening, cross-check it against this table, and write each day’s highs and lows on tape on the dash every morning.</p>
+
+  <h4>Addenbroke 08860 — highs, lows and light, 10–19 August</h4>
+  <div class="twrap"><table>
+    <thead><tr><th>Day</th><th>First light</th><th>Sunrise / set</th><th>Tides — PDT · height in m above chart datum</th></tr></thead>
+    <tbody>
+      <tr><td>Mon 10</td><td class="mono">05:31</td><td class="mono">06:09 / 21:05</td><td class="mono">L 06:01 0.5 · H 12:27 3.6 · L 17:49 1.9 · H 23:49 4.7</td></tr>
+      <tr><td>Tue 11</td><td class="mono">05:33</td><td class="mono">06:11 / 21:03</td><td class="mono">L 06:51 0.4 · H 13:11 3.9 · L 18:42 1.6</td></tr>
+      <tr><td>Wed 12</td><td class="mono">05:34</td><td class="mono">06:13 / 21:01</td><td class="mono">H 00:42 4.7 · L 07:35 0.3 · H 13:50 4.1 · L 19:31 1.4</td></tr>
+      <tr><td>Thu 13</td><td class="mono">05:36</td><td class="mono">06:14 / 20:59</td><td class="mono">H 01:30 4.7 · L 08:14 0.3 · H 14:28 4.3 · L 20:18 1.3</td></tr>
+      <tr><td>Fri 14</td><td class="mono">05:38</td><td class="mono">06:16 / 20:57</td><td class="mono">H 02:17 4.6 · L 08:51 0.4 · H 15:04 4.4 · L 21:04 1.1</td></tr>
+      <tr><td>Sat 15</td><td class="mono">05:40</td><td class="mono">06:18 / 20:55</td><td class="mono">H 03:03 4.4 · L 09:27 0.6 · H 15:39 4.4 · L 21:49 1.1</td></tr>
+      <tr><td>Sun 16</td><td class="mono">05:42</td><td class="mono">06:19 / 20:53</td><td class="mono">H 03:50 4.2 · L 10:02 0.9 · H 16:15 4.4 · L 22:35 1.1</td></tr>
+      <tr><td>Mon 17</td><td class="mono">05:43</td><td class="mono">06:21 / 20:51</td><td class="mono">H 04:38 3.9 · L 10:37 1.2 · H 16:51 4.3 · L 23:22 1.2</td></tr>
+      <tr><td>Tue 18</td><td class="mono">05:45</td><td class="mono">06:22 / 20:49</td><td class="mono">H 05:28 3.6 · L 11:13 1.6 · H 17:29 4.2</td></tr>
+      <tr><td>Wed 19</td><td class="mono">05:47</td><td class="mono">06:24 / 20:47</td><td class="mono">L 00:16 1.3 · H 06:24 3.3 · L 11:53 2.0 · H 18:13 4.0</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">CHS predictions for station 08860, retrieved 30 July 2026; cross-checked against Namu 08870 — agreement within 7 minutes and 0.1 m. First light is civil dawn computed for the lodge’s position; times are PDT. The biggest exchanges of your week are <strong>12–14 August (4.5 m range)</strong> — the strongest current windows, and the pre-dawn lows sit right on first light through mid-week.</p>
+  <p>One distinction that matters more than any other: <strong>tide height is not tidal current.</strong> What actually fishes at a place like The Gap is current, which lags the height tide — often by an hour or more in a constricted passage. Learn the lag empirically on day one by noting when the rip actually starts running versus the predicted high or low. That offset will hold all week and is worth more than any lure in your box.</p>
+
+  <h3>Which tide stage, which structure</h3>
+  <div class="cards">
+    <div class="card"><div class="ct">Exposed points <span class="badge b-dim">Odlum · Bayley · Barney</span></div><div class="cs"><strong>Last 2 hrs of flood into the first hour of ebb</strong>, and the mirror on the ebb. Current pins bait against the point and builds a back-eddy behind it; fish sit in the eddy and eat what flushes past.</div></div>
+    <div class="card"><div class="ct">Passages + funnels <span class="badge b-dim">The Gap · Cultus</span></div><div class="cs"><strong>Mid-flood and mid-ebb — maximum flow.</strong> Bait cannot hold station and gets swept and stacked. <strong>Dead slack is dead fishing here.</strong></div></div>
+    <div class="card"><div class="ct">Isolated rocks <span class="badge b-dim">Foster · Bald</span></div><div class="cs"><strong>Any moving water; best on the day’s big tide.</strong> Upwelling off the reef face. Troll the down-current side.</div></div>
+    <div class="card"><div class="ct">Kelp edges + bays <span class="badge b-dim">Kelpie · Barney Bay</span></div><div class="cs"><strong>Flood, and the top of the tide.</strong> Coho push in over the kelp with rising water.</div></div>
+    <div class="card"><div class="ct">Bottomfishing <span class="badge b-dim">West Bay · Dublin Pt</span></div><div class="cs"><strong>One hour either side of slack.</strong> Less lead, straighter line, and the scent trail stays put.</div></div>
+  </div>
+
+  <div class="co co-gold">
+    <span class="co-tag">The planning rule</span>
+    <p>Plan the day around the tide, not the clock. On arrival night, look at the week’s table and identify, for each day, the two biggest current windows and which of them falls in the dawn or dusk light window. <strong>Where big current overlaps low light, that is your chinook window.</strong> Be on the best point you can reach, gear down, with fresh bait, ten minutes <em>before</em> it starts. Everything else in the day is filler.</p>
+  </div>
+
+  <h3>The daily shape, and the discipline that matters</h3>
+  <p>For unguided anglers the failure modes are well understood and entirely avoidable. Spend roughly <strong>80% of your time in known productive areas</strong> — exploration is a tenth-trip luxury, not a five-day one. Give each spot one to two hours before moving; boat-hopping between marks is the classic self-guided mistake, where you spend the tide window running instead of fishing. And maximise time on the water: the angler who leaves at 05:00 and returns at 20:00 will out-fish the better angler who fishes 09:00 to 15:00.</p>
+  <ol>
+    <li><strong>Dawn to 09:00</strong> — the primary chinook window. Odlum or the nearest big-name headland with current on it. Deep gear.</li>
+    <li><strong>Mid-morning</strong> — if chinook shut off, move up the water column and switch to coho mode at Barney, Kelpie, or the kelp edges.</li>
+    <li><strong>Midday, or whenever the wind builds</strong> — duck into West Bay or Dublin Point and bottomfish. This is the correct use of the windy part of the day: you are sheltered, and the tide is often near slack, which is when halibut fish best anyway.</li>
+    <li><strong>Evening, 17:00 to dark</strong> — second chinook window back on the points. Often the best bite of the day, and the wind usually drops.</li>
+  </ol>
+
+  <figure class="ph">
+    <picture><source type="image/webp" srcset="assets/boat-1100.webp 1100w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/boat.jpg" width="1100" height="602" loading="lazy" alt="Two anglers working rods in a small lodge boat on calm grey water, forested islands of the pass behind them."></picture>
+    <figcaption><span class="q">“Perfect catch by guests at Joe’s.”</span><span class="d">@onlyatjoes · 18 Jul 2026</span></figcaption>
+  </figure>
+</details></section>
+<!-- ============ SECTION 4 ============ -->
+<section class="sec" id="s4"><details class="fold"><summary><span class="eyebrow">Section 04 · Tactics</span>
+  <h2>The 2026 depth problem</h2>
+  <span class="lede">This section is the reason the guide exists. Everything here departs from standard Hakai advice, deliberately, for a reason documented in Section 1.</span></summary>
+
+  <h3>The apparent contradiction, and its resolution</h3>
+  <p>Local Hakai sources are emphatic and consistent: fish shallow, rarely more than 20 pulls, because all salmon species primarily occupy the upper water column in summer. A “pull” is roughly two feet of line, so 12–20 pulls on a mooching weight puts bait around <strong>15–30 ft down</strong>. That is shallow, and the most common visiting-angler mistake at Hakai in a normal year is fishing 100 ft down because that is what you do at home.</p>
+  <p>The heatwave analysis says the opposite: probe to 150 ft. <strong>Both are correct, because the advice splits by species rather than being replaced.</strong></p>
+
+  <div class="co co-key">
+    <span class="co-tag">The single most important idea in this guide</span>
+    <p>Chinook are the most temperature-sensitive Pacific salmon in salt water, preferring roughly <strong>8–12 °C</strong> and feeding poorly above about 14–15 °C. In a normal Hakai August the top 40–60 ft sits comfortably in that band. With the heatwave running 2–3 °C above normal, that surface layer may now sit at or above the top of their range — so <strong>chinook drop below the warm layer and hold near or under the thermocline</strong>, coming up to feed only in the coldest, darkest part of the day.</p>
+    <p><strong>Coho tolerate warm surface water and hunt in it.</strong> They stay shallow. So the traditional Hakai wisdom remains exactly right — for coho — while being potentially 60 to 90 feet wrong for chinook. You now have to cover <strong>two separate layers simultaneously</strong>, which is precisely what stacked downriggers are for.</p>
+  </div>
+
+  <p>The bait behaves the same way, and this is the more important half. Herring and needlefish also drop, and in a warm stratified summer the water column stops being uniformly productive. Instead of a broad scattering of feed you get <strong>thin, dense, patchy concentrations</strong> stacked at the thermocline or in cold-water upwellings off points and reefs. That is the entire game: <strong>find the cold, find the bait, find the chinook — in that order.</strong></p>
+
+  <h3>The probing plan — spend your first morning on this</h3>
+  <p>Do this deliberately, before you commit to fishing hard. It will cost 60 to 90 minutes and it will make the other five days.</p>
+  <ol>
+    <li><strong>Start at the normal-year depth so you have a control.</strong> Put gear at 60 ft and 90 ft on a stacked rigger over a known productive point. Fish it 30 to 40 minutes. If it produces, the heatwave has not reshaped your local water and you can use the standard table.</li>
+    <li><strong>If nothing, step down in 20 ft blocks and go deeper than feels sane.</strong> Run the pair at 100/120, then 120/150, then if bottom allows, 150/180. Give each pair 20 to 30 minutes. <strong>Do not stop at 120.</strong> In a strong heatwave year, 130–160 ft is a completely normal chinook depth on this coast, and it is the depth visiting anglers refuse to try.</li>
+    <li><strong>The moment anything happens</strong> — a strike, a knock-off, a chewed bait, a marked fish — stop stepping and bracket it. One rod 15 ft above the event depth, one 15 ft below, then narrow. <strong>The productive layer may be only 20 to 30 ft thick.</strong> If you are 30 ft off you will catch nothing all day and conclude the fishing is bad.</li>
+    <li><strong>Re-probe at every spot change and at least once midday.</strong> The thermocline is not flat — it tilts, upwells against points, and moves with the tide. A depth that produced at Odlum on the flood may be 30 ft wrong at the same spot on the ebb.</li>
+    <li><strong>Write it down.</strong> Keep a card in the boat: time, spot, tide stage, depth, result. By day three you will have the week’s pattern in your own handwriting — which is precisely the knowledge a guide would otherwise have sold you.</li>
+  </ol>
+
+  <h3>Reading the sounder</h3>
+  <p>Your Whaler has a fish finder. In a warm year it stops being a convenience and becomes the primary instrument.</p>
+  <ul>
+    <li><strong>Turn auto-gain off and run manual sensitivity, turned up.</strong> On auto, the sounder suppresses exactly the soft returns you need. Increase sensitivity until you get light noise, then back off one notch.</li>
+    <li><strong>The thermocline appears as a faint horizontal band</strong> — a haze layer at constant depth across the whole screen, not a target. It shows because the density change reflects a little sound. Turn gain up until you can see it and note its depth. <strong>That number is the most useful number on your boat.</strong></li>
+    <li><strong>Bait looks different in a warm year</strong> — not broad shallow clouds but tight dense balls or thin ribbons, sitting at or just below the thermocline and often glued to a point, reef edge or upwelling. Smaller and further apart than you expect.</li>
+    <li><strong>The productive layer is where three things coincide:</strong> at or just under the thermocline, bait present, and larger individual arches below or at the edges of the bait. Put your deep rod <em>at</em> or <em>just below</em> the bait ball, never above it — chinook feed upward.</li>
+    <li><strong>Cold-water upwellings are your friend.</strong> Where strong current hits a steep point or reef and lifts deep water, the whole pattern compresses shallower. These are the exception where chinook may still be at 50–70 ft this year. Look for strong current on steep structure, visible boils, and a thermocline that suddenly bends upward. <strong>Mark every one.</strong></li>
+  </ul>
+  <div class="co co-key">
+    <span class="co-tag">How you know you have found it</span>
+    <p>Bites cluster at one depth rather than scattering — two or three events within 15 ft of each other. The bait marks and fish marks sit at the same depth. And critically: <strong>moving 20 ft up kills it, and moving back down restores it.</strong> Test that deliberately once you think you have it. If it does not fail when you leave the layer, you have not actually found a layer.</p>
+  </div>
+
+  <h3>The core rig: working two layers at once</h3>
+  <p>In a heatwave year chinook and coho are in genuinely different water — chinook at or below the thermocline, perhaps 110–150 ft; coho at 20–40 ft or on the surface. You cannot chase them alternately and do well at either.</p>
+  <div class="cards c2 c2-tight">
+    <div class="card">
+      <div class="ct">Port rigger <span class="badge b-dim">15 lb ball</span></div>
+      <div class="cs"><strong>Rod 1 (at ball): deep chinook</strong> — at or just below the bait ball, e.g. 130 ft. Brined cut-plug or glow spoon, 6 ft leader.<br><strong>Rod 2 (stacker): coho</strong> — clip <strong>80–100 ft up the cable</strong>, gear at ~30–40 ft. Coho Killer or 3.0 in Kingfisher, 4 ft leader.</div>
+    </div>
+    <div class="card">
+      <div class="ct">Starboard rigger <span class="badge b-dim">15 lb ball</span></div>
+      <div class="cs"><strong>Rod 1 (at ball): bracket rod</strong> — 20 ft above or below the port rod, e.g. 110 ft. Glow hootchie, 34 in fluorocarbon.<br><strong>Rod 2 (stacker):</strong> optional second coho rod at 20–25 ft, or leave empty to keep the deck manageable.</div>
+    </div>
+  </div>
+  <p><strong>Set the stacker unusually high.</strong> In a normal year you stack 15 to 25 ft above the ball. Here you may stack 80 to 100 ft above it to reach coho water from a chinook-depth ball. That is unusual and perfectly workable.</p>
+  <p><strong>Speed is the compromise.</strong> Chinook want 2.2–2.8 mph, coho 2.8–3.5. Run <strong>2.6–2.9 mph</strong> and let deliberate S-turns give each species its moment: on the inside of a turn the gear slows and drops, favouring chinook; on the outside it speeds and rises, favouring coho. Watch which rod fires on which part of the turn — that is the fish telling you which way to commit.</p>
+  <p><strong>When one layer clearly wins, commit to it.</strong> The two-layer rig is a <em>search</em> rig. Once you have had three coho and no springs, put both riggers shallow and fish coho properly at 3.2 mph. Do not split the difference all day out of indecision. Coho are the reliable fish in a warm year — two hours of good coho beats six hours of theoretical chinook.</p>
+
+  <h3>Leaders</h3>
+  <div class="twrap"><table>
+    <thead><tr><th>Lure</th><th>Species</th><th>Leader</th><th>Line</th></tr></thead>
+    <tbody>
+      <tr><td>Spoon</td><td>Chinook</td><td>6 ft</td><td>30 lb fluoro or mono</td></tr>
+      <tr><td>Spoon</td><td>Coho</td><td>4 ft</td><td>30 lb fluoro or mono</td></tr>
+      <tr><td>Hootchie</td><td>Chinook</td><td>32–36 in</td><td>40 lb <strong>fluorocarbon</strong></td></tr>
+      <tr><td>Hootchie</td><td>Coho</td><td>20–28 in</td><td>40 lb <strong>fluorocarbon</strong></td></tr>
+      <tr><td>Bait</td><td>Both</td><td>4½–6 ft</td><td>30–40 lb mono</td></tr>
+    </tbody>
+  </table></div>
+  <p>Use fluorocarbon for hootchies specifically — it is more rigid than mono and transmits the flasher’s whip into the squirt, which <em>is</em> the action. Use mono for bait, where you want a softer, more forgiving roll. The rule to internalise: <strong>short leader means tight imparted action; long leader means loose natural action.</strong></p>
+
+  <h4>Colour by depth</h4>
+  <p>Shallower than 50 ft: purple, chartreuse, pink, green, blue, with UV white and off-white glow hootchies. From <strong>50 to 150 ft, blue and green dominate and glow patterns are particularly effective.</strong> Since you will be fishing deep this year, the deep-water palette is your default — and as Section 5 explains, it is also your pink-avoidance palette. The two requirements happen to agree.</p>
+  <p><strong>Proven central-coast products:</strong> Gibbs Twisted Sista Highliner, Bon Chovy and STS flashers; O’ki Big Shooter in Purple Phantom, Green Footloose, Green Onion Glow; Hot Spot Silver Betsy and Chartreuse Anchovy. Spoons — Gibbs Skinny G and Wee G in Bon Chovy, No Bananas and Herring Aid; Silver Horde Kingfisher 3.5 and 4.0 in for chinook, 3.0 in for coho; the Coho Killer. Plugs — <strong>Tomic 4 to 6 in</strong>, fished without a flasher on a long lead at 2.5–3.0 mph, are a legitimate big-chinook tool and, as it happens, your best anti-pink lure.</p>
+</details></section>
+
+<!-- ============ SECTION 5 ============ -->
+<section class="sec" id="s5"><details class="fold"><summary><span class="eyebrow">Section 05 · The pink problem</span>
+  <h2>Fishing through pinks</h2>
+  <span class="lede">DFO rates Areas 6/7/8 pinks abundant for 2026, and the late-July report confirms heavy pinks on the grounds. In a guided boat a guide absorbs this invisibly — he re-baits, he moves, he changes gear. <strong>Self-guided, every pink costs you a re-bait, a re-set, and five to ten minutes of the tide window you actually care about.</strong> Across six days that is hours.</span></summary>
+  <p>Pinks are fine fish. They are simply not what you flew here for, and at 3–5 lb they will out-number and out-intercept everything else. They are small-mouthed, shallow-running, and strongly drawn to small pink and red gear moving at moderate speed in the top 40 ft — which describes almost every classic summer salmon setup. The good news: that makes them <strong>avoidable by design.</strong> You have four levers.</p>
+
+  <div class="cards">
+    <div class="card"><div class="ct"><span class="badge b-teal">Lever 1</span> Size — go bigger</div><div class="cs">The strongest single lever. Pinks are targeted with small spoons of roughly ½ to 1½ in; coho with 2 to 3 in; chinook larger still. Run <strong>3.5 and 4.0 in Kingfisher, 4 in+ Skinny G, big Coyotes</strong>, and retire anything under 3 in. Hootchies 4 to 4.5 in. Bait: the big 6–7 in cut-plug herring Hakai sources prescribe anyway. Go up in hook size — 4/0 to 5/0 sticks springs and lets a lot of pinks fall off, which when you are trying to fish is a <em>feature</em>. <strong>Plugs are your most pink-proof lure:</strong> a 5–6 in Tomic simply exceeds what most pinks will commit to.</div></div>
+    <div class="card"><div class="ct"><span class="badge b-teal">Lever 2</span> Colour — get off pink and red</div><div class="cs">Painful, because pink and red are genuinely good chinook and coho colours. In an abundant-pink year you take the hit. <strong>Leave at home:</strong> hot pink, cerise, fluorescent pink, pink/pearl, red, and small pink hootchies. <strong>Run instead:</strong> green, blue, chartreuse, white and UV white, glow-green, army truck olive. Flashers in green, blue and chrome — Green Onion Glow, Bon Chovy, Silver Green, Green Footloose. One legitimate exception: on the deep chinook rod at 130 ft, colour selectivity matters less because pinks mostly are not down there. Keep one confidence colour deep.</div></div>
+    <div class="card"><div class="ct"><span class="badge b-teal">Lever 3</span> Depth — the heatwave is doing you a favour</div><div class="cs">Pinks run shallow. <strong>The warm-water strategy that pushes your chinook gear to 110–150 ft is simultaneously a pink-avoidance strategy.</strong> Below about 90 ft your pink interception rate drops sharply. The problem child is your shallow coho rod at 20–40 ft, which sits squarely in pink water. Mitigate that rod specifically with a bigger spoon in green, blue or chrome, and above all <strong>speed it up to 3.2–3.5 mph</strong> — coho will chase, pinks are notably less willing. If pinks still hammer it, pull that rod entirely for an hour and fish two deep. Losing one rod is cheaper than servicing it every eight minutes.</div></div>
+    <div class="card"><div class="ct"><span class="badge b-teal">Lever 4</span> Speed and location</div><div class="cs">Faster is more selective. Pinks stack in mid-channel migration lanes and shallow shoreline routes, so fishing structure, current edges and deeper contours keeps you out of the parade. <strong>And if a spot goes to pinks, it is usually gone</strong> — a school moving through will keep producing pinks. Move. This is the one case where the “give a spot one to two hours” rule should be overridden.</div></div>
+  </div>
+
+  <h3>Calling the fish inside ten seconds</h3>
+  <div class="cards">
+    <div class="card"><div class="ct">Pink <span class="badge b-dim">3–5 lb</span></div><div class="cs"><strong>Take:</strong> light, buzzy, tick-tick; often does not pop the clip cleanly. <strong>First 10 sec:</strong> fast, frantic, shallow head-shaking; often comes toward the boat. <strong>Feel:</strong> light, “papery” — lots of vibration, little mass. <strong>Head shake:</strong> rapid high-frequency buzz. <strong>At the boat:</strong> rolls on its side, gives up quickly.</div></div>
+    <div class="card"><div class="ct">Coho <span class="badge b-blue">8–15 lb</span></div><div class="cs"><strong>Take:</strong> sharp violent snap — pops the clip hard. <strong>First 10 sec:</strong> immediate run and usually an aerial jump. <strong>Feel:</strong> fast and erratic, cartwheels. <strong>Head shake:</strong> quick and erratic. <strong>At the boat:</strong> goes berserk the moment you lose it.</div></div>
+    <div class="card"><div class="ct">Chinook <span class="badge b-brass">15–40+ lb</span></div><div class="cs"><strong>Take:</strong> heavy deliberate load; the rod bends down and <em>stays</em> down. <strong>First 10 sec:</strong> sounds — goes down. A long heavy unstoppable run. <strong>Feel:</strong> slow and heavy, tail beats you can count. <strong>Head shake:</strong> slow deep heavy thumps — the spring signature. <strong>At the boat:</strong> makes another deep run on seeing the boat. Expect two or three.</div></div>
+  </div>
+  <p><strong>The ten-second rule:</strong> if it is light, buzzy and coming at you, it is a pink. Do not baby it. Rod low, wind steadily, net or release, and get that rod back in the water. Save your careful drag work for a fish that sounds.</p>
+
+  <h3>Fish structure, never open water</h3>
+  <p>Patchy bait is the defining feature of a heatwave year and it has one clear consequence: <strong>the fish are concentrated, not spread.</strong> In a normal August you can troll a general area and intercept fish. In 2026, trolling general open water is how you blank. In priority order:</p>
+  <ol>
+    <li><strong>Tide lines and rips</strong> — the single most productive feature in patchy conditions. Look for a visible line of foam, debris, kelp, or a colour and texture change. Troll <em>along</em> the line on the up-current side, parallel and 20 to 50 yards off. Work it repeatedly.</li>
+    <li><strong>Current-swept points with a back-eddy</strong> — the eddy is a conveyor belt. Fish the seam between fast water and eddy, not the middle of either.</li>
+    <li><strong>Reef edges and the down-current side of isolated rocks</strong> — high value this year because upwelling brings cold water up.</li>
+    <li><strong>Funnels at mid-flood and mid-ebb</strong>, when flow is maximal.</li>
+    <li><strong>Kelp edges for coho</strong> — the outside edge, not over the top.</li>
+    <li><strong>Any bait ball on the sounder.</strong> In a patchy year a bait ball is not a nice-to-have, it is the target. Waypoint every one.</li>
+  </ol>
+  <p><strong>Birds and whales are your bait finder.</strong> Working gulls, murres and auklets mean bait on the surface. A lunge-feeding humpback means a large concentration — fish near it at a legal distance, never close to it. In a year when bait is hard to find, letting the birds search for you is the highest-value habit you can build.</p>
+  <p>This does slightly conflict with the “give each spot one to two hours” discipline. Resolve it this way: <strong>give each structure one to two hours, but only structure that has current on it and preferably bait under it.</strong> If you pull up on a point at slack water with a blank sounder, do not burn 90 minutes there out of obedience to a rule. Go find moving water.</p>
+</details></section>
+
+<!-- ============ SECTION 6 ============ -->
+<section class="sec" id="s6"><details class="fold"><summary><span class="eyebrow">Section 06 · Bait</span>
+  <h2>Bait</h2>
+  <span class="lede">Bait is supplied by the lodge, and at Hakai bait is the historical default: a large 6–7 in cut-plug herring on a tandem-hook rig, 4–6 oz mooching weight, 12 to 20 pulls back — the standing method in the published Hakai-specific guides (Gibbs Fishing’s Hakai Pass guide; Hakai Land &amp; Sea’s fishing tips).</span></summary>
+
+  <div class="cards">
+    <div class="card"><div class="ct">Cut-plug herring <span class="badge b-brass">Big chinook</span></div><div class="cs">The classic Hakai and Rivers Inlet method. The head comes off and the angled cut <em>is</em> the action device. Mooch it, or troll it behind a flasher.</div></div>
+    <div class="card"><div class="ct">Anchovy in a teaser head <span class="badge b-teal">Everything</span></div><div class="cs">The most forgiving and consistent. Softer and oilier; the teaser head guarantees the roll. Must be salted overnight to firm up.</div></div>
+    <div class="card"><div class="ct">Whole herring in a teaser head <span class="badge b-brass">Chinook</span></div><div class="cs">When you want more bulk and scent. Rhys Davis Super Herring Special head, pinned with toothpicks, hook drawn through to curve the bait.</div></div>
+  </div>
+
+  <figure class="ph">
+    <picture><source type="image/webp" srcset="assets/bait7-640.webp 640w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/bait7.jpg" width="640" height="640" loading="lazy" alt="An angler in orange bibs rigging bait aboard lodge boat number 7 on a calm sunny day."></picture>
+    <figcaption><span class="q">“You gotta love your bait to get bit!”</span><span class="d">@onlyatjoes · 26 Jul 2026</span></figcaption>
+  </figure>
+
+  <h3>Cutting and brining</h3>
+  <p>Cut the plug with the knife at about <strong>20°</strong>, taking the head off at about <strong>30°</strong> to the body. Those two angles are the entire mechanism of the roll. Do the cutting <strong>at the dock before departure</strong>, not bouncing around in a rip. Rig two 3/0–4/0 octopus hooks about 3 in apart — the front hook drives the roll, the trailer is what usually hooks the fish.</p>
+  <p><strong>Brine every night.</strong> This is the highest-return ten minutes of your day and exactly the kind of thing that separates guided from unguided results. Dump bait into a sealable bin, cover with coarse pickling or kosher salt, and mix thoroughly; salt pulls moisture and hardens the bait so it holds its roll far longer. Add a tablespoon of powdered milk to toughen the skin and add sheen. Frozen herring needs about twelve hours to thaw and brine, so <strong>set tomorrow’s bait tonight.</strong> Take two to three packs per day in the boat and keep them cold and in the brine all day.</p>
+
+  <div class="co co-gold">
+    <span class="co-tag">The one non-negotiable</span>
+    <p><strong>Always check the roll in the water before you send it down. If it does not roll, replace it.</strong> Hold the bait beside the boat at trolling speed — you want a tight, fast, consistent barrel roll, roughly two to three rotations per second, not a wobble or a helicopter.</p>
+    <p><strong>Then check it every 10 to 15 minutes.</strong> A bait that stopped rolling twenty minutes ago has been fishing for nothing. In a self-guided boat with nobody else watching, this discipline <em>is</em> the guide.</p>
+    <p><em>Diagnosing:</em> no roll means not enough angle on the head cut. Helicopters means too much curve or too much bend from the trailer. Rolls then stops means the bait is soft — a brining failure, replace it. Rolls one way then the other means the head cut is not flat; recut.</p>
+  </div>
+
+  <h3>When bait beats hardware</h3>
+  <p>Bait wins on big lethargic chinook, in clear calm water, on pressured fish, on slow bites, in low light, and when fish are feeding on actual herring — check the stomach contents of your first keeper, which tells you the size and colour to imitate. Hardware wins when dogfish are eating bait faster than you can rig it, when covering water to <em>find</em> fish, in dirty or fast water, when coho are aggressive, and any time you would rather have a lure fishing than a bait not fishing. <strong>The practical answer in a self-guided boat: run one of each</strong> — bait deep, hardware shallow, and let the fish decide.</p>
+</details></section>
+
+<!-- ============ SECTION 7 ============ -->
+<section class="sec" id="s7"><details class="fold"><summary><span class="eyebrow">Section 07 · Bottomfishing</span>
+  <h2>Bottomfishing</h2></summary>
+
+  <div class="co co-warn">
+    <span class="co-tag">Recalibrate your halibut expectations now</span>
+    <p>2026 is the worst halibut season in the International Pacific Halibut Commission’s <strong>102 years of record</strong>. The coastwide limit is the lowest the IPHC has ever set at 29.33 million lb; your area was cut a further 7.2%. The practical effect for you is <strong>one fish per day, one in possession, maximum 112 cm.</strong> The 100 lb Hakai trophy halibut is a mandatory release.</p>
+    <p><strong>Lingcod is the opposite story.</strong> The 2025 assessment puts the stock at 1.12 times its unfished biomass, with greater than 0.99 probability of being in the Healthy zone and fishing mortality below every reference rate. <strong>Lingcod is your bottomfish play this year.</strong> Plan around it rather than around halibut, and you will have a better trip.</p>
+  </div>
+
+  <h3>Where and how</h3>
+  <p>Hakai’s bottom water is shoals of <strong>40 to 200 ft</strong>, notably at West Bay, Dublin Point and Airocobra. Halibut want flat-to-gently-sloping sand, gravel or mud <em>adjacent to</em> structure — not on top of the pinnacle. Find a rocky hump, then fish the flat 100 to 300 yards down-current of it, where the scent trail goes. Lingcod and rockfish want the structure itself: pinnacles, rock piles, sharp edges, the tops and shoulders of humps in 60 to 150 ft. Look for <strong>the edge</strong> where hard bottom (thick, dark, doubled echo) transitions to soft (thin, fuzzy). That edge is the halibut line.</p>
+  <p>Run the sounder while doing anything else. Every transit between salmon spots is a free bottom survey — <strong>waypoint every hump, edge and drop-off you cross.</strong> By day three you will have a private structure map that nobody else on the dock has.</p>
+  <p><strong>Fish the hour either side of slack</strong>: less lead, straighter line, and a scent trail that stays put.</p>
+
+  <h3>The rigs</h3>
+  <p><strong>Spreader bar for halibut:</strong> L-shaped stainless, 18 × 6 in or 12 × 6 in. Cannonball weight of 1.5 to 2.5 lb — correct weight is whatever makes your line drop straight down. Mainline 80 lb braid for zero stretch, so you feel a bite at 200 ft. Leader 90–150 lb mono, 12 to 36 in; halibut are not leader-shy, and a short 24 in leader keeps bait off the bottom and out of snags. Hooks: circle 14/0–16/0 or octopus 8/0–10/0. <strong>With circle hooks, do not set the hook</strong> — let the fish load the rod and simply start reeling. Bait: salmon belly plus octopus on the same hook is the classic — octopus stays on forever, herring brings scent. <strong>Ask the lodge to save your salmon bellies</strong> for use as bait on days three onward; it is the best halibut bait you will ever have and it is free.</p>
+  <p><strong>Jigging:</strong> lift 12 to 18 in off bottom then drop to hit bottom — the flutter on the drop and the thump on the bottom are what call fish in. Deep Stinger and Point Wilson Dart jigs, 2.5 to 8 oz, in white, glow/chrome, blue/pearl and green/white. For lingcod specifically, the highest-percentage technique is a live or dead rockfish on a big single, or a large white or glow swimbait jigged just off a pinnacle top. Lings hit on the drop. <strong>A hooked rockfish coming up frequently gets grabbed by a ling — keep reeling steadily, do not stop, and have the net ready</strong>, because lings often let go at the surface.</p>
+
+  <div class="co co-ok">
+    <span class="co-tag">A fortunate convergence — the halibut safety problem solves itself</span>
+    <p>Independent of any regulation, standard practice for a 17 ft open boat is to release anything over about 50 lb at the side rather than land it. A large halibut in a small boat can break legs, destroy gear and put someone overboard, and there is no guide aboard to manage it.</p>
+    <p>The 2026 legal maximum of <strong>112 cm corresponds to roughly a 40 to 45 lb fish</strong>. The law and the safety limit land in almost the same place. <strong>Every halibut you may legally keep this year is one you can safely handle</strong> — which removes what would otherwise be the most dangerous judgement call of the trip.</p>
+  </div>
+
+  <h4>If you do keep one — the sequence</h4>
+  <p><strong>Never boat a green fish. Ever.</strong> Get it alongside and <strong>keep it in the water</strong>. Harpoon or gaff it and take a line to a cleat so it cannot be lost or thrash free. Subdue it in the water with several solid strikes to the head, then bleed it in the water by cutting the gill arches. <strong>Only then</strong> bring it aboard, head first, straight into the fish box. Clear the deck first — rods away, feet clear, nobody between the fish and the transom. Have harpoon, bonker, cleat line, knife and gloves within arm’s reach <em>before</em> the fish is up. <strong>Do not shoot fish</strong>; a firearm in a small boat is a worse hazard than the halibut. And if in any doubt, cut the leader — a released halibut costs you nothing, while an ambulance from Hakai Pass costs you everything.</p>
+</details></section>
+
+<!-- ============ SECTION 8 ============ -->
+<section class="sec" id="s8"><details class="fold"><summary><span class="eyebrow">Section 08 · Seamanship</span>
+  <h2>Seamanship and whales</h2>
+  <span class="lede">You are on the exposed outer coast of British Columbia in a 17-foot open boat, hours from help, with no cell service and no guide. Treat this as the most important section in the guide.</span></summary>
+
+  <h3>The wind clock</h3>
+  <p>The central coast summer pattern is highly predictable and should shape every day. <strong>Dawn to mid-morning is calmest</strong>; fog patches dissipate and northwest winds develop late morning toward noon. The <strong>sea breeze builds mid-morning and peaks mid-afternoon at commonly 10 to 25 knots</strong>, driven by the contrast between cold ocean and heated inland — at its strongest in June, July and August. <strong>Evening usually drops out again</strong>, often giving a beautiful last two hours.</p>
+  <p><strong>The operating rule: do your exposed, outer, long-run fishing in the morning. Be back inside sheltered water by early afternoon. Fish the evening close to home.</strong> If you want to run to Spider Island, you leave at first light with a fixed early turnaround and no “just one more pass.”</p>
+
+  <div class="co co-warn">
+    <span class="co-tag">Wind against tide is the killer</span>
+    <p>A 15-knot westerly is nothing. A 15-knot westerly <em>against a 3-knot ebb</em> in Hakai Passage builds steep, short, breaking seas that will stop a 17 ft boat cold. <strong>Check the tide table before you check the wind forecast</strong>, and know exactly when the ebb starts.</p>
+  </div>
+
+  <h3>Fog, navigation and radio</h3>
+  <p>August fog on the outer central coast is common and can close in within minutes. <strong>Learn the boat’s GPS on day one, at the dock, in good visibility</strong> — how to drop a waypoint, start a track, activate go-to, and critically how to <strong>follow your own inbound track back out</strong>. That breadcrumb track is the single most valuable fog tool you have. Waypoint the lodge first, then every hazard and every spot.</p>
+  <p>When fog closes in: slow to a speed at which you could stop in half your visibility, turn on nav lights, sound the horn, get out of transit lanes, and post a lookout at the bow whose only job is listening. <strong>Do not run fast on GPS in fog</strong> — GPS shows where you are, not the other boat, the deadhead log, or the drifting kelp mat. Carry a handheld compass and know the rough bearing home, because units fail and batteries die. Get a paper chart and mark the lodge and your spots.</p>
+  <p><strong>VHF: monitor channel 16 all day, every day</strong> — not optional. Listen to the Continuous Marine Broadcast before leaving the dock and again mid-morning; ask the lodge which weather channel receives best, since terrain shadowing means one may be unreadable and another perfect. Confirm the lodge’s working channel on arrival, program it, and <strong>do a radio check the first morning before you are out of sight.</strong> Write the mayday format on tape on the dash and say it aloud once at the dock: <em>Mayday, mayday, mayday, this is [boat] three times, position, nature of emergency, number of people aboard, over.</em></p>
+
+  <h3>Where not to go</h3>
+  <ul>
+    <li><strong>The true outside</strong> — the open Pacific face of the outer islands — in any swell over about 1.5 m or wind over 15 knots.</li>
+    <li><strong>Long open-water crossings in the afternoon.</strong> Queen Charlotte Sound is open ocean.</li>
+    <li><strong>Into a rip where water is standing up and breaking.</strong> Fish the edges, never the throat.</li>
+    <li><strong>Anywhere you cannot see hazards and have no track in.</strong> Kelp usually means rock at low water.</li>
+    <li><strong>Anywhere at all if you are the only boat out.</strong> If everyone else came in, come in.</li>
+    <li><strong>Never anchor in current in a small open boat.</strong> Anchoring by the stern or in a strong rip is a well-known way to swamp and sink.</li>
+  </ul>
+
+  <h3>Float plan and safety gear</h3>
+  <p><strong>Wear the PFD. All day, every day.</strong> In 10–12 °C water an unexpected immersion without flotation is quickly fatal, and you are in an open boat with nobody paid to notice. An inflatable auto-PFD is comfortable enough to actually wear.</p>
+  <p>Sign out with the lodge every morning — where you are going and when you will be back — and sign back in. Call in any change of plan on the lodge channel. <strong>Set a hard return time as a clock time</strong>; “sunset” is not a return time. Buddy up loosely with another guest boat and stay in radio contact on longer runs. Fuel discipline: one third out, one third back, one third reserve. Check weather again before <em>every</em> departure, including the one after lunch.</p>
+  <p>Carry: PFDs worn, throwable and heaving line, bailer, whistle on every PFD, in-date flares, tested VHF, compass, GPS, charts, anchor and rode, a <strong>spare kill-switch lanyard</strong> (losing it strands you), fire extinguisher, first aid kit, an extra warm layer and spare dry gloves in a dry bag, water and food for a fourteen-hour day, and a powerful headlamp for pre-dawn running.</p>
+
+  <div class="co co-gold">
+    <span class="co-tag">The best $300 on this trip</span>
+    <p>Bring a <strong>handheld satellite communicator</strong> — an inReach or ZOLEO. Zero cell coverage, no guide in the boat, and hours from definitive medical care. It gives you an SOS button and a text link home. Nothing else on the packing list changes your outcome in a genuine emergency the way this does.</p>
+  </div>
+
+  <h3>Humpbacks — August is peak</h3>
+  <p>Humpback numbers on this coast have recovered dramatically and August brings daily sightings. The critical difference from orcas: <strong>orcas echolocate and actively avoid boats. Humpbacks do not echolocate while feeding and appear largely unaware of vessels.</strong> They will not get out of your way. Small-boat collisions with humpbacks on this coast are a documented, recurring problem and have killed people. A 40-ton animal surfacing under a 17 ft Whaler is not survivable in any meaningful sense.</p>
+  <p><strong>Legal minimum approach is 100 m, and 200 m if the animal is resting or with a calf.</strong> Enforcement is real — convictions have been reported, with fines in the $2,000 range. Note that “approach” includes <em>drifting or trolling toward</em> them; you do not have to be driving at a whale to be in violation. <strong>Treat 200 m as your working number</strong>, because you frequently cannot tell whether there is a calf until you are already too close.</p>
+  <p><strong>Post a lookout.</strong> In a two-person boat, whoever is not fighting a fish is watching the water — the single most effective measure. Slow to 7 knots or less in whale-likely water, and slow down in fog, glare and chop when blows are invisible. Learn the cues: a blow is a 10 to 15 ft column of vapour; a fluke going down means the animal is under for three to ten minutes and could surface anywhere within several hundred metres. And note the trap specific to this year — <strong>in a patchy-bait season you and the whales are hunting the same small number of spots. Expect them exactly where you want to fish.</strong></p>
+
+  <div class="co co-warn">
+    <span class="co-tag">If a whale comes near your gear</span>
+    <p>You have downrigger cables in the water. A humpback that contacts one can be injured by it, rip the rigger off the gunwale, and capsize the boat. In order:</p>
+    <ol>
+      <li><strong>Engine to neutral. Do not accelerate.</strong> Your instinct will be to run; running with cables down drags your gear across a whale.</li>
+      <li><strong>Get the balls up immediately.</strong> The priority action — and deep gear at 130 ft this year takes a long time to retrieve, which is precisely why you start the moment you see a blow, not the moment the whale is on you.</li>
+      <li>Reel in the lines once the balls are clear.</li>
+      <li>Only then move away at idle, on a course away from and parallel to the whale — never across its bow.</li>
+      <li><strong>If you are hooked to a fish, get the balls up anyway.</strong> The fish is not worth it.</li>
+      <li><strong>If a whale contacts your cable, cut it.</strong> Keep side cutters within reach of the helm. A cable is cheap; a trailing cable on a whale is a death sentence for the animal. Report it to <span class="mono">1-800-465-4336</span>.</li>
+      <li><strong>If a whale is working bait where you want to fish, leave.</strong> Fish elsewhere for thirty minutes and come back. This is the whole answer and it costs you almost nothing.</li>
+    </ol>
+    <p><strong>Build the habit on day one:</strong> anyone who sees a blow calls it out with a clock bearing — “blow, two o’clock, three hundred yards” — and the driver comes off the throttle. Make it automatic before you need it.</p>
+  </div>
+
+  <figure class="ph">
+    <picture><source type="image/webp" srcset="assets/seawolf-950.webp 950w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/seawolf.jpg" width="950" height="713" loading="lazy" alt="Two coastal sea wolves on mossy shoreline rocks at the waterline."></picture>
+    <figcaption><span class="q">“Incredible shots of the elusive Sea wolves from a guest!”</span><span class="d">@onlyatjoes · 21 Jul 2026</span></figcaption>
+  </figure>
+  <p class="small">The coast is wilder than the fishing alone suggests — guests photographed Vancouver Island sea wolves on the rocks in late July. They live almost solely off the ocean: crabs, shellfish, salmon and sea mammals. Watch the shorelines on your transits.</p>
+</details></section>
+<!-- ============ SECTION 9 ============ -->
+<section class="sec" id="s9"><details class="fold"><summary><span class="eyebrow">Section 09 · Fish care</span>
+  <h2>Fish handling and getting it home</h2>
+  <span class="lede">Your fish is worth more than your tackle. Handle it accordingly.</span></summary>
+  <ol>
+    <li><strong>Decide fast — keep or release.</strong> A release happens in the water without lifting the fish. A keeper gets acted on immediately.</li>
+    <li><strong>Bonk it.</strong> One or two firm strikes to the head, immediately. A thrashing fish burns lactic acid into the flesh and bruises it.</li>
+    <li><strong>Bleed it immediately.</strong> Cut the gill arches on both sides, then put the fish head-down in a bucket of seawater for a few minutes so it pumps itself out. A properly bled salmon has visibly better colour, flavour and shelf life. <strong>This step takes thirty seconds and is the difference between good fish and great fish.</strong></li>
+    <li><strong>Get it cold and out of the sun, fast.</strong> Ice it or keep it in slush. Never leave fish on a hot deck.</li>
+    <li><strong>Log the fish.</strong> Mark your licence catch record for chinook and halibut immediately. This is a legal requirement, not a formality.</li>
+  </ol>
+  <p>At the lodge, processing is included — cleaned, vacuum-sealed, flash-frozen and boxed, with boxes capped at 50 lb for airline compliance, per the lodge’s published information. <strong>Tell them how you want it cut on arrival, not on the last day</strong>: fillets or steaks, portion size, skin on or off, and whether you want collars, bellies and carcasses. Label boxes clearly with your name and flight, because a fleet of self-guided anglers shipping fish at once creates real mix-up risk. Photograph the boxes and labels before handing them over. Canning, candying and smoking are available through St. Jean’s Cannery by separate arrangement — worth doing with a portion of the catch, but <strong>arrange it before you leave the lodge.</strong></p>
+  <p>Getting home: frozen fish flies as checked baggage, but <strong>confirm your airline’s per-bag fee and count on both legs</strong> — excess bag fees on multiple fish boxes add up fast. Boxed fish typically holds 24 to 48 hours in transit; plan the shortest route home and get it into a freezer the day you land. Bring packing tape and a Sharpie.</p>
+</details></section>
+
+<!-- ============ SECTION 10 ============ -->
+<section class="sec" id="s10"><details class="fold"><summary><span class="eyebrow">Section 10 · Packing</span>
+  <h2>Packing list</h2>
+  <span class="lede"><strong>The lodge supplies</strong> rods (10½ ft Daiwa mooching), reels, all tackle, bait, boots, life jackets, coolers, bonker, pliers and bait knives — per the lodge’s published information; confirm on booking. Staff clean, restock and fuel the boat each evening. <strong>There is no store on site.</strong></span></summary>
+  <p><strong>The lodge no longer provides rain gear — bring your own.</strong> The clothing list below assumes it. Fit and dryness across six long days matter enormously to how much you actually fish.</p>
+  <p class="small html-only">Checkboxes are tappable and remember themselves.</p>
+
+  <h4>Do not board the plane without these</h4>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="p01"><span><strong>BC Tidal Waters Sport Fishing Licence + Salmon Conservation Stamp</strong> — bought online, printed <em>and</em> saved as a PDF to your phone</span></label></li>
+    <li><label><input type="checkbox" data-k="p02"><span><strong>Pleasure Craft Operator Card</strong> — required to operate the boats. No card, no boat.</span></label></li>
+    <li><label><input type="checkbox" data-k="p03"><span><strong>Passport</strong></span></label></li>
+    <li><label><input type="checkbox" data-k="p04"><span><strong>All prescription medications, plus extras</strong> — there is no pharmacy</span></label></li>
+    <li><label><input type="checkbox" data-k="p05"><span><strong>Printed tide table</strong>, Addenbroke Island, 10–19 August</span></label></li>
+  </ul>
+
+  <h4>Clothing — layers, not bulk</h4>
+  <p><strong>No cotton anywhere in the boat.</strong> Merino or synthetic base layers, two or three sets. Two mid-layers so one is always drying. Your own breathable taped-seam <strong>bib and jacket</strong> — bibs, not just a jacket, because you sit in spray. Your own insulated deck boots if you have comfortable ones; you stand in them twelve hours a day. A warm hat (yes, in August, at 05:00, at 25 mph) and a brimmed sun hat. A buff for sun and wind. Dry clothes to change into at the lodge, plus indoor shoes.</p>
+  <p><strong>Gloves — bring three pairs, all different.</strong> Fingerless wool or neoprene for cold mornings; coated grip gloves for handling fish, bait and gear; thin sun gloves for bright days. A pair will always be wet. Three is not excessive.</p>
+
+  <h4>Vision, skin, and seasickness</h4>
+  <p><strong>Polarized sunglasses — two pairs, on retainers.</strong> One will go overboard. Amber or copper for grey days, grey for bright. You cannot read water, spot bait, spot jumpers, or see your flasher without them. Add clear or yellow lenses for dawn running — eye protection at 25 mph in spray matters. High-SPF sunscreen and SPF lip balm; reflected UV off water is brutal.</p>
+  <p><strong>Take seasickness seriously — if you are incapacitated, you are also the captain.</strong> A scopolamine patch is the most effective option; get it from your doctor beforehand and <strong>try it once at home first</strong>. Meclizine or dimenhydrinate are the over-the-counter fallbacks, taken the night before and the morning of. <strong>Take it before you feel sick</strong> — once you are sick, oral medication does not stay down. Day one on a big swell is the risky one; most people acclimate by day two.</p>
+
+  <h4>Worth bringing even though tackle is supplied</h4>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="p06"><span>Your own pliers, side cutters and a good knife — supplied ones get lost and dull</span></label></li>
+    <li><label><input type="checkbox" data-k="p07"><span><strong>Side cutters kept at the helm</strong> specifically, for cutting a downrigger cable fast if a whale contacts it</span></label></li>
+    <li><label><input type="checkbox" data-k="p08"><span>A small box of your own flashers, spoons and hootchies — <strong>weighted toward large 3.5–4 in+ in green, blue, chartreuse, glow and UV white, with the small pink and red gear deliberately left at home</strong></span></label></li>
+    <li><label><input type="checkbox" data-k="p09"><span><strong>One or two 5–6 in Tomic plugs</strong> — your best anti-pink, pro-trophy lure this year</span></label></li>
+    <li><label><input type="checkbox" data-k="p10"><span><strong>A downrigger temperature/depth probe</strong> if you can borrow or afford one. In a heatwave year, knowing where the water hits 11–12 °C is worth more than any lure in the box. Failing that, note the sounder’s surface temperature every morning.</span></label></li>
+    <li><label><input type="checkbox" data-k="p11"><span>Extra release clips and <strong>stacker clips</strong> — you will be stacking unusually high and clips get lost</span></label></li>
+    <li><label><input type="checkbox" data-k="p12"><span>Spare 30 lb and 40 lb fluorocarbon leader</span></label></li>
+    <li><label><input type="checkbox" data-k="p13"><span>A UV light or flashlight for charging glow gear, and a headlamp with fresh batteries</span></label></li>
+    <li><label><input type="checkbox" data-k="p14"><span><strong>Satellite communicator</strong> (inReach / ZOLEO) and a handheld VHF if you own one</span></label></li>
+    <li><label><input type="checkbox" data-k="p15"><span>Waterproof phone case, floating lanyard, power bank — the boat may not charge devices</span></label></li>
+    <li><label><input type="checkbox" data-k="p16"><span>Camera, and a measuring tape for honest length records</span></label></li>
+    <li><label><input type="checkbox" data-k="p17"><span>Thermos — hot coffee at 06:00 on the water is morale</span></label></li>
+    <li><label><input type="checkbox" data-k="p18"><span>Packing tape and a Sharpie for fish boxes</span></label></li>
+    <li><label><input type="checkbox" data-k="p19"><span><strong>Cash for staff gratuities</strong> — the dock, kitchen and processing crews do real work for you</span></label></li>
+    <li><label><input type="checkbox" data-k="p20"><span>Earplugs — floating lodges are not quiet</span></label></li>
+  </ul>
+</details></section>
+
+<!-- ============ SECTION 11 ============ -->
+<section class="sec" id="s11"><details class="fold"><summary><span class="eyebrow">Section 11 · Final prep</span>
+  <h2>Before you fly</h2></summary>
+
+  <div class="co co-gold">
+    <span class="co-tag">The single highest-leverage decision available to you</span>
+    <p><strong>Buy one guided day, on day one or day two.</strong> It is roughly $600, split across the boat — confirm the current price with the lodge. It buys the actual current spot list, the depths that are genuinely working <em>that week</em>, and the tide-stage playbook — then you fish it yourself for the remaining days.</p>
+    <p>In 2026 this is worth more than it usually would be, for a specific reason: the standard depth advice may be badly wrong this year, and a working guide will know it on day one. Everything this guide flags as unverified gets resolved in six hours on the water.</p>
+  </div>
+
+  <h3>Within 48 hours of departure — re-check these</h3>
+  <p>In-season fishing regulations move by DFO notice, and everything below was verified in late July 2026. Two weeks is long enough for it to change.</p>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="r01"><span><strong>DFO Fishery Notices for Areas 7, 8, 107 and 108.</strong> As of 28 July 2026, no in-season notice affects your area — confirmed by reading all 46 recreational notices published this year, because DFO’s own area search filter is broken and returns false negatives. Re-check for anything issued since.</span></label></li>
+    <li><label><input type="checkbox" data-k="r02"><span><strong>Chinook and coho daily limits</strong> — the numbers most likely to be varied in-season</span></label></li>
+    <li><label><input type="checkbox" data-k="r03"><span><strong>Halibut size limit</strong>, given the record-low quota year</span></label></li>
+    <li><label><input type="checkbox" data-k="r04"><span><strong>Any new Rockfish Conservation Area or biotoxin closure</strong></span></label></li>
+    <li><label><input type="checkbox" data-k="r05"><span><strong>The treble-hook ban and 22 mm hook-gap rule</strong> takes effect <strong>1 September 2026</strong> — after your trip, so existing gear is legal. But it has already been delayed once, so confirm it has not been moved earlier.</span></label></li>
+    <li><label><input type="checkbox" data-k="r06"><span><strong>Marine forecast</strong> for Queen Charlotte Sound (western half) — set expectations for the exposed-water days</span></label></li>
+    <li><label><input type="checkbox" data-k="r07"><span><strong>Print your tide table</strong> if you have not already</span></label></li>
+    <li><label><input type="checkbox" data-k="r08"><span><strong>Re-read the last three weeks of @onlyatjoes captions</strong> — the freshest intelligence that exists, and it cannot be older than two weeks when you land</span></label></li>
+    <li><label><input type="checkbox" data-k="r09"><span><strong>Re-check the SportFishing BC 2026 Central Coast thread</strong> around 5 to 10 August. One contributor stated he would be at Dawson’s Landing in the first week of August, so his report should land <em>just before you fly</em> — the single best-timed piece of information available to you.</span></label></li>
+  </ul>
+</details></section>
+
+<!-- ============ SECTION 12 ============ -->
+<section class="sec" id="s12"><details class="fold"><summary><span class="eyebrow">Section 12 · Epistemics</span>
+  <h2>Confidence, gaps, and what we could not learn</h2>
+  <span class="lede">A guide that does not tell you which parts to doubt is not a guide, it is a sales brochure. Here is where this document is strong and where it is thin.</span></summary>
+
+  <div class="conf">
+    <div><div class="cl"><b>Chinook retention open at Hakai for your whole window</b><span class="badge b-good">High</span></div><div class="cb">DFO Fishery Notice FN0720 read directly, with the variation order cited. Re-checked 30 July: Area 8 still listed open for chinook at 2/day, and no superseding notice found in July’s fishery-notice list.</div></div>
+    <div><div class="cl"><b>Salmon daily and possession limits</b><span class="badge b-good">High</span></div><div class="cb">2026-stamped DFO page; corroborated across two area pages.</div></div>
+    <div><div class="cl"><b>Halibut 1/day, 112 cm max</b><span class="badge b-good">High</span></div><div class="cb">IPHC 2026 decision plus a DFO page dated 11 May 2026.</div></div>
+    <div><div class="cl"><b>Marine heatwave and depth implications</b><span class="badge b-good">High</span> <span class="badge b-brass">Medium on depth</span></div><div class="cb">Oceanographic data is solid. The <em>fish behaviour</em> inference is well-grounded physiology, but no 2026 Hakai catch data exists to confirm it. <strong>Treat the probing plan as a hypothesis to test on day one, not a fact.</strong></div></div>
+    <div><div class="cl"><b>2026 is a slow season on the central coast</b><span class="badge b-brass">Medium</span></div><div class="cb">A single continuous thread on the SportFishing BC forums — genuine, dated, first-hand, but one community’s view. No creel or test-fishery data for Area 8 exists publicly.</div></div>
+    <div><div class="cl"><b>Coho primary; chinook at peak size</b><span class="badge b-good">High</span></div><div class="cb">Consistent run-timing across multiple independent sources.</div></div>
+    <div><div class="cl"><b>Groundfish and shellfish limits</b><span class="badge b-good">High</span></div><div class="cb">Re-checked 30 July against DFO’s Area 8 page, now dated 9 June 2026: halibut 1/112 cm, lingcod 3 at 65 cm minimum, rockfish 3 with yelloweye non-retention, bivalves closed — all confirmed. What was the softest spot in the regulatory picture is now corroborated. Still re-verify within 48 hours of flying.</div></div>
+    <div><div class="cl"><b>Hakai is in Area 8, Subareas 8-1 / 8-2</b><span class="badge b-brass">Med-High</span></div><div class="cb">Inferred from three consistent DFO documents rather than read off the regulation itself, because the full legal text is not published anywhere in a readable form. <strong>Does not change any limit</strong> — Areas 7, 8, 107 and 108 carry identical salmon rules.</div></div>
+    <div><div class="cl"><b>Boat specifications and electronics</b><span class="badge b-red">Low</span></div><div class="cb">From a possibly-stale third-party listing, not the lodge. Verify on the dock.</div></div>
+    <div><div class="cl"><b>The unverified place names</b><span class="badge b-red">Low</span></div><div class="cb">Listed as unverified rather than described. Ask the lodge.</div></div>
+    <div><div class="cl"><b>The 82 lb chinook, 5 July</b><span class="badge b-red">Low</span></div><div class="cb">Second-hand, no photograph, questioned by another angler. Recorded because it exists, not because it is true.</div></div>
+  </div>
+
+  <h3>What we could not get, and why</h3>
+  <p><strong>The lodge’s own social feed is the freshest source there is — and the hardest to archive.</strong> The July posts and captions from <strong>@onlyatjoes</strong> are in the <a href="#live">lodge report</a>; everything else here is only as current as late July. So re-read the account yourself in the 48 hours before you fly — it is at most two weeks old when you land, and no other source is.</p>
+  <p>Two further dead ends worth knowing: the lodge’s own blog has <strong>no 2026 posts at all</strong> — the most recent is from July 2025, so it is not a catch-report source despite appearing to be one. And the Pacific Salmon Commission’s in-season status document could not be read, leaving the Johnstone Strait diversion rate — arguably the single most useful in-season number for a central-coast corridor fishery — unknown.</p>
+
+  
+
+  <figure class="ph">
+    <picture><source type="image/webp" srcset="assets/paralyzer-640.webp 640w, assets/paralyzer-950.webp 950w" sizes="(min-width:716px) 644px, calc(100vw - 36px)"><img src="assets/paralyzer.jpg" width="950" height="1266" loading="lazy" alt="A Paralyzer cocktail with two cherries on the lodge bar, the dining room set for dinner behind."></picture>
+    <figcaption><span class="q">“The Paralyzer has quickly become the house drink here at Joe’s… Come to Joe’s and try one!”</span><span class="d">@onlyatjoes · 16 Jul 2026</span></figcaption>
+  </figure>
+  <p class="small" style="text-align:center;margin-top:-6px">Fish the tide, watch the water, and ring the bell. The Paralyzer is waiting either way.</p>
+</details></section>
+
+<footer>
+  <p><strong>Method.</strong> Everything here was checked against primary sources in late July 2026 — DFO notices read in full, not summarized. Where sources conflicted, the conflict is surfaced in the text rather than averaged away; where something could not be verified, the text says so. Nothing was invented to fill a gap.</p>
+  <p><strong>Principal sources.</strong> DFO Fishery Notices and Pacific Region recreational fishing pages; DFO 2026 Pacific Salmon Outlook; IPHC 2026 quota decision; Pacific Salmon Commission in-season updates; Wilson et al. 2025 (<em>CJFAS</em>) on North and Central Coast coho productivity; Canadian Hydrographic Service tide stations; Environment Canada marine forecasts; Canadian Coast Guard <em>Radio Aids to Marine Navigation</em>; DFO Marine Mammal Regulations and Be Whale Wise; Gibbs Fishing Hakai Pass and Port Hardy guides; Hakai Land &amp; Sea fishing tips; BC Adventure; BC Fishing Journal; Island Fisherman; SportFishing BC forums; joessalmonlodge.com.</p>
+  <p><strong>Photographs.</strong> All photographs are from the public Instagram account of Joe’s Salmon Lodge, <strong>@onlyatjoes</strong> — posted 9 April – 28 July 2026, captions quoted verbatim. Video posts are represented by their cover frames. Images belong to the lodge and its guests.</p>
+  <p><strong>Map.</strong> The Section 3 planning map is schematic, drawn from OpenStreetMap coastline data with spot positions verified against BC Geographic Names where possible — approximate positions are marked as such. <strong>It is not for navigation.</strong> Chart, GPS and the lodge’s waypoints govern on the water.</p>
+  <p>A temporary site for our August 2026 trip crew — not affiliated with or endorsed by Joe’s Salmon Lodge; photos are from the lodge’s public Instagram (@onlyatjoes) and belong to the lodge and its guests.</p>
+  <p class="updated">Current as of 30 July 2026 · re-verify regulations within 48 hours of flying — Section 11</p>
+</footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var d=document, root=d.documentElement;
+  function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function read(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  /* theme */
+  var saved=read("hakai-theme");
+  if(saved==="dark"||saved==="light"){root.setAttribute("data-theme",saved)}
+  var tb=d.getElementById("themeBtn");
+  function themeIsDark(){var c=root.getAttribute("data-theme");if(c){return c==="dark"}return !!(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)}
+  function reflectTheme(){if(tb){tb.setAttribute("aria-pressed",themeIsDark()?"true":"false")}}
+  if(tb){tb.addEventListener("click",function(){
+    var next=themeIsDark()?"light":"dark";
+    root.setAttribute("data-theme",next);store("hakai-theme",next);
+    reflectTheme();
+  })}
+  reflectTheme();
+  /* progress bar */
+  var prog=d.getElementById("prog");
+  function onScroll(){
+    var h=d.documentElement.scrollHeight-window.innerHeight;
+    if(prog&&h>0){prog.style.width=(Math.min(1,Math.max(0,window.scrollY/h))*100).toFixed(2)+"%"}
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+  /* checklists */
+  var boxes=d.querySelectorAll(".check input[data-k]");
+  var state={};
+  try{state=JSON.parse(read("hakai-checks")||"{}")||{}}catch(e){state={}}
+  boxes.forEach(function(b){
+    var k=b.getAttribute("data-k");
+    if(state[k]){b.checked=true}
+    b.addEventListener("change",function(){
+      state[k]=b.checked;
+      if(!b.checked){delete state[k]}
+      store("hakai-checks",JSON.stringify(state));
+    });
+  });
+  /* scrollspy */
+  try{
+    var chips=[].slice.call(d.querySelectorAll(".chips .chip"));
+    var map={};
+    chips.forEach(function(c){var h=c.getAttribute("href");if(h&&h.charAt(0)==="#"){map[h.slice(1)]=c}});
+    var rail=d.querySelector(".chips");
+    var railHeld=false,railTimer=0,pending=null,queued=false;
+    var noMotion=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    function holdRail(){railHeld=true;clearTimeout(railTimer);railTimer=setTimeout(function(){railHeld=false},1200)}
+    if(rail){["pointerdown","touchstart","wheel"].forEach(function(ev){rail.addEventListener(ev,holdRail,{passive:true})})}
+    function glide(){queued=false;if(!pending||railHeld||!rail){return}
+      rail.scrollTo({left:pending.offsetLeft-(rail.clientWidth-pending.offsetWidth)/2,behavior:noMotion?"auto":"smooth"})}
+    var cur=null;
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){var fd=e.target.querySelector("details.fold");if(fd&&!fd.open){return}
+          if(cur){cur.classList.remove("on");cur.removeAttribute("aria-current")}
+          cur=map[e.target.id]||null;
+          if(cur){cur.classList.add("on");cur.setAttribute("aria-current","true");pending=cur;if(!queued){queued=true;requestAnimationFrame(glide)}}
+        }
+      });
+    },{rootMargin:"-15% 0px -75% 0px"});
+    d.querySelectorAll("section.sec").forEach(function(s){obs.observe(s)});
+  }catch(e){}
+})();
+</script>
+<script>(function(){try{var el=document.getElementById("countbar");if(!el)return;var now=new Date();var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());var dep=new Date(2026,7,11),end=new Date(2026,7,18),D=86400000,s;if(today<dep){var n=Math.round((dep-today)/D);s=n+(n===1?" day":" days")+" to departure — 11 August"}else if(today<=end){s="Trip week — you should be fishing, not reading this"}else{s="Trip complete — this site stays up as the record of the week"}el.textContent=s;el.hidden=false}catch(e){}})();</script>
+<script>(function(){var d=document;function openFor(id){var el=d.getElementById(id);if(!el){return}var f=el.closest("details.fold")||el.querySelector("details.fold");if(f){f.open=true}}if(location.hash){openFor(location.hash.slice(1));var t0=d.getElementById(location.hash.slice(1));if(t0){t0.scrollIntoView()}}addEventListener("hashchange",function(){openFor(location.hash.slice(1))});d.addEventListener("click",function(e){var a=e.target.closest('a[href^="#"]');if(a){openFor(a.getAttribute("href").slice(1))}});var all=[].slice.call(d.querySelectorAll("details.fold"));var btn=d.getElementById("foldAll");function anyClosed(){return all.some(function(f){return !f.open})}function sync(){if(btn){btn.textContent=anyClosed()?"Open all":"Close all"}}if(btn){btn.addEventListener("click",function(){var o=anyClosed();all.forEach(function(f){f.open=o});sync()})}d.addEventListener("click",function(e){if(e.target.closest("summary")){requestAnimationFrame(sync)}});addEventListener("beforeprint",function(){all.forEach(function(f){f.dataset.po=f.open?"1":"";f.open=true})});addEventListener("afterprint",function(){all.forEach(function(f){f.open=f.dataset.po==="1"})});sync();})();</script>
+
+</body>
+</html>

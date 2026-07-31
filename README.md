@@ -9,3 +9,5 @@ This site comes down after the trip. Takedown:
 gh api -X DELETE repos/mr-mcateer/hakai-2026/pages   # take the site offline
 gh repo archive mr-mcateer/hakai-2026 -y             # freeze the repo
 ```
+
+The previous layout is kept at v2/ — it deploys and comes down with the rest of the site.
