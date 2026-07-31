@@ -1,13 +1,14 @@
-/* Offline cache for the crew site (v3 build). bf9a3523 is stamped by
+/* Offline cache for the crew site (v3 build). 4f0b8e3c is stamped by
    build-site-v3.py from a content hash, so any page change ships a new cache
    and old ones are dropped — including the pre-v3 caches, since activate
    deletes every cache that is not the current key. PDFs are deliberately never
    cached. The archived long-form copy under v2/ is served by this worker's
    runtime caching (never precached), so it works offline after one visit.
    All paths relative: works at any mount. */
-var V = "hakai-bf9a3523";
+var V = "hakai-4f0b8e3c";
 var CORE = ["./", "index.html", "film-room.html", "manifest.webmanifest",
   "assets/hero.jpg", "assets/hero-720.webp",
+  "assets/fonts/source-serif-4-600.woff2", "assets/fonts/source-serif-4-700.woff2",
   "assets/tyee-gap-640.webp", "assets/tyee-gap-950.webp",
   "assets/tyee-bell-640.webp", "assets/tyee-bell-950.webp",
   "assets/tyee-scale-640.webp", "assets/tyee-scale-1000.webp",
